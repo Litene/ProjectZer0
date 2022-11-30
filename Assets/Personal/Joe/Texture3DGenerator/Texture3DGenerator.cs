@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEditor;
 
@@ -31,7 +32,7 @@ public abstract class Texture3DGenerator {
         texture.Apply();        
 
         // Save the texture to your Unity Project
-        EditorUtilities.CreateAssetInActiveFolder(texture, "Example3DTexture");
+        EditorUtilities.CreateAssetInActiveFolder(texture, Enum.GetName(typeof(Texture3DMode), texture3DMode) + "3DTexture");
     }
 
     private static void SetColors(ref Color[] colors, int size, Texture3DMode texture3DMode) {
@@ -71,8 +72,7 @@ public abstract class Texture3DGenerator {
             for (var y = 0; y < size; y++) {
                 var yOffset = y * size;
                 for (var x = 0; x < size; x++) {
-                    colors[x + yOffset + zOffset] = new Color(x * inverseResolution,
-                        y * inverseResolution, z * inverseResolution, 1.0f);
+                    colors[x + yOffset + zOffset] = new Color(x * inverseResolution, y * inverseResolution, 0f, 1.0f);
                 }
             }
         }
