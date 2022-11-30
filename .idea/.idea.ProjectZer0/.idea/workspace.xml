@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Texture3DGenerator/Texture3DGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Texture3DGenerator/Texture3DGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/WindDemoScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/WindDemoScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind3D/Example3DTexture.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind3D/Example3DTexture.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/Wind.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/Wind.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind3D/Grid.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind3D/Grid.vfx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind3D/Wind.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind3D/Wind.vfx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/WindDemoScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/WindDemoScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +70,7 @@
       <updated>1669737827465</updated>
       <workItem from="1669737847270" duration="8000" />
       <workItem from="1669760409274" duration="3596000" />
-      <workItem from="1669804880615" duration="342000" />
+      <workItem from="1669804880615" duration="1095000" />
     </task>
     <servers />
   </component>
