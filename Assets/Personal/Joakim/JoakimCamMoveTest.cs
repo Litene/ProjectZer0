@@ -7,8 +7,8 @@ public class JoakimMoveTest : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
     public void FixedUpdate() {
-        float X = Input.GetAxis("Horizontal");
-        float Z = Input.GetAxis("Vertical");
+        float X = UnityEngine.Input.GetAxis("Horizontal");
+        float Z = UnityEngine.Input.GetAxis("Vertical");
         var targetVelocity = new Vector3(X, 0, Z);
         targetVelocity = transform.TransformDirection(targetVelocity);
         targetVelocity *= speed;
