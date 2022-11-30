@@ -1,27 +1,26 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
-
 public class SunController : MonoBehaviour {
-    private GameObject _directionalLightObject;
-    private Light _directionalLight;
-    
-
-    public LightState CurrentLightState = LightState.Night;
-    public enum LightState { // make private
-        Night,
-        AstroTwilight,
-        NauticalTwilight,
-        CivilTwilight,
-        DayLight
+    private readonly Dictionary<string, SunSetting> _sunSettings = new Dictionary<string, SunSetting>(); // exposed? I want headers..
+    private Light _light;
+    [ContextMenu("SetReferences")] private void Awake() {
+        _light = transform.GetComponent<Light>();
+        foreach (var sunSetting in Resources.LoadAll<SunSetting>("SunSettings")) {
+            _sunSettings.Add(sunSetting.name,sunSetting);
+        }
     }
-    
-    //public static void SetSunState
-
-    private void Awake() {
-        _directionalLightObject = GameObject.Find("Directional Light");
-        _directionalLight = _directionalLightObject.GetComponent<Light>();
+    public void SetLight(LightState targetState) {
+        if (_sunSettings.TryGetValue($"SunSetting{targetState}", out SunSetting lightState)) {
+            transform.rotation = Quaternion.Euler(lightState.DegreesX, lightState.DegreesY, 0);
+            _light.colorTemperature = lightState.ColorTemperature;
+        }
     }
+}
+public enum LightState { 
+    Night,
+    AstroTwilight,
+    NauticalTwilight,
+    CivilTwilight,
+    LowDayLight,
+    DayLight
 }
