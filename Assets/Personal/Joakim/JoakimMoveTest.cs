@@ -8,8 +8,8 @@ public class JoakimCamMoveTest : MonoBehaviour {
         CameraLook();
     }
     private void CameraLook() {
-        var mouseX = Input.GetAxis("Mouse X");
-        var mouseY = Input.GetAxis("Mouse Y");
+        var mouseX = UnityEngine.Input.GetAxis("Mouse X");
+        var mouseY = UnityEngine.Input.GetAxis("Mouse Y");
         var rotationLR = target.transform.localEulerAngles;
         rotationLR.y += mouseX * mouseSensitivity;
         target.transform.rotation = Quaternion.AngleAxis(rotationLR.y, Vector3.up);

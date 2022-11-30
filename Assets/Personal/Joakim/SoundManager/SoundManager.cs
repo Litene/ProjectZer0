@@ -145,7 +145,7 @@ public class SoundManager : Singleton<SoundManager> {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.T)) {
+        if (UnityEngine.Input.GetKeyDown(KeyCode.T)) {
             PlaySound("Sound1", new Vector3(4, 4, 4));
         }
     }
