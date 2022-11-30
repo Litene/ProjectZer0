@@ -43,7 +43,7 @@ Shader "Hidden/Shader/ScreenOverlay"
     TEXTURE2D_X(_InputTexture);
 
     float ScreenTransitionStart = -1;
-    float ScreenTransitionSpeed = 1;
+    float ScreenTransitionSpeed = -1;
 
     float4 CustomPostProcess(Varyings input) : SV_Target {
         UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
@@ -54,12 +54,10 @@ Shader "Hidden/Shader/ScreenOverlay"
 
         if(ScreenTransitionStart == -1) return float4(outColor, 1);
 
-        float progress;
-
-        if(ScreenTransitionSpeed > 0)
-            progress = saturate((_Time.y - ScreenTransitionStart)*ScreenTransitionSpeed);
-        else
-            progress = saturate((1 - _Time.y - ScreenTransitionStart)*ScreenTransitionSpeed);
+        float progress = saturate((_Time.y - ScreenTransitionStart)*abs(ScreenTransitionSpeed));
+        
+        if(ScreenTransitionSpeed < 0)
+            progress = 1 - progress;
                 
         outColor *= progress;
 

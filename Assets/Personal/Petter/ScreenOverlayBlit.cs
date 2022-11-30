@@ -14,17 +14,17 @@ public sealed class ScreenOverlayBlit : CustomPostProcessVolumeComponent, IPostP
 
     public override bool visibleInSceneView => false;
 
-    public override void Setup() {
+    public override void Setup()
+    {
+        if (!Application.isPlaying)
+        {
+            ScreenEffect.TransitionReset();
+        }
+
         _blitMat = new Material(Shader.Find("Hidden/Shader/ScreenOverlay"));
-        
-        //this is for testing
-        Shader.SetGlobalFloat("ScreenTransitionStart", -1);
-        Shader.SetGlobalFloat("ScreenTransitionSpeed", .5f);
     }
 
-    public override void Cleanup() {
-        CoreUtils.Destroy(_blitMat);
-    }
+    public override void Cleanup() => CoreUtils.Destroy(_blitMat);
 
     public override void Render(CommandBuffer cmd, HDCamera camera, RTHandle source, RTHandle destination) {
         if(_blitMat == null) return;
