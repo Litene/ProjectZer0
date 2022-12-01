@@ -1,10 +1,12 @@
 using Input;
 using UnityEngine;
 
-namespace Input
-{
-    public struct InputData
-    {
+namespace Input {
+    public enum ButtonState : byte{None, Pressed, Hold}
+    //Todo need inputs
+    public enum ButtonMapping{Interact}
+    
+    public struct InputData{
         private Vector2 _moveInputVector;
         private Vector2 _lookInputVector;
         private byte _interactInput;
@@ -27,16 +29,11 @@ namespace Input
             switch (mapping) {
                 case ButtonMapping.Interact: _interactInput = (byte)state; break;
             }
-        }
+        }   
     }
-    
-    public enum ButtonState : byte{None, Pressed, Hold}
-    //Todo need inputs
-    public enum ButtonMapping{Interact}
 }
 
-public class InputManager : Singleton<InputManager>
-{
+public class InputManager : Singleton<InputManager> {
     private Inputs _inputs;
     private InputData _inputData;
     
