@@ -52,6 +52,9 @@
         },
         {
             "m_Id": "a53185be10fa471b945719e1c16c00e5"
+        },
+        {
+            "m_Id": "8c78571906f54bde9f586eb75a6ca3a9"
         }
     ],
     "m_GroupDatas": [],
@@ -69,6 +72,20 @@
                     "m_Id": "bf869cd2620a4fbfb9b4719935415b99"
                 },
                 "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "bf869cd2620a4fbfb9b4719935415b99"
+                },
+                "m_SlotId": 3
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "8c78571906f54bde9f586eb75a6ca3a9"
+                },
+                "m_SlotId": 1
             }
         },
         {
@@ -345,6 +362,29 @@
     "m_SSSTransmission": true,
     "m_EnergyConservingSpecular": true,
     "m_ClearCoat": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector3MaterialSlot",
+    "m_ObjectId": "368e8c0750484ea9bc8e8a8a4ef76f69",
+    "m_Id": 0,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": []
 }
 
 {
@@ -661,21 +701,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
-    "m_ObjectId": "7728800529104cd7836a20641f43f400",
-    "m_Id": 0,
-    "m_DisplayName": "Out",
-    "m_SlotType": 1,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Out",
-    "m_StageCapability": 3,
-    "m_Value": 0.0,
-    "m_DefaultValue": 0.0,
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.Rendering.HighDefinition.ShaderGraph.HDLitSubTarget",
     "m_ObjectId": "79a3a3ba09574b2f917188732a68dafe"
 }
@@ -738,6 +763,51 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.CustomFunctionNode",
+    "m_ObjectId": "8c78571906f54bde9f586eb75a6ca3a9",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "TileablePerlinNoise (Custom Function)",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -1071.9998779296875,
+            "y": -251.19996643066407,
+            "width": 315.9998779296875,
+            "height": 301.6000061035156
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "ac7dda2de0b14e4f8944644c513bc441"
+        },
+        {
+            "m_Id": "9a70a55810b64cfb9565813a68cf64b9"
+        },
+        {
+            "m_Id": "ac675e9f01494edc8c2103ed55118334"
+        }
+    ],
+    "synonyms": [
+        "code",
+        "HLSL"
+    ],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SourceType": 0,
+    "m_FunctionName": "TileablePerlinNoise",
+    "m_FunctionSource": "43129cc4976b5f740870c67ac2b5c345",
+    "m_FunctionBody": "Enter function body here..."
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
     "m_ObjectId": "9033d93f7ccc4f42871b3577a972d4c0",
@@ -776,6 +846,27 @@
     "m_TransparentDepthPrepass": false,
     "m_TransparentDepthPostpass": false,
     "m_SupportLodCrossFade": false
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
+    "m_ObjectId": "9a70a55810b64cfb9565813a68cf64b9",
+    "m_Id": 2,
+    "m_DisplayName": "Period",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Period",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 8.0,
+        "y": 8.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_Labels": []
 }
 
 {
@@ -899,6 +990,42 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "SurfaceDescription.Alpha"
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "ac675e9f01494edc8c2103ed55118334",
+    "m_Id": 0,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
+    "m_ObjectId": "ac7dda2de0b14e4f8944644c513bc441",
+    "m_Id": 1,
+    "m_DisplayName": "UV",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "UV",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "m_Labels": []
 }
 
 {
@@ -1153,15 +1280,15 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "TileablePerlinNoise (Custom Function)",
+    "m_Name": "TileablePerlinNoiseDirection (Custom Function)",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1072.000244140625,
-            "y": 86.00000762939453,
-            "width": 263.00006103515627,
-            "height": 302.00006103515627
+            "x": -1072.0,
+            "y": 85.5999984741211,
+            "width": 315.99993896484377,
+            "height": 301.6000061035156
         }
     },
     "m_Slots": [
@@ -1172,7 +1299,7 @@
             "m_Id": "c9dc843638d34f6984397285de40d162"
         },
         {
-            "m_Id": "7728800529104cd7836a20641f43f400"
+            "m_Id": "368e8c0750484ea9bc8e8a8a4ef76f69"
         }
     ],
     "synonyms": [
@@ -1186,7 +1313,7 @@
         "m_SerializableColors": []
     },
     "m_SourceType": 0,
-    "m_FunctionName": "TileablePerlinNoise",
+    "m_FunctionName": "TileablePerlinNoiseDirection",
     "m_FunctionSource": "43129cc4976b5f740870c67ac2b5c345",
     "m_FunctionBody": "Enter function body here..."
 }
