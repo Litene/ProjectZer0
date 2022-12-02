@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEditor;
 
 public abstract class Texture3DGenerator {
-    [MenuItem("Texture 3D Generator/Create Example")]
+    [MenuItem("Tools/Texture Generator/Create Example")]
     private static void CreateExampleTexture3D() => CreateTexture3D(Texture3DMode.Example);
     
-    [MenuItem("Texture 3D Generator/Create Tileable Perlin Noise")]
+    [MenuItem("Tools/Texture Generator/Create Tileable Perlin Noise")]
     private static void CreateTileablePerlinNoiseTexture3D() => CreateTexture3D(Texture3DMode.TileablePerlinNoise);
     
     private static void CreateTexture3D(Texture3DMode texture3DMode) {
