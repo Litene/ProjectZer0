@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/TileablePerlinNoise.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/TileablePerlinNoise.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/TileablePerlinNoise.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/TileablePerlinNoise.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/BakeTexture3dWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/BakeTexture3dWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/BakeTextureWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/BakeTextureWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/NoiseGenerators.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/NoiseGenerators.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/TileablePerlinNoiseDirection.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/TileablePerlinNoiseDirection.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind3D/Wind.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind3D/Wind.vfx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/WindDemoScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/WindDemoScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +17,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/c2/1ee94d45/Texture2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/BakeTexture3dWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/BakeTextureWindow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -75,7 +80,7 @@
       <workItem from="1669804880615" duration="1574000" />
       <workItem from="1669913016714" duration="3198000" />
       <workItem from="1669973531996" duration="9335000" />
-      <workItem from="1670094703164" duration="2246000" />
+      <workItem from="1670094703164" duration="8797000" />
     </task>
     <servers />
   </component>

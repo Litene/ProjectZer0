@@ -19,7 +19,7 @@ public class BakeTextureWindow : EditorWindow {
     }
 
     void OnGUI(){
-        EditorGUILayout.HelpBox("Set the material you want to bake as well as the size "+
+        EditorGUILayout.HelpBox("Set the material you want to bake as well as the size " +
                 "of the texture you want to bake to, then press the \"Bake\" button.", MessageType.None);
 
         using(var check = new EditorGUI.ChangeCheckScope()){

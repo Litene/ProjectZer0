@@ -99,5 +99,9 @@ void TileablePerlinNoiseDirection_float(float2 value, float2 period, out float3 
 
 	// Convert noise to direction
 	//noise *= 2 * pi;
-	noiseDirection = normalize(float3(cos(noise), sin(noise), cos(noise)));
+	//noiseDirection = float3(cos(noise), sin(noise), cos(noise));
+	//noiseDirection = float3((cos(noise) + 1) / 2, (sin(noise) + 1) / 2, (cos(noise) + 1) / 2); // want -1 --> 0, 0 --> 0.5, 1 --> 1
+	noiseDirection = normalize(float3(0, 1, 1));
+
+	// So... it should be that grey (0.5, 0.5, 0.5) is neutral
 }
