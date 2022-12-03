@@ -54,16 +54,16 @@ public class BakeTextureWindow : EditorWindow {
 
     void BakeTexture(){
         //render material to rendertexture
-        RenderTexture renderTexture = RenderTexture.GetTemporary(Resolution.x, Resolution.y);
-        Graphics.Blit(null, renderTexture, ImageMaterial);
+        var renderTexture = RenderTexture.GetTemporary(Resolution.x, Resolution.y);
+        Graphics.Blit(null, renderTexture, ImageMaterial, 0);
 
         //transfer image from rendertexture to texture
-        Texture2D texture = new Texture2D(Resolution.x, Resolution.y);
+        var texture = new Texture2D(Resolution.x, Resolution.y);
         RenderTexture.active = renderTexture;
         texture.ReadPixels(new Rect(Vector2.zero, Resolution), 0, 0);
 
         //save texture to file
-        byte[] png = texture.EncodeToPNG();
+        var png = texture.EncodeToPNG();
         var filePath = EditorUtilities.GetActiveFolder() + "/" + ImageMaterial.name + ".png";
         File.WriteAllBytes(filePath, png);
         AssetDatabase.Refresh();
