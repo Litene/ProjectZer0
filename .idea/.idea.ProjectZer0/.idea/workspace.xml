@@ -3,12 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/BakeTexture3dWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/BakeTexture3dWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/BakeTextureWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/BakeTextureWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/TileablePerlinNoise.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/TextureBaker/TileablePerlinNoise.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/NoiseGenerators.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/NoiseGenerators.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/TileablePerlinNoiseDirection.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/TileablePerlinNoiseDirection.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/TileablePerlinNoiseDirection.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind2D/TileablePerlinNoiseDirection.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Wind3D/Wind.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Wind3D/Wind.vfx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/WindDemoScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/WindDemoScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +85,7 @@
       <workItem from="1669913016714" duration="3198000" />
       <workItem from="1669973531996" duration="9335000" />
       <workItem from="1670094703164" duration="8797000" />
+      <workItem from="1670153609169" duration="4110000" />
     </task>
     <servers />
   </component>

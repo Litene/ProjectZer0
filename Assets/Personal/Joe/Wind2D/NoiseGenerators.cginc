@@ -1,5 +1,6 @@
 // Based on: https://www.ronja-tutorials.com/post/029-tiling-noise/
-const float pi = 3.14159265359;
+
+//const float pi = 3.14159265359;
 
 float Rand2dTo1d(float2 value, float2 dotDir = float2(12.9898, 78.233)){
 	float2 smallValue = cos(value);
@@ -101,7 +102,20 @@ void TileablePerlinNoiseDirection_float(float2 value, float2 period, out float3 
 	//noise *= 2 * pi;
 	//noiseDirection = float3(cos(noise), sin(noise), cos(noise));
 	//noiseDirection = float3((cos(noise) + 1) / 2, (sin(noise) + 1) / 2, (cos(noise) + 1) / 2); // want -1 --> 0, 0 --> 0.5, 1 --> 1
-	noiseDirection = normalize(float3(0, 1, 1));
+	//noiseDirection = normalize(float3(1, 1, 0)); // 0 = negative, 1 = positive.
+	//noiseDirection = float3(0.5, 0, 0.5);
+	//float3 velocity = float3(0, -1, 0); // -1 to 1.
+	//noiseDirection = normalize((velocity + 1) / 2); // 0 to 1.
+	//noiseDirection = normalize(float3(1, 0, 1)); // So... I believe that the flow field can never have NO flow... Even for a given axis??? Confused.
+	//noiseDirection = float3(0.577, 0.577, 0.577);
+	
+	//float angle = 3.14159265359;
+	//float val = (cos(angle) + 1)/2;
+	//noiseDirection = float3(val, val, val);
 
-	// So... it should be that grey (0.5, 0.5, 0.5) is neutral
+	float angle = noise * (2 * 3.14159265359);
+	float x = (cos(angle) + 1)/2;
+	float y = (sin(angle) + 1)/2;
+	float z = (cos(angle) + 1)/2;
+	noiseDirection = normalize(float3(x, y, z));
 }
