@@ -411,13 +411,16 @@ VisualEffect:
       - m_Value: 10
         m_Name: Size
         m_Overridden: 1
+      - m_Value: 0.25
+        m_Name: Ambient Wind Strength
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array:
       - m_Value: {x: 10, y: 10, z: 10}
         m_Name: Dimensions
-        m_Overridden: 1
+        m_Overridden: 0
     m_Vector4f:
       m_Array: []
     m_Uint:
