@@ -168,13 +168,43 @@ MonoBehaviour:
     - model: {fileID: 8926484042661615315}
       id: 0
       isStickyNote: 0
-  stickyNoteInfos: []
+  stickyNoteInfos:
+  - title: 'To do:'
+    position:
+      serializedVersion: 2
+      x: 1252
+      y: 1017
+      width: 106
+      height: 100
+    contents: Convert to using a top-down depth buffer for collision checks.
+    theme: Classic
+    textSize: Small
+  - title: 'To do:'
+    position:
+      serializedVersion: 2
+      x: 1399
+      y: 1207
+      width: 100
+      height: 100
+    contents: Balance horizontal midpoint of snow.
+    theme: Classic
+    textSize: Small
+  - title: 'To do:'
+    position:
+      serializedVersion: 2
+      x: -254
+      y: 1204
+      width: 100
+      height: 100
+    contents: Add wind scroll speed and direction.
+    theme: Classic
+    textSize: Small
   categories: []
   uiBounds:
     serializedVersion: 2
     x: -2727
     y: -190
-    width: 4092
+    width: 4384
     height: 2975
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -765,7 +795,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614809}
   - {fileID: 8926484042661614815}
   - {fileID: 8926484042661615256}
-  m_UIPosition: {x: 941, y: 1111}
+  m_UIPosition: {x: 942, y: 1112}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
