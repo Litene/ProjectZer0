@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Editor/VaneEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Editor/VaneEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Materials/targettexture.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Materials/targettexture.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/SimpleSnow.vfx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/SimpleSnow.vfx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/SimpleSnowDemo.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/SimpleSnowDemo.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Snow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Snow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Vane.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Vane.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/targettexture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/targettexture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/VFXPresetSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/VFXPresetSelector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +69,7 @@
       <updated>1669737827465</updated>
       <workItem from="1669737847270" duration="8000" />
       <workItem from="1669760409274" duration="3596000" />
-      <workItem from="1670325835093" duration="8084000" />
+      <workItem from="1670325835093" duration="8951000" />
     </task>
     <servers />
   </component>

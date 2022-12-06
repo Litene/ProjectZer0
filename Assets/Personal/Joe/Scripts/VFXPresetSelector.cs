@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
+// TODO: Make VFXPresetSelector abstract (either an INTERFACE or abstract class...?)
 // TODO: Make this an Editor class as opposed to MonoBehaviour (?)
 [ExecuteAlways]
 public class VFXPresetSelector : MonoBehaviour {
