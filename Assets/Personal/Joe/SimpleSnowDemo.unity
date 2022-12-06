@@ -344,6 +344,8 @@ GameObject:
   - component: {fileID: 1475813831}
   - component: {fileID: 1475813830}
   - component: {fileID: 1475813829}
+  - component: {fileID: 1475813832}
+  - component: {fileID: 1475813833}
   m_Layer: 0
   m_Name: SimpleSnow
   m_TagString: Untagged
@@ -411,7 +413,7 @@ VisualEffect:
       - m_Value: 10
         m_Name: Size
         m_Overridden: 1
-      - m_Value: 0.431
+      - m_Value: 0.25
         m_Name: Ambient Wind Strength
         m_Overridden: 1
       - m_Value: 1
@@ -427,8 +429,17 @@ VisualEffect:
       - m_Value: {x: 10, y: 10, z: 10}
         m_Name: Dimensions
         m_Overridden: 1
-      - m_Value: {x: 1, y: 0, z: 0}
+      - m_Value: {x: 1, y: 0, z: 1}
         m_Name: Linear Wind Direction
+        m_Overridden: 1
+      - m_Value: {x: -0, y: 113.896, z: 0}
+        m_Name: Linear Wind Vane_angles
+        m_Overridden: 1
+      - m_Value: {x: 0, y: 0, z: 0}
+        m_Name: Linear Wind Vane_position
+        m_Overridden: 1
+      - m_Value: {x: 1, y: 1, z: 1}
+        m_Name: Linear Wind Vane_scale
         m_Overridden: 1
     m_Vector4f:
       m_Array: []
@@ -461,6 +472,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1475813832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475813828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExecuteInEditor: 1
+  m_Bindings:
+  - {fileID: 1475813833}
+  m_VisualEffect: {fileID: 1475813830}
+--- !u!114 &1475813833
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475813828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fdfea1f838247c40921a07afedde962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Property:
+    m_Name: Linear Wind Vane
+  Target: {fileID: 1860622756}
 --- !u!1 &1860622755
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,8 +512,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860622756}
+  - component: {fileID: 1860622757}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Wind Vane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -484,14 +527,26 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860622755}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35, y: -10, z: 0}
+  m_LocalRotation: {x: 0, y: 0.83817595, z: 0, w: 0.54539996}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 113.896, z: 0}
+--- !u!114 &1860622757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860622755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e637d1f5c94b5b848a76c2cc8b3a9082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1927867319
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,13 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/SimpleSnow.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/SimpleSnow.vfx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/SimpleSnowDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/SimpleSnowDemo.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/ArrowExample.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,6 +71,7 @@
       <updated>1669737827465</updated>
       <workItem from="1669737847270" duration="8000" />
       <workItem from="1669760409274" duration="3596000" />
+      <workItem from="1670325835093" duration="685000" />
     </task>
     <servers />
   </component>
