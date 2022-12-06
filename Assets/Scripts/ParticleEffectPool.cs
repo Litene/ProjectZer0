@@ -4,6 +4,7 @@ using UnityEngine.Pool;
 public class ParticleEffectPool : MonoBehaviour, IObjectPool<ParticleEffect> {
     private IObjectPool<ParticleEffect> _pool;
     private ParticleEffect _shaderParticleEffects;
+    
     public ParticleEffect Get() => _pool.Get();
     public PooledObject<ParticleEffect> Get(out ParticleEffect v) => _pool.Get(out v);
     public void Release(ParticleEffect element) => _pool.Release(element);
@@ -14,13 +15,13 @@ public class ParticleEffectPool : MonoBehaviour, IObjectPool<ParticleEffect> {
         _shaderParticleEffects = shaderParticleEffects;
         _pool = new ObjectPool<ParticleEffect>(CreatePooledEffect, OnPoolGet, OnPoolRelease, OnPoolDestroy);
     }
-    ParticleEffect CreatePooledEffect() {
+
+    private ParticleEffect CreatePooledEffect() {
         var effect = Instantiate(_shaderParticleEffects, Vector3.zero, Quaternion.identity);
-        effect.SetPool(_pool);
-        effect.Init();
+        effect.Init(_pool);
         return effect;
     }
-    void OnPoolRelease(ParticleEffect effect) => effect.gameObject.SetActive(false);
-    void OnPoolGet(ParticleEffect effect) => effect.gameObject.SetActive(true);
-    void OnPoolDestroy(ParticleEffect effect) => Destroy(effect.gameObject);
+    private static void OnPoolRelease(ParticleEffect effect) => effect.gameObject.SetActive(false);
+    private static void OnPoolGet(ParticleEffect effect) => effect.gameObject.SetActive(true);
+    private static void OnPoolDestroy(ParticleEffect effect) => Destroy(effect.gameObject);
 }
