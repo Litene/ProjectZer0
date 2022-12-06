@@ -7,19 +7,20 @@ using UnityEngine.VFX;
 [ExecuteAlways]
 public class VFXPresetSelector : MonoBehaviour {
 #if UNITY_EDITOR
-    [SerializeProperty("SimpleSnowPreset")]
-    public SimpleSnowPreset _simpleSnowPreset = SimpleSnowPreset.Light;
-    public SimpleSnowPreset SimpleSnowPreset {
-        get => _simpleSnowPreset;
+    [SerializeProperty("SimpleSnowPresetMode")]
+    public SimpleSnowPresetMode _simpleSnowPresetMode = SimpleSnowPresetMode.Light;
+    public SimpleSnowPresetMode SimpleSnowPresetMode {
+        get => _simpleSnowPresetMode;
         set {
-            ApplySetting(_presetToSetting[value]);
-            _simpleSnowPreset = value;
+            ApplySetting(PresetToSetting(value));
+            _simpleSnowPresetMode = value;
         }
     }
 
     private VisualEffect _visualEffect;
-    private Dictionary<SimpleSnowPreset, SimpleSnowSetting> _presetToSetting = new Dictionary<SimpleSnowPreset, SimpleSnowSetting>();
-
+    private Dictionary<SimpleSnowPresetMode, SimpleSnowPreset> _modeToPreset = new Dictionary<SimpleSnowPresetMode, SimpleSnowPreset>();
+    private SimpleSnowPreset PresetToSetting(SimpleSnowPresetMode preset) => _modeToPreset[preset];
+    
     private void Awake() {
         _visualEffect = GetComponent<VisualEffect>();
     }
@@ -29,36 +30,21 @@ public class VFXPresetSelector : MonoBehaviour {
     }
 
     private void MapPresetsToSettings() {
-        _presetToSetting[SimpleSnowPreset.Light] = new SimpleSnowSetting(Vector3.one * 10f, 16, 0.125f, 0.0f);
-        _presetToSetting[SimpleSnowPreset.Moderate] = new SimpleSnowSetting(Vector3.one * 10f, 32, 0.25f, 0.5f);
-        _presetToSetting[SimpleSnowPreset.Heavy] = new SimpleSnowSetting(Vector3.one * 10f, 64, 1f, 1.0f);
+        /*
+        _modeToPreset[SimpleSnowPresetMode.Light] = new SimpleSnowPreset(Vector3.one * 10f, 16, 0.125f, 0.0f);
+        _modeToPreset[SimpleSnowPresetMode.Moderate] = new SimpleSnowPreset(Vector3.one * 10f, 32, 0.25f, 0.5f);
+        _modeToPreset[SimpleSnowPresetMode.Heavy] = new SimpleSnowPreset(Vector3.one * 10f, 64, 1f, 1.0f);
+        */
+        
+        // TODO: Use Adressables to access the scriptable objects...
+        // https://docs.unity3d.com/Packages/com.unity.addressables@0.3/manual/AddressableAssetsGettingStarted.html
     }
 
-    private void ApplySetting(SimpleSnowSetting simpleSnowSetting) {
-        _visualEffect.SetVector3("Dimensions", simpleSnowSetting.Dimensions);
-        _visualEffect.SetInt("Snowfall Rate", simpleSnowSetting.SnowfallRate);
-        _visualEffect.SetFloat("Ambient Wind Strength", simpleSnowSetting.AmbientWindStrength);
-        _visualEffect.SetFloat("Linear Wind Speed", simpleSnowSetting.LinearWindSpeed);
+    private void ApplySetting(SimpleSnowPreset simpleSnowPreset) {
+        _visualEffect.SetVector3("Dimensions", simpleSnowPreset.Dimensions);
+        _visualEffect.SetInt("Snowfall Rate", simpleSnowPreset.SnowfallRate);
+        _visualEffect.SetFloat("Ambient Wind Strength", simpleSnowPreset.AmbientWindStrength);
+        _visualEffect.SetFloat("Linear Wind Speed", simpleSnowPreset.LinearWindSpeed);
     }
 #endif
-}
-
-public enum SimpleSnowPreset {
-    Light,
-    Moderate,
-    Heavy
-}
-
-public struct SimpleSnowSetting {
-    public Vector3 Dimensions;
-    public int SnowfallRate;
-    public float AmbientWindStrength;
-    public float LinearWindSpeed;
-
-    public SimpleSnowSetting(Vector3 dimensions, int snowfallRate, float ambientWindStrength, float linearWindSpeed) {
-        Dimensions = dimensions;
-        SnowfallRate = snowfallRate;
-        AmbientWindStrength = ambientWindStrength;
-        LinearWindSpeed = linearWindSpeed;
-    }
 }

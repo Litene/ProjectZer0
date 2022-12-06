@@ -414,10 +414,10 @@ VisualEffect:
       - m_Value: 10
         m_Name: Size
         m_Overridden: 1
-      - m_Value: 0.125
+      - m_Value: 1
         m_Name: Ambient Wind Strength
         m_Overridden: 1
-      - m_Value: 0
+      - m_Value: 1
         m_Name: Linear Wind Speed
         m_Overridden: 1
       - m_Value: 0.01
@@ -451,7 +451,7 @@ VisualEffect:
       - m_Value: 128
         m_Name: Snow Fall Rate
         m_Overridden: 1
-      - m_Value: 16
+      - m_Value: 64
         m_Name: Snowfall Rate
         m_Overridden: 1
     m_Matrix4x4f:
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d588afb3d33351a479db7f660ccbc303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _simpleSnowPreset: 0
+  _simpleSnowPresetMode: 0
 --- !u!1 &1860622755
 GameObject:
   m_ObjectHideFlags: 0
