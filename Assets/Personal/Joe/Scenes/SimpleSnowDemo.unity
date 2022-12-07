@@ -433,7 +433,7 @@ VisualEffect:
       - m_Value: {x: 1, y: 0, z: 1}
         m_Name: Linear Wind Direction
         m_Overridden: 1
-      - m_Value: {x: 0, y: 221.1168, z: 0}
+      - m_Value: {x: -0, y: 185.78055, z: 0}
         m_Name: Linear Wind Vane_angles
         m_Overridden: 1
       - m_Value: {x: 0, y: 0, z: 0}
@@ -547,14 +547,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860622755}
-  m_LocalRotation: {x: -0, y: 0.93631476, z: -0, w: -0.351162}
+  m_LocalRotation: {x: -0, y: -0.998728, z: -0, w: 0.05042335}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 221.117, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -174.219, z: 0}
 --- !u!114 &1860622757
 MonoBehaviour:
   m_ObjectHideFlags: 0

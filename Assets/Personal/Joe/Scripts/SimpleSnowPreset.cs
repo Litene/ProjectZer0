@@ -1,7 +1,4 @@
-using System;
 using UnityEngine;
-
-public class Preset : ScriptableObject {}
 
 [CreateAssetMenu(menuName = "Presets/Simple Snow Preset")]
 public class SimpleSnowPreset : Preset {

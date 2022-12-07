@@ -4,7 +4,18 @@
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scenes/SimpleSnowDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Scenes/SimpleSnowDemo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/HeavySnowPreset.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/HeavySnowPreset.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/LightSnowPreset.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/LightSnowPreset.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/ModerateSimpleSnowPreset.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/ModerateSimpleSnowPreset.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/SimpleSnowSetting.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/SimpleSnowSetting.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/VFXPresetSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/VFXPresetSelector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,9 +23,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Scripts/IVFXPresetSelector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Scripts/SimpleSnowPresetSelector.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Scripts/SimpleSnowSetting.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Preset.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Scripts/VFXPresetSelector.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -75,7 +84,8 @@
       <workItem from="1669737847270" duration="8000" />
       <workItem from="1669760409274" duration="3596000" />
       <workItem from="1670325835093" duration="8951000" />
-      <workItem from="1670358883640" duration="3974000" />
+      <workItem from="1670358883640" duration="4307000" />
+      <workItem from="1670404861391" duration="3106000" />
     </task>
     <servers />
   </component>
