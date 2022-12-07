@@ -3,19 +3,51 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroupTemplates.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroupTemplates/Packed Assets.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroupTemplates/Packed Assets.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Built In Data.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Built In Data.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Built In Data_PlayerDataGroupSchema.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Built In Data_PlayerDataGroupSchema.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_BundledAssetGroupSchema.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_BundledAssetGroupSchema.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_ContentUpdateGroupSchema.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_ContentUpdateGroupSchema.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptFastMode.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptFastMode.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedMode.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedMode.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedPlayMode.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedPlayMode.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptVirtualMode.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptVirtualMode.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DefaultObject.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/DefaultObject.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scenes/SimpleSnowDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Scenes/SimpleSnowDemo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/HeavySnowPreset.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/HeavySnowPreset.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/LightSnowPreset.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/LightSnowPreset.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/ModerateSimpleSnowPreset.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/ModerateSimpleSnowPreset.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/SimpleSnowSetting.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/SimpleSnowSetting.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/VFXPresetSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/VFXPresetSelector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Preset.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Preset.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/Heavy.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/Heavy.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/Light.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/Light.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/Moderate.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Presets/Moderate.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/SimpleSnowPreset.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/SimpleSnowPreset.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/VFXPresetSelector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Scripts/VFXPresetSelector.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +55,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Scripts/Preset.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Scripts/VFXPresetSelector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXBinderBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXPropertyBinder.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -86,6 +118,7 @@
       <workItem from="1670325835093" duration="8951000" />
       <workItem from="1670358883640" duration="4307000" />
       <workItem from="1670404861391" duration="3106000" />
+      <workItem from="1670414722613" duration="380000" />
     </task>
     <servers />
   </component>
