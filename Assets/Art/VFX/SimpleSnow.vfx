@@ -255,9 +255,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: -3995
-    y: -409
+    y: -685
     width: 5508
-    height: 3194
+    height: 3470
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1166,7 +1166,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.00244140625,"value":0.0,"inTangent":16.314828872680665,"outTangent":16.314828872680665,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.05000000074505806,"value":0.25,"inTangent":0.00875579658895731,"outTangent":0.00875579658895731,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.9900000095367432,"value":0.25,"inTangent":0.001428170595318079,"outTangent":0.001428170595318079,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":-61.10649871826172,"outTangent":-61.10649871826172,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.00244140625,"value":0.0,"inTangent":26.99295997619629,"outTangent":26.99295997619629,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.02500000037252903,"value":0.25,"inTangent":0.0027481713332235815,"outTangent":0.0027481713332235815,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.9900000095367432,"value":0.25,"inTangent":0.001428170595318079,"outTangent":0.001428170595318079,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":-61.10649871826172,"outTangent":-61.10649871826172,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -2246,8 +2246,8 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
   m_Direction: 1
   m_LinkedSlots:
-  - {fileID: 8926484042661614611}
   - {fileID: 8926484042661614649}
+  - {fileID: 8926484042661614611}
 --- !u!114 &8926484042661614642
 MonoBehaviour:
   m_ObjectHideFlags: 0
