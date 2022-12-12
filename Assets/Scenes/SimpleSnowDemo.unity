@@ -481,13 +481,13 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 10, y: 10, z: 10}
+      - m_Value: {x: 125, y: 50, z: 50}
         m_Name: Dimensions
         m_Overridden: 1
       - m_Value: {x: 1, y: 0, z: 1}
         m_Name: Linear Wind Direction
         m_Overridden: 1
-      - m_Value: {x: 0, y: 221.65398, z: 0}
+      - m_Value: {x: -0, y: 142.26482, z: -0}
         m_Name: Linear Wind Vane_angles
         m_Overridden: 1
       - m_Value: {x: 0, y: 0, z: 0}
@@ -505,7 +505,7 @@ VisualEffect:
       - m_Value: 128
         m_Name: Snow Fall Rate
         m_Overridden: 1
-      - m_Value: 32
+      - m_Value: 128
         m_Name: Snowfall Rate
         m_Overridden: 1
     m_Matrix4x4f:
@@ -526,7 +526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475813828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -594,22 +594,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: -808.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 453
+      value: 587
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2426
+      value: 2465
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7949444
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
@@ -619,7 +619,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6066823
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
@@ -634,7 +634,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 74.7
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
@@ -855,14 +855,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1742258226}
-  m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
-  m_LocalPosition: {x: 0, y: 6, z: -12}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804391090
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,14 +936,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860622755}
-  m_LocalRotation: {x: -0, y: 0.93465835, z: -0, w: -0.35554725}
+  m_LocalRotation: {x: -0, y: 0.94626844, z: -0, w: 0.3233823}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 221.654, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 142.265, z: 0}
 --- !u!114 &1860622757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,7 +974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1956279270
 MeshCollider:
   m_ObjectHideFlags: 0
