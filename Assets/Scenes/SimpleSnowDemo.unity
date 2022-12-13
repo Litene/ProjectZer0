@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 1475813829}
   - component: {fileID: 1475813832}
   - component: {fileID: 1475813833}
+  - component: {fileID: 1475813834}
   m_Layer: 0
   m_Name: Simple Snow
   m_TagString: Untagged
@@ -487,7 +488,7 @@ VisualEffect:
       - m_Value: {x: 1, y: 0, z: 1}
         m_Name: Linear Wind Direction
         m_Overridden: 1
-      - m_Value: {x: -0, y: 142.26482, z: -0}
+      - m_Value: {x: 0, y: 243.8193, z: 0}
         m_Name: Linear Wind Vane_angles
         m_Overridden: 1
       - m_Value: {x: 0, y: 0, z: 0}
@@ -505,7 +506,7 @@ VisualEffect:
       - m_Value: 128
         m_Name: Snow Fall Rate
         m_Overridden: 1
-      - m_Value: 64
+      - m_Value: 0
         m_Name: Snowfall Rate
         m_Overridden: 1
     m_Matrix4x4f:
@@ -564,6 +565,42 @@ MonoBehaviour:
   m_Property:
     m_Name: Linear Wind Vane
   Target: {fileID: 1860622756}
+--- !u!114 &1475813834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475813828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3459df825ece1b9489e4c7a1505c60b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _intensityToSnowfallRateCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 180
+      outSlope: 180
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 180
+      inSlope: 180
+      outSlope: 180
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1709208238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -873,6 +910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1804391092}
   - component: {fileID: 1804391091}
+  - component: {fileID: 1804391093}
   m_Layer: 0
   m_Name: Sky and Fog Volume
   m_TagString: Untagged
@@ -912,6 +950,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1804391093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804391090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad44bd636491eb40818ad7a3de0958e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _intensityToFogAttenuationDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 100000
+      inSlope: -99000
+      outSlope: -99000
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1000
+      inSlope: -99000
+      outSlope: -99000
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1860622755
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,14 +1010,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860622755}
-  m_LocalRotation: {x: -0, y: 0.94626844, z: -0, w: 0.3233823}
+  m_LocalRotation: {x: -0, y: 0.84888273, z: -0, w: -0.5285813}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 142.265, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 243.819, z: 0}
 --- !u!114 &1860622757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -956,6 +1030,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e637d1f5c94b5b848a76c2cc8b3a9082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1913974610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1913974611}
+  - component: {fileID: 1913974612}
+  m_Layer: 0
+  m_Name: Arctic Weather Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1913974611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913974610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1913974612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913974610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2872fcf56b018444ab37eecf1b753968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _intensity: 0
+  OnIntensityChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1804391093}
+        m_TargetAssemblyTypeName: FogController, Assembly-CSharp
+        m_MethodName: SetFogProperties
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 1475813834}
+        m_TargetAssemblyTypeName: SnowController, Assembly-CSharp
+        m_MethodName: SetSnowProperties
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &1956279269
 GameObject:
   m_ObjectHideFlags: 0
