@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 380232064}
   - component: {fileID: 380232063}
   - component: {fileID: 380232062}
+  - component: {fileID: 380232065}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -340,6 +341,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &380232065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380232061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b577b8afc3718c49b5fb3af4d7ced31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &555068358
 GameObject:
   m_ObjectHideFlags: 1
@@ -488,10 +501,10 @@ VisualEffect:
       - m_Value: {x: 1, y: 0, z: 1}
         m_Name: Linear Wind Direction
         m_Overridden: 1
-      - m_Value: {x: 0, y: 243.8193, z: 0}
+      - m_Value: {x: -0, y: 222.43742, z: 0}
         m_Name: Linear Wind Vane_angles
         m_Overridden: 1
-      - m_Value: {x: 0, y: 0, z: 0}
+      - m_Value: {x: 0, y: 5, z: 0}
         m_Name: Linear Wind Vane_position
         m_Overridden: 1
       - m_Value: {x: 1, y: 1, z: 1}
@@ -506,7 +519,7 @@ VisualEffect:
       - m_Value: 128
         m_Name: Snow Fall Rate
         m_Overridden: 1
-      - m_Value: 0
+      - m_Value: 102
         m_Name: Snowfall Rate
         m_Overridden: 1
     m_Matrix4x4f:
@@ -608,6 +621,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8700617353114198275, guid: bfe17fc078d50ea4eb746f218e57c998,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
       propertyPath: m_RootOrder
@@ -678,10 +696,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 65702495048144492, guid: bfe17fc078d50ea4eb746f218e57c998,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
       propertyPath: m_Name
-      value: Mountain
+      value: TMountain
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bfe17fc078d50ea4eb746f218e57c998,
         type: 3}
@@ -1010,14 +1033,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860622755}
-  m_LocalRotation: {x: -0, y: 0.84888273, z: -0, w: -0.5285813}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.9322057, z: -0, w: 0.361929}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 243.819, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -137.563, z: 0}
 --- !u!114 &1860622757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,7 +1143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1956279270
 MeshCollider:
   m_ObjectHideFlags: 0
