@@ -3,9 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/VFX/SimpleSnow.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/VFX/SimpleSnow.vfx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/VFX/SimpleSnow.vfx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/VFX/SimpleSnow.vfx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SimpleSnowDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SimpleSnowDemo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Mountain.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Mountain.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Arctic Demo Settings Profile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Arctic Demo Settings Profile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/ArcticWeatherController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/ArcticWeatherController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/ArcticWeatherResearch.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/ArcticWeatherResearch.MD.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/FogController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/FogController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/SnowController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/SnowController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SimpleSnowDemo.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SimpleSnowDemo.unity.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +24,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXBinderBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXPropertyBinder.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -78,6 +90,11 @@
       <workItem from="1670404861391" duration="3106000" />
       <workItem from="1670414722613" duration="380000" />
       <workItem from="1670415196118" duration="2651000" />
+      <workItem from="1670764249891" duration="919000" />
+      <workItem from="1670852902356" duration="734000" />
+      <workItem from="1670877485423" duration="636000" />
+      <workItem from="1670923542918" duration="1418000" />
+      <workItem from="1670931983007" duration="8849000" />
     </task>
     <servers />
   </component>

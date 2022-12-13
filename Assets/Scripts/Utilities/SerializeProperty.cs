@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace Utility
+namespace Utilities
 {
     [AttributeUsage(AttributeTargets.Field)]
     public class SerializeProperty : PropertyAttribute {

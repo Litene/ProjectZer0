@@ -10,7 +10,7 @@ namespace Vane.Editor {
             if (Event.current.type != EventType.Repaint) return;
             var transform = ((Vane)target).transform;
             var position = transform.position - transform.forward * SIZE / 2f;
-            Handles.color = Color.white;
+            Handles.color = Color.black;
             Handles.ArrowHandleCap(
                 0,
                 position,
