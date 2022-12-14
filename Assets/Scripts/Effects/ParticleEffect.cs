@@ -6,24 +6,14 @@ public class ParticleEffect : MonoBehaviour {
     private enum ParticleSystemType{ParticleSystem, VisualEffectsGraph}
 
     private ParticleSystemType _type;
-    private bool _isPlaying;
+    [SerializeField, Min(0)] private float _lifeTime = 0;
     
     private IObjectPool<ParticleEffect> _pool;
     private ParticleSystem _particleSystem;
     private VisualEffect _visualEffect;
     
-    private void OnParticleSystemStopped() {
-        _isPlaying = false;
-        _pool.Release(this);
-    }
-    
-    //todo vfx graph has no finished playing callback or isPlaying bool this is a temporary solution
-    private void LateUpdate() {
-        if (_type != ParticleSystemType.VisualEffectsGraph) return;
-        
-        if(_visualEffect.aliveParticleCount == 0 && _isPlaying) OnParticleSystemStopped();
-    }
-    
+    private void OnParticleSystemStopped() => _pool.Release(this);
+
     public void Init(IObjectPool<ParticleEffect> objectPool) {
         _pool = objectPool;
         if (TryGetComponent(out ParticleSystem particleSystem)) {
@@ -48,6 +38,6 @@ public class ParticleEffect : MonoBehaviour {
             case ParticleSystemType.VisualEffectsGraph: _visualEffect.Play(); break;
         }
 
-        _isPlaying = true;
+        if(_lifeTime != 0) Invoke(nameof(OnParticleSystemStopped), _lifeTime);
     }
 }

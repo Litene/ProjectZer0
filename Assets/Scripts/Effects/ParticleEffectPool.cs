@@ -10,12 +10,10 @@ public class ParticleEffectPool : MonoBehaviour, IObjectPool<ParticleEffect> {
     public void Release(ParticleEffect element) => _pool.Release(element);
     public void Clear() => _pool.Clear();
     public int CountInactive => _pool.CountInactive;
-    
     public void Init(ParticleEffect shaderParticleEffects) {
         _shaderParticleEffects = shaderParticleEffects;
         _pool = new ObjectPool<ParticleEffect>(CreatePooledEffect, OnPoolGet, OnPoolRelease, OnPoolDestroy);
     }
-
     private ParticleEffect CreatePooledEffect() {
         var effect = Instantiate(_shaderParticleEffects, Vector3.zero, Quaternion.identity);
         effect.Init(_pool);
