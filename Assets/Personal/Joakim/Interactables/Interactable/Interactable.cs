@@ -7,12 +7,15 @@ public class Interactable : MonoBehaviour, IInteractable {
     
     public string hintText;
     public KeyCode keyPressHint;
+    public Item itemPickup;
     private TextMeshProUGUI worldSpaceText;
     private GameObject thisInteractableCanvas;
+    public bool isPickup;
 
     public enum InteractableType{
         KeyPressHint,
-        HintTextOnly
+        HintTextOnly,
+        PickUp
     }
 
     public InteractableType itemType;
@@ -33,6 +36,9 @@ public class Interactable : MonoBehaviour, IInteractable {
             case InteractableType.HintTextOnly:
                 worldSpaceText.text = hintText;
                 break;
+            case InteractableType.PickUp:
+                isPickup = true;
+                break;
         }
     }
 
@@ -49,6 +55,19 @@ public class Interactable : MonoBehaviour, IInteractable {
             _hideHintWorldCanvas.Kill();
         });
     }
+
+    // private void OnTriggerEnter(Collider other) {
+    //     if (other.CompareTag("Player") && isPickup) {
+    //         UIManager.Instance.ShowPickUpInfo();
+    //     }
+    // }
+    //
+    // private void OnTriggerExit(Collider other) {
+    //     if (other.CompareTag("Player") && isPickup) {
+    //         UIManager.Instance.HidePickUpInfo();
+    //     }
+    // }
+
 
     public void KeyPressHint(KeyCode keyCode) {
     }
