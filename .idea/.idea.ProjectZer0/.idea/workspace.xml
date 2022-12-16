@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/VFX/SimpleSnow.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/VFX/SimpleSnow.vfx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/VFX/SimpleSnow.vfx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/VFX/SimpleSnow.vfx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SimpleSnowDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SimpleSnowDemo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ArcticWeatherDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ArcticWeatherDemo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +77,7 @@
       <workItem from="1670404861391" duration="3106000" />
       <workItem from="1670414722613" duration="380000" />
       <workItem from="1670415196118" duration="2651000" />
+      <workItem from="1671228170335" duration="643000" />
     </task>
     <servers />
   </component>

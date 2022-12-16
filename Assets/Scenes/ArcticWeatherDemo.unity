@@ -519,7 +519,7 @@ VisualEffect:
       - m_Value: 128
         m_Name: Snow Fall Rate
         m_Overridden: 1
-      - m_Value: 102
+      - m_Value: 32
         m_Name: Snowfall Rate
         m_Overridden: 1
     m_Matrix4x4f:
@@ -596,17 +596,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 180
-      outSlope: 180
+      inSlope: 128
+      outSlope: 128
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 180
-      inSlope: 180
-      outSlope: 180
+      value: 128
+      inSlope: 128
+      outSlope: 128
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
