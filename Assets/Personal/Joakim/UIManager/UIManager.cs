@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class UIManager : Singleton<UIManager> {
     private GameObject _uiManager;
+    private GameObject _temporaryObject;
+    public GameObject PickUpItemPanel;
+    public TextMeshProUGUI PickUpItemText;
+    
+    //temp raycast
     private Ray ray;
     private RaycastHit raycasthit;
-    private GameObject _temporaryObject;
-    public GameObject pickUpItemPanel;
-    public TextMeshProUGUI pickUpItemText;
 
     public string itemName;
 
@@ -18,12 +20,12 @@ public class UIManager : Singleton<UIManager> {
     }
 
     public void ShowPickUpInfo() {
-        pickUpItemText.text = "Press [E] To Pick Up " + itemName;
-        pickUpItemPanel.SetActive(true);
+        PickUpItemText.text = "Press [E] To Pick Up " + itemName;
+        PickUpItemPanel.SetActive(true);
     }
 
     public void HidePickUpInfo() {
-        pickUpItemPanel.SetActive(false);
+        PickUpItemPanel.SetActive(false);
     }
     
     private void Update() {

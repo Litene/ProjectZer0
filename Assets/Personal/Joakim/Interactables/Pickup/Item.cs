@@ -4,7 +4,7 @@ using UnityEngine;
 public class Item : ScriptableObject {
     
     //item types here are just examples, feel free to change/add
-    public enum itemType {
+    public enum ItemType {
         keyItem,
         journalItem,
         consumable
