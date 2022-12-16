@@ -1306,11 +1306,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a445196017ab49a752079373a0cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintText: 
-  keyPressHint: 0
+  HintText: 
+  KeyPressHintText: 102
   itemPickup: {fileID: 11400000, guid: c8f09aca058625f4590cc4990fde89aa, type: 2}
   isPickup: 0
-  itemType: 2
+  isKeyInteractable: 0
+  TypeOfInteractable: 2
+  KeyPressInteractionType: 0
 --- !u!65 &559286839
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1477,11 +1479,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7a445196017ab49a752079373a0cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hintText: 
-  keyPressHint: 0
+  HintText: 
+  KeyPressHintText: 271
   itemPickup: {fileID: 11400000, guid: c038142cbf3bdea439fbd42a1e3a19c9, type: 2}
   isPickup: 0
-  itemType: 2
+  isKeyInteractable: 0
+  TypeOfInteractable: 2
+  KeyPressInteractionType: 0
 --- !u!65 &739117231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2596,8 +2600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f504fa4c6faa4c4d9f6e37ad92c9388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpItemPanel: {fileID: 756920442}
-  pickUpItemText: {fileID: 550445440}
+  PickUpItemPanel: {fileID: 756920442}
+  PickUpItemText: {fileID: 550445440}
   itemName: 
 --- !u!1 &1206602688
 GameObject:
@@ -2960,7 +2964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a40fad71c55324b9385064bdf52d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsInRange: []
+  ItemsInRange: []
 --- !u!1 &1298941166
 GameObject:
   m_ObjectHideFlags: 0
@@ -4509,10 +4513,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3599097198496996608, guid: d46a2b3f100441241bb5215b31a57a39,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599097198496996609, guid: d46a2b3f100441241bb5215b31a57a39,
+        type: 3}
+      propertyPath: KeyPressHintText
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599097198496996609, guid: d46a2b3f100441241bb5215b31a57a39,
+        type: 3}
+      propertyPath: TypeOfInteractable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599097198496996609, guid: d46a2b3f100441241bb5215b31a57a39,
+        type: 3}
+      propertyPath: KeyPressInteractionType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3599097198496996610, guid: d46a2b3f100441241bb5215b31a57a39,
         type: 3}
       propertyPath: m_Name
-      value: KeyPressHint
+      value: DoorTest
       objectReference: {fileID: 0}
     - target: {fileID: 3599097198496996733, guid: d46a2b3f100441241bb5215b31a57a39,
         type: 3}
@@ -4568,6 +4592,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599097198496996735, guid: d46a2b3f100441241bb5215b31a57a39,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d46a2b3f100441241bb5215b31a57a39, type: 3}
@@ -4638,6 +4667,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextHint
       objectReference: {fileID: 0}
+    - target: {fileID: 3997621181030844111, guid: 87286f82c7e84264686fd24a3fb278b3,
+        type: 3}
+      propertyPath: HintText
+      value: Hint... mmm
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997621181030844111, guid: 87286f82c7e84264686fd24a3fb278b3,
+        type: 3}
+      propertyPath: ItemType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3997621181030844111, guid: 87286f82c7e84264686fd24a3fb278b3,
+        type: 3}
+      propertyPath: TypeOfInteractable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87286f82c7e84264686fd24a3fb278b3, type: 3}
 --- !u!1001 &4414609508830504805
@@ -4701,6 +4745,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414609508139674454, guid: 87cb60b122422574eba44b01564b1783,
+        type: 3}
+      propertyPath: ItemType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414609508139674454, guid: 87cb60b122422574eba44b01564b1783,
+        type: 3}
+      propertyPath: KeyPressHintText
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 4414609508139674454, guid: 87cb60b122422574eba44b01564b1783,
+        type: 3}
+      propertyPath: TypeOfInteractable
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4414609508139674455, guid: 87cb60b122422574eba44b01564b1783,
         type: 3}

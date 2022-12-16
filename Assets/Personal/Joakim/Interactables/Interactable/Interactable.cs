@@ -1,16 +1,19 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
 
 public class Interactable : MonoBehaviour, IInteractable {
     
-    public string hintText;
-    public KeyCode keyPressHint;
+    public string HintText;
+    public KeyCode KeyPressHintText;
     public Item itemPickup;
-    private TextMeshProUGUI worldSpaceText;
-    private GameObject thisInteractableCanvas;
-    public bool isPickup;
+    private TextMeshProUGUI _worldSpaceText;
+    private GameObject _thisInteractableCanvas;
+    public bool isPickup, isKeyInteractable;
+    private GameObject PlayerRef;
+    private GameObject temp;
 
     public enum InteractableType{
         KeyPressHint,
@@ -18,23 +21,33 @@ public class Interactable : MonoBehaviour, IInteractable {
         PickUp
     }
 
-    public InteractableType itemType;
+    public enum KeyPressInteractions {
+        Door,
+        Ventilation,
+        Window
+    }
+    
+    public InteractableType TypeOfInteractable;
+    public KeyPressInteractions KeyPressInteractionType;
     
     private void Awake() {
+        PlayerRef = GameObject.Find("Player");
         Transform trans = transform;
         Transform canvasTrans = trans.Find("Canvas");
         if (canvasTrans != null) {
-            thisInteractableCanvas = canvasTrans.gameObject;
+            _thisInteractableCanvas = canvasTrans.gameObject;
         }
-        worldSpaceText = GetComponentInChildren<TextMeshProUGUI>();
+        _worldSpaceText = GetComponentInChildren<TextMeshProUGUI>();
     }
+    
     private void Start() {
-        switch (itemType) {
+        switch (TypeOfInteractable) {
             case InteractableType.KeyPressHint:
-                worldSpaceText.text = "[" + keyPressHint.ToString() + "]";
+                _worldSpaceText.text = "[" + KeyPressHintText.ToString() + "]";
+                isKeyInteractable = true;
                 break;
             case InteractableType.HintTextOnly:
-                worldSpaceText.text = hintText;
+                _worldSpaceText.text = HintText;
                 break;
             case InteractableType.PickUp:
                 isPickup = true;
@@ -42,32 +55,51 @@ public class Interactable : MonoBehaviour, IInteractable {
         }
     }
 
+    private void Update() {
+        if (isKeyInteractable && PlayerInRange() && UnityEngine.Input.GetKeyDown(KeyPressHintText)) {
+            switch (KeyPressInteractionType) {
+                case KeyPressInteractions.Door:
+                    StartCoroutine(OpenDoor());
+                    break;
+                case KeyPressInteractions.Ventilation:
+                    StartCoroutine(OpenDoor());
+                    break;
+                case KeyPressInteractions.Window:
+                    StartCoroutine(OpenDoor());
+                    break;
+            }
+        }
+    }
+
+    //open door/window/ventilationShaft Animation, currently placeholder
+    IEnumerator OpenDoor() {
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+        yield return new WaitForSeconds(2);
+        GetComponent<MeshRenderer>().enabled = true;
+        GetComponent<BoxCollider>().enabled = true;
+    }
+
+    bool PlayerInRange() {
+        if (Vector3.Distance(PlayerRef.transform.position, transform.position) < 2)
+            return true;
+        return false;
+    }
+
+    //tweens here are looping ! Ill find a better way eventually
     public void LookAt() {
-        Sequence _showHintWorldCanvas = DOTween.Sequence();
-        _showHintWorldCanvas.Append(thisInteractableCanvas.transform.DOScaleY(0.0002982685f, 0.2f)).OnComplete(() => {
-        _showHintWorldCanvas.Kill();
+        Sequence showHintWorldCanvas = DOTween.Sequence();
+        showHintWorldCanvas.Append(_thisInteractableCanvas.transform.DOScaleY(0.0002982685f, 0.2f)).OnComplete(() => { 
+            showHintWorldCanvas.Kill();
         });
     }
     
     public void LookAway() {
-        Sequence _hideHintWorldCanvas = DOTween.Sequence();
-        _hideHintWorldCanvas.Append(thisInteractableCanvas.transform.DOScaleY(0f, 0.2f)).OnComplete(() => {
-            _hideHintWorldCanvas.Kill();
+        Sequence hideHintWorldCanvas = DOTween.Sequence();
+        hideHintWorldCanvas.Append(_thisInteractableCanvas.transform.DOScaleY(0f, 0.2f)).OnComplete(() => { 
+            hideHintWorldCanvas.Kill();
         });
     }
-
-    // private void OnTriggerEnter(Collider other) {
-    //     if (other.CompareTag("Player") && isPickup) {
-    //         UIManager.Instance.ShowPickUpInfo();
-    //     }
-    // }
-    //
-    // private void OnTriggerExit(Collider other) {
-    //     if (other.CompareTag("Player") && isPickup) {
-    //         UIManager.Instance.HidePickUpInfo();
-    //     }
-    // }
-
 
     public void KeyPressHint(KeyCode keyCode) {
     }
