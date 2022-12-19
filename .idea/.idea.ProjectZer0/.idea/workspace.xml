@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Gustav/LightSettings.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/LightSettings.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/JoakimCamMoveTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/JoakimCamMoveTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/JoakimMoveTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/JoakimMoveTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/PlayerCameraController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/PlayerCameraController.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/d0/70e2e3c5/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXBinderBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXPropertyBinder.cs" root0="SKIP_HIGHLIGHTING" />
@@ -83,7 +83,7 @@
       <workItem from="1671192457445" duration="929000" />
       <workItem from="1671284917069" duration="7168000" />
       <workItem from="1671364348648" duration="25000" />
-      <workItem from="1671448151616" duration="4473000" />
+      <workItem from="1671448151616" duration="7520000" />
     </task>
     <servers />
   </component>

@@ -1,10 +1,13 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerCameraController : MonoBehaviour {
     public Transform target;
     private Vector3 _focusPoint;
+
     private Vector3 _currentVelocity = Vector3.zero;
+
     private const float CameraLookThreshold = 0.001f;
     [SerializeField] private float _mouseSensitivity = 15f;
     [SerializeField] private float _distanceToPlayer;
@@ -12,28 +15,52 @@ public class PlayerCameraController : MonoBehaviour {
     [SerializeField, Min(0f)] private float _focusRadius = 1f;
     [SerializeField] private Vector2 _orbitAngles = new Vector2(45f, 0);
     [SerializeField, Range(1f, 360f)] private float _rotationSpeed = 90f;
+    [SerializeField, Range(-89f, 89f)] private float minVerticalAngle = -30f, maxVerticalAngle = 60f;
+
     private void Awake() {
         _focusPoint = target.position;
+        transform.localRotation = Quaternion.Euler(_orbitAngles);
     }
 
-    void FixedUpdate() {
+    private void OnValidate() {
+        if (maxVerticalAngle < minVerticalAngle) {
+            maxVerticalAngle = minVerticalAngle;
+        }
+    }
+
+    void LateUpdate() {
         UpdateFocusPoint();
-        ManualRotation();
- 
-        Quaternion lookRotation = Quaternion.Euler(_orbitAngles);
-        Vector3 lookDirection = transform.forward;
+        Quaternion lookRotation;
+        if (ManualRotation()) {
+            ConstrainAngles();
+            lookRotation = Quaternion.Euler(_orbitAngles);
+        }
+        else {
+            lookRotation = transform.localRotation;
+        }
+        Vector3 lookDirection = lookRotation * Vector3.forward;
         Vector3 lookPosition = _focusPoint - lookDirection * _distanceToPlayer;
         transform.SetPositionAndRotation(lookPosition, lookRotation);
     }
 
-    void ManualRotation() {
-        Vector2 input = new Vector2(-InputManager.Instance.GetLookInput().normalized.y, InputManager.Instance.GetLookInput().normalized.x);
-        
-        if (input.x < -CameraLookThreshold || input.x > CameraLookThreshold || input.y < -CameraLookThreshold ||
-            input.y > CameraLookThreshold) {
-            _orbitAngles += _rotationSpeed * Time.unscaledDeltaTime * input;
-        }
+    void ConstrainAngles() {
+        _orbitAngles.x = Mathf.Clamp(_orbitAngles.x, minVerticalAngle, maxVerticalAngle);
+        if (_orbitAngles.y < 0f) _orbitAngles.y += 360f;
+        else if (_orbitAngles.y >= 360f) _orbitAngles.y -= 360f;
     }
+
+    private bool ManualRotation() {
+        Vector2 input = new Vector2(-InputManager.Instance.GetLookInput().normalized.y, InputManager.Instance.GetLookInput().normalized.x);
+
+        if (input.magnitude > CameraLookThreshold) {
+            _orbitAngles += input * (_rotationSpeed * Time.unscaledDeltaTime * _mouseSensitivity);
+            return true;
+        }
+
+        return false;
+    }
+    
+    
 
     private void UpdateFocusPoint() {
         Vector3 targetPoint = target.position;
@@ -42,7 +69,7 @@ public class PlayerCameraController : MonoBehaviour {
             float distance = Vector3.Distance(targetPoint, _focusPoint);
             if (distance > _focusRadius) {
 
-              // _focusPoint = Vector3.SmoothDamp(targetPoint, _focusPoint, ref _currentVelocity, (_focusRadius / distance) * Time.);
+                // _focusPoint = Vector3.SmoothDamp(targetPoint, _focusPoint, ref _currentVelocity, (_focusRadius / distance) * Time.);
                 _focusPoint = Vector3.Lerp(targetPoint, _focusPoint, _focusRadius / distance);
             }
         }
@@ -54,7 +81,7 @@ public class PlayerCameraController : MonoBehaviour {
     private void CameraLook() {
         // InputManager.Instance.GetLookInput();
         Vector3 focusPoint = target.position;
-        
+
         // Debug.Log(InputManager.Instance.GetLookInput(true));
         // transform.LookAt(target);
         // var normalizedLookInput = InputManager.Instance.GetLookInput().normalized;

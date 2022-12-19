@@ -1,10 +1,13 @@
 using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public enum WalkState {
     Running = 10,
     Walking = 5
 }
+
+
 
 public enum WalkModifier {
     Snow = 3,
@@ -21,7 +24,8 @@ public class PlayerController : MonoBehaviour {
     public Vector2 Velocity;
     private WalkState _currentWalkState;
     private Transform _camTf;
-
+    private float GetWalkSpeed => (int)_currentWalkState * 0.1f;
+    
     private float _drag;
 
     private int _xSpeedHash = Animator.StringToHash("XSpeed");
@@ -42,6 +46,8 @@ public class PlayerController : MonoBehaviour {
         // can possible be solved through the input manager/input actions thingy
         Vector2 signedMovement = new Vector2(
             moveVector.x == 0 ? 0 : Mathf.Sign(moveVector.x), moveVector.y == 0 ? 0 : Mathf.Sign(moveVector.y));
+
+        AlignWithCamera(signedMovement);
         Vector2 desiredVelocity = signedMovement * WalkingSpeed;
         float maxSpeedChange = MaxAcceleration * Time.deltaTime;
         Velocity.x = Mathf.MoveTowards(Velocity.x, desiredVelocity.x, maxSpeedChange);
@@ -49,7 +55,16 @@ public class PlayerController : MonoBehaviour {
         return Velocity;
     }
 
-    private Vector2 AlignWithCamera(Vector2 inputVector) {
-        return new Vector2();
+    private void AlignWithCamera(Vector2 inputVector) { //todo: lerp this shit
+        if (inputVector == Vector2.zero) return;
+        var rotationLR = _camTf.localEulerAngles;
+        transform.rotation = Quaternion.AngleAxis(rotationLR.y, Vector3.up);
+        
+        
     }
+    
+    
+
+
+
 }
