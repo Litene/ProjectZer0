@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class JoakimMoveTest : MonoBehaviour {
+public class JoakimCMoveTest : MonoBehaviour {
     public float speed, maxSpeed;
     public Rigidbody rb;
     private void Awake() {

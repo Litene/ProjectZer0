@@ -2,57 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/RightTurn.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/RightTurn.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TCharacterAnimatorController.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TCharacterAnimatorController.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TIdle.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TIdle.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TJump.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TJump.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TLeftStrafe.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TLeftStrafe.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TLeftStrafeWalk.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TLeftStrafeWalk.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TLeftTurn.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TLeftTurn.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TRightStrafe.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TRightStrafe.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TRightStrafeWalk.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TRightStrafeWalk.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TRunning.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/TRunning.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/Walking Backward.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/Walking Backward.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/walking.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/Animations/walking.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterMaterials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterMaterials/Ch22_body.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterMaterials/Ch22_body.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterMaterials/Ch22_hair.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterMaterials/Ch22_hair.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1001_Diffuse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1001_Diffuse.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1001_Glossiness.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1001_Glossiness.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1001_Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1001_Normal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1001_Specular.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1001_Specular.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1002_Diffuse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1002_Diffuse.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1002_Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TCharacterTextures/Ch22_1002_Normal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TMainCharacterModel.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/TMainCharacterModel.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Calle/Scripts/TNew3rdCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Calle/Scripts/TNew3rdCam.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Gustav/LightSettings.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/LightSettings.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/JoakimCamMoveTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/JoakimCamMoveTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/JoakimMoveTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/JoakimMoveTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +83,7 @@
       <workItem from="1671192457445" duration="929000" />
       <workItem from="1671284917069" duration="7168000" />
       <workItem from="1671364348648" duration="25000" />
+      <workItem from="1671448151616" duration="4473000" />
     </task>
     <servers />
   </component>
