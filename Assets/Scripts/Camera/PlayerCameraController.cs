@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCameraController : MonoBehaviour {
     public Transform target;
     private Vector3 _focusPoint;
-
+    
     private Vector3 _currentVelocity = Vector3.zero;
 
     private const float CameraLookThreshold = 0.001f;
@@ -16,28 +16,47 @@ public class PlayerCameraController : MonoBehaviour {
     [SerializeField] private Vector2 _orbitAngles = new Vector2(45f, 0);
     [SerializeField, Range(1f, 360f)] private float _rotationSpeed = 90f;
     [SerializeField, Range(-89f, 89f)] private float minVerticalAngle = -30f, maxVerticalAngle = 60f;
-
+    [SerializeField] [Range(0f, 1f)] private float _cameraTPosValue;
+    [SerializeField] [Range(2, 20)] private float XOffSet;
+    private float _lerpFromPlayer = 0.1f;
+    private float _lerpToPlayer = 0.5f;
+    private Vector3 _leftCamPos;
+    private Vector3 _rightCamPos;
     private void Awake() {
         _focusPoint = target.position;
         transform.localRotation = Quaternion.Euler(_orbitAngles);
     }
 
     private void OnValidate() {
+        
+
         if (maxVerticalAngle < minVerticalAngle) {
             maxVerticalAngle = minVerticalAngle;
         }
     }
 
+    private void Update() {
+        _cameraTPosValue = Player.Instance.GetWeight();
+    }
+
     void LateUpdate() {
+        
+        var position = target.position;
+        _leftCamPos = new Vector3(position.x - XOffSet, position.y, position.z);
+        _rightCamPos = new Vector3(position.x + XOffSet, position.y, position.z);
+        // if (InputManager.Instance.GetLookInput().magnitude < 0.01f) {
+        // }
+        // else {
+        //     transform.position = Vector3.Lerp(transform.position, _rightCamPos, _cameraTPosValue);
+        // }
         UpdateFocusPoint();
         Quaternion lookRotation;
         if (ManualRotation()) {
             ConstrainAngles();
             lookRotation = Quaternion.Euler(_orbitAngles);
         }
-        else {
-            lookRotation = transform.localRotation;
-        }
+        else lookRotation = transform.localRotation;
+        
         Vector3 lookDirection = lookRotation * Vector3.forward;
         Vector3 lookPosition = _focusPoint - lookDirection * _distanceToPlayer;
         transform.SetPositionAndRotation(lookPosition, lookRotation);
@@ -51,7 +70,7 @@ public class PlayerCameraController : MonoBehaviour {
 
     private bool ManualRotation() {
         Vector2 input = new Vector2(-InputManager.Instance.GetLookInput().normalized.y, InputManager.Instance.GetLookInput().normalized.x);
-
+        
         if (input.magnitude > CameraLookThreshold) {
             _orbitAngles += input * (_rotationSpeed * Time.unscaledDeltaTime * _mouseSensitivity);
             return true;
@@ -59,23 +78,23 @@ public class PlayerCameraController : MonoBehaviour {
 
         return false;
     }
-    
-    
 
     private void UpdateFocusPoint() {
-        Vector3 targetPoint = target.position;
+        Vector3 targetPoint = InputManager.Instance.GetLookInput().magnitude < 0.01f
+            ? Vector3.Lerp(_leftCamPos, _rightCamPos, _cameraTPosValue) : target.position;
         _focusPoint = targetPoint;
-        if (_focusRadius > 0f) {
-            float distance = Vector3.Distance(targetPoint, _focusPoint);
-            if (distance > _focusRadius) {
 
-                // _focusPoint = Vector3.SmoothDamp(targetPoint, _focusPoint, ref _currentVelocity, (_focusRadius / distance) * Time.);
-                _focusPoint = Vector3.Lerp(targetPoint, _focusPoint, _focusRadius / distance);
-            }
-        }
-        else {
-            _focusPoint = targetPoint;
-        }
+        transform.position = Vector3.SmoothDamp(transform.position, _focusPoint,ref _currentVelocity, 0.1f * Time.deltaTime, 1);
+        // if (_focusRadius > 0f) {
+        //     float distance = Vector3.Distance(targetPoint, _focusPoint);
+        //     if (distance > _focusRadius) {
+        //         // _focusPoint = Vector3.SmoothDamp(targetPoint, _focusPoint, ref _currentVelocity, (_focusRadius / distance) * Time.);
+        //         _focusPoint = Vector3.Lerp(targetPoint, _focusPoint, _focusRadius / distance);
+        //     }
+        // }
+        // else {
+        //     _focusPoint = targetPoint;
+        // }
     }
 
     private void CameraLook() {

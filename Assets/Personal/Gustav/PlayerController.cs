@@ -1,12 +1,13 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using System.Linq;
 
 public enum WalkState {
     Running = 10,
     Walking = 5
 }
-
 
 
 public enum WalkModifier {
@@ -22,22 +23,34 @@ public class PlayerController : MonoBehaviour {
     [Range(0.5f, 5)] public float MaxAcceleration;
     public Vector2 SignedMoveVector;
     public Vector2 Velocity;
-    private WalkState _currentWalkState;
+    private WalkState _currentWalkState = WalkState.Walking;
     private Transform _camTf;
+
     private float GetWalkSpeed => (int)_currentWalkState * 0.1f;
-    
+
     private float _drag;
 
     private int _xSpeedHash = Animator.StringToHash("XSpeed");
     private int _zSpeedHash = Animator.StringToHash("ZSpeed");
-    
+
     private void Awake() {
         _camTf = Camera.main.transform;
         _animator = GetComponent<Animator>();
     }
 
     private void Update() {
+
         _moveVector = CalculateMovement(InputManager.Instance.GetMoveInput());
+
+        if (UnityEngine.Input.GetKeyDown(KeyCode.LeftShift)) {
+            Debug.Log("Apa");
+            _currentWalkState = WalkState.Running;
+        }
+        else if (UnityEngine.Input.GetKeyUp(KeyCode.LeftShift)) {
+            Debug.Log("DApa");
+            _currentWalkState = WalkState.Walking;
+        }
+
         _animator.SetFloat(_xSpeedHash, _moveVector.x);
         _animator.SetFloat(_zSpeedHash, _moveVector.y);
     }
@@ -48,7 +61,7 @@ public class PlayerController : MonoBehaviour {
             moveVector.x == 0 ? 0 : Mathf.Sign(moveVector.x), moveVector.y == 0 ? 0 : Mathf.Sign(moveVector.y));
 
         AlignWithCamera(signedMovement);
-        Vector2 desiredVelocity = signedMovement * WalkingSpeed;
+        Vector2 desiredVelocity = signedMovement * GetWalkSpeed;
         float maxSpeedChange = MaxAcceleration * Time.deltaTime;
         Velocity.x = Mathf.MoveTowards(Velocity.x, desiredVelocity.x, maxSpeedChange);
         Velocity.y = Mathf.MoveTowards(Velocity.y, desiredVelocity.y, maxSpeedChange);
@@ -59,12 +72,9 @@ public class PlayerController : MonoBehaviour {
         if (inputVector == Vector2.zero) return;
         var rotationLR = _camTf.localEulerAngles;
         transform.rotation = Quaternion.AngleAxis(rotationLR.y, Vector3.up);
-        
-        
-    }
-    
-    
 
+
+    }
 
 
 }
