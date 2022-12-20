@@ -1,11 +1,17 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
 using Unity.Mathematics;
+using UnityEditor.VersionControl;
 using UnityEngine;
+using System.Threading.Tasks;
+using Task = System.Threading.Tasks.Task;
 
 public class PlayerCameraController : MonoBehaviour {
     public Transform target;
     private Vector3 _focusPoint;
-    
+
     private Vector3 _currentVelocity = Vector3.zero;
 
     private const float CameraLookThreshold = 0.001f;
@@ -18,18 +24,20 @@ public class PlayerCameraController : MonoBehaviour {
     [SerializeField, Range(-89f, 89f)] private float minVerticalAngle = -30f, maxVerticalAngle = 60f;
     [SerializeField] [Range(0f, 1f)] private float _cameraTPosValue;
     [SerializeField] [Range(2, 20)] private float XOffSet;
-    private float _lerpFromPlayer = 0.1f;
-    private float _lerpToPlayer = 0.5f;
+    private float _lerpFromPlayer = 1f;
+    private float _lerpToPlayer = 6f;
     private Vector3 _leftCamPos;
     private Vector3 _rightCamPos;
+    private Vector3 _currentPanPoint;
+    private Vector3 _targetPanPoint;
+    private IEnumerator _panRoutine;
+
     private void Awake() {
         _focusPoint = target.position;
         transform.localRotation = Quaternion.Euler(_orbitAngles);
     }
 
     private void OnValidate() {
-        
-
         if (maxVerticalAngle < minVerticalAngle) {
             maxVerticalAngle = minVerticalAngle;
         }
@@ -40,7 +48,6 @@ public class PlayerCameraController : MonoBehaviour {
     }
 
     void LateUpdate() {
-        
         var position = target.position;
         _leftCamPos = new Vector3(position.x - XOffSet, position.y, position.z);
         _rightCamPos = new Vector3(position.x + XOffSet, position.y, position.z);
@@ -56,10 +63,12 @@ public class PlayerCameraController : MonoBehaviour {
             lookRotation = Quaternion.Euler(_orbitAngles);
         }
         else lookRotation = transform.localRotation;
-        
+
         Vector3 lookDirection = lookRotation * Vector3.forward;
         Vector3 lookPosition = _focusPoint - lookDirection * _distanceToPlayer;
-        transform.SetPositionAndRotation(lookPosition, lookRotation);
+        transform.position = Vector3.MoveTowards(transform.position, lookPosition, Time.deltaTime * (_cameraTPosValue != 0.5f ? _lerpFromPlayer * 5 : _lerpToPlayer * 20));
+        transform.rotation = lookRotation;
+        // transform.SetPositionAndRotation(lookPosition, lookRotation);
     }
 
     void ConstrainAngles() {
@@ -69,8 +78,9 @@ public class PlayerCameraController : MonoBehaviour {
     }
 
     private bool ManualRotation() {
-        Vector2 input = new Vector2(-InputManager.Instance.GetLookInput().normalized.y, InputManager.Instance.GetLookInput().normalized.x);
-        
+        Vector2 input = new Vector2(-InputManager.Instance.GetLookInput().normalized.y,
+            InputManager.Instance.GetLookInput().normalized.x);
+
         if (input.magnitude > CameraLookThreshold) {
             _orbitAngles += input * (_rotationSpeed * Time.unscaledDeltaTime * _mouseSensitivity);
             return true;
@@ -80,22 +90,43 @@ public class PlayerCameraController : MonoBehaviour {
     }
 
     private void UpdateFocusPoint() {
-        Vector3 targetPoint = InputManager.Instance.GetLookInput().magnitude < 0.01f
-            ? Vector3.Lerp(_leftCamPos, _rightCamPos, _cameraTPosValue) : target.position;
-        _focusPoint = targetPoint;
+        _targetPanPoint = InputManager.Instance.GetLookInput().magnitude < 0.01f
+            ? Vector3.Lerp(_leftCamPos, _rightCamPos, _cameraTPosValue)
+            : target.position;
+        _focusPoint = _targetPanPoint;
 
-        transform.position = Vector3.SmoothDamp(transform.position, _focusPoint,ref _currentVelocity, 0.1f * Time.deltaTime, 1);
+        if (_currentPanPoint != _targetPanPoint) {
+           // if (_panRoutine != null) StopCoroutine(_panRoutine);
+           // _panRoutine = PanCamera(_cameraTPosValue != 0.5f ? _lerpFromPlayer : _lerpToPlayer, _targetPanPoint);
+           // StartCoroutine(_panRoutine);
+        }
+
+        //transform.position = Vector3.MoveTowards(transform.position, targetPoint,ref _currentVelocity, 0.1f * Time.deltaTime, 1);
+
         // if (_focusRadius > 0f) {
-        //     float distance = Vector3.Distance(targetPoint, _focusPoint);
+        //     float distance = Vector3.Distance(_targetPanPoint, _focusPoint);
         //     if (distance > _focusRadius) {
         //         // _focusPoint = Vector3.SmoothDamp(targetPoint, _focusPoint, ref _currentVelocity, (_focusRadius / distance) * Time.);
-        //         _focusPoint = Vector3.Lerp(targetPoint, _focusPoint, _focusRadius / distance);
+        //         _focusPoint = Vector3.Lerp(_targetPanPoint, _focusPoint, _focusRadius / distance);
         //     }
         // }
         // else {
-        //     _focusPoint = targetPoint;
+        //     _focusPoint = _targetPanPoint;
         // }
     }
+
+    private IEnumerator PanCamera(float lerpTime, Vector3 targetPos) {
+        WaitForEndOfFrame frameSkip = new WaitForEndOfFrame();
+        Vector3 signedDirection = targetPos - transform.position;
+        while (signedDirection.magnitude > 0.1f) {
+            // transform.position = Vector3.MoveTowards(transform.position, targetPos, lerpTime * Time.deltaTime);
+            yield return frameSkip;
+        }
+
+        //transform.position = targetPos;
+        _targetPanPoint = _currentPanPoint;
+    }
+
 
     private void CameraLook() {
         // InputManager.Instance.GetLookInput();
