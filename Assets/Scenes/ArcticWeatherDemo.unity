@@ -1015,20 +1015,20 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 100000
-      inSlope: -179511.72
-      outSlope: -179511.72
+      inSlope: -249323
+      outSlope: -249323
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.08341511
+      outWeight: 0.07342232
     - serializedVersion: 3
-      time: 0.9951172
+      time: 1
       value: 1000
-      inSlope: -50507.246
-      outSlope: -50507.246
+      inSlope: 3614.8796
+      outSlope: 3614.8796
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.21982336
+      inWeight: 0.26332945
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -1087,6 +1087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1913974611}
   - component: {fileID: 1913974612}
+  - component: {fileID: 1913974613}
   m_Layer: 0
   m_Name: Arctic Weather Controller
   m_TagString: Untagged
@@ -1149,6 +1150,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!114 &1913974613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913974610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5726beb57b43664ea6632f19240ef1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ArcticWeatherStates:
+  - Name: Clear
+    Intensity: 0
+  - Name: Light
+    Intensity: 0.3
+  - Name: Moderate
+    Intensity: 0.7
+  - Name: Heavy
+    Intensity: 1
 --- !u!1 &1956279269
 GameObject:
   m_ObjectHideFlags: 0

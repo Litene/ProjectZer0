@@ -15,16 +15,7 @@ namespace WeatherSystem
                 OnIntensityChanged?.Invoke(_intensity);
             }
         }
-    
-        [SerializeField] public UnityEvent<float> OnIntensityChanged;
-    
-        private const float TRANSITION_DURATION = 60f;
 
-        private void Update()
-        {
-            if (!Application.isPlaying) { return; }
-        
-            Intensity += Time.deltaTime / TRANSITION_DURATION;
-        }
+        [SerializeField] public UnityEvent<float> OnIntensityChanged;
     }
 }
