@@ -3,18 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Arctic Weather Custom Controllers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Arctic Weather Custom Controllers/FogController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Arctic Weather Custom Controllers/FogController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Arctic Weather Custom Controllers/SnowController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Arctic Weather Custom Controllers/SnowController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Editor/WeatherDirector_Inspector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Editor/WeatherDirector_Inspector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/WeatherController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/WeatherController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/WeatherDirector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/WeatherDirector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Gustav/SunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/SunController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +12,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weather System/Director/WeatherState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@12.1.8/Runtime/Common/SerializedDictionary.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/ExploreObjective.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/Objective.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/Quest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/QuestCreator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraPointer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXBinderBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXPropertyBinder.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -89,12 +83,12 @@
       <workItem from="1670404861391" duration="3106000" />
       <workItem from="1670414722613" duration="380000" />
       <workItem from="1670415196118" duration="2651000" />
-      <workItem from="1671228170335" duration="2341000" />
-      <workItem from="1671659001011" duration="4330000" />
-      <workItem from="1671706912223" duration="5647000" />
-      <workItem from="1671715596003" duration="506000" />
-      <workItem from="1671716131210" duration="7134000" />
-      <workItem from="1671724057453" duration="2750000" />
+      <workItem from="1671192457445" duration="929000" />
+      <workItem from="1671284917069" duration="7168000" />
+      <workItem from="1671364348648" duration="25000" />
+      <workItem from="1671448151616" duration="16194000" />
+      <workItem from="1671546499881" duration="5461000" />
+      <workItem from="1671710837300" duration="2361000" />
     </task>
     <servers />
   </component>

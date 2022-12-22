@@ -10,19 +10,20 @@ public class GC_WeatherTest : MonoBehaviour {
     private Transform _center;
     [SerializeField] [Range(1, 100)] private int timeMultiplier;
     
-    public enum LightState { // make private
+    public enum LightState { 
         Night,
         AstroTwilight,
         NauticalTwilight,
         CivilTwilight,
         DayLight
     }
-
-
+    
     public LightState currentLightState = LightState.Night;
     private void Awake() {
         _dirLight = GameObject.Find("Directional Light");
         _dirLightObject = _dirLight.GetComponent<Light>();
         _center = GameObject.Find("Cube").transform;
     }
+    
+    
 }
