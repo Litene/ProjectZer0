@@ -17,7 +17,7 @@ namespace WeatherSystem
         }
 
         private void Start() {
-            StartWeatherState();
+            _target = GetDesiredWeatherState;
         }
 
         private List<string> WeatherStateNames => WeatherStates.Select(weatherState => weatherState.Name).ToList();
@@ -27,9 +27,6 @@ namespace WeatherSystem
         public WeatherState[] WeatherStates;
 
         private WeatherState _target;
-        private WeatherState _previous;
-
-        private WeatherState _lastDesiredWeatherState;
 
         public WeatherState GetNearestWeatherState() {
             var minDeltaIntensity = Mathf.Infinity;
@@ -48,27 +45,8 @@ namespace WeatherSystem
             return WeatherStates.ToList().FirstOrDefault(state => name == state.Name);
         }
 
-        private void StartWeatherState() {
-            var desiredWeatherState = GetDesiredWeatherState;
-            _target = _previous = _lastDesiredWeatherState = desiredWeatherState;
-        }
-        
-        private void UpdateWeatherState() {
-            var desiredWeatherState = GetDesiredWeatherState;
-            if (desiredWeatherState != _lastDesiredWeatherState) {
-                SetDesiredWeatherState(desiredWeatherState);
-            }
-            _lastDesiredWeatherState = desiredWeatherState;
-        }
-        
-        private void SetDesiredWeatherState(WeatherState value) { 
-            _previous = _target;
-            _target = value;
-        }
-
         private void Update() {
             if (!Application.isPlaying) { return; }
-            UpdateWeatherState();
             UpdateIntensity();
         }
 
@@ -77,11 +55,11 @@ namespace WeatherSystem
         }
 
         private void UpdateIntensity() {
-            var transitionDirection = Mathf.Sign(_target.Intensity - _previous.Intensity);
+            _target = GetDesiredWeatherState;
+            var transitionDirection = Mathf.Sign(_target.Intensity - _weatherController.Intensity);
             var transitionRate = Time.deltaTime / TOTAL_TRANSITION_DURATION;
             if (Mathf.Abs(_target.Intensity - _weatherController.Intensity) <= transitionRate) {
                 _weatherController.Intensity = _target.Intensity;
-                _previous = _target;
                 return; 
             }
             _weatherController.Intensity += transitionDirection * transitionRate;

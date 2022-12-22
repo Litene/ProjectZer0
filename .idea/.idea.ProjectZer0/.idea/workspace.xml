@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/GenerateEnum.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/GenerateEnum.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/ArcticWeatherDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ArcticWeatherDemo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherDirector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherDirector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/FogController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/FogController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/SnowController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/SnowController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Editor/WeatherDirector_Inspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weather System/Editor/WeatherDirector_Inspector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/WeatherDirector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weather System/WeatherDirector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +85,8 @@
       <workItem from="1671659001011" duration="4330000" />
       <workItem from="1671706912223" duration="5647000" />
       <workItem from="1671715596003" duration="506000" />
-      <workItem from="1671716131210" duration="5913000" />
+      <workItem from="1671716131210" duration="7134000" />
+      <workItem from="1671724057453" duration="444000" />
     </task>
     <servers />
   </component>

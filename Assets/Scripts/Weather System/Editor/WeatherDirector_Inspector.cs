@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using UnityEditor;
 using UnityEngine;
 
@@ -19,8 +20,17 @@ namespace WeatherSystem.Editor
             EditorGUILayout.HelpBox("Nearest Weather State: " + _weatherDirector.GetNearestWeatherState().Name, MessageType.Info);
         }
 
+        private WeatherState _lastDesiredWeatherState;
+        
+        private bool HasDesiredWeatherStateChanged() {
+            var desiredWeatherState = _weatherDirector.GetDesiredWeatherState;
+            var hasDesiredWeatherStateChanged = (desiredWeatherState != _lastDesiredWeatherState);
+            _lastDesiredWeatherState = desiredWeatherState;
+            return hasDesiredWeatherStateChanged;
+        }
+
         private void ApplyWeatherStateImmediate() {
-            if (Application.isPlaying) { return; }
+            if (Application.isPlaying || !HasDesiredWeatherStateChanged()) { return; }
             _weatherDirector.ApplyWeatherStateImmediate(_weatherDirector.GetDesiredWeatherState);
         }
     }
