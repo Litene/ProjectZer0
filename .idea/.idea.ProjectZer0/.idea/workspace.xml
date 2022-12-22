@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/VFX/SimpleSnow.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/VFX/SimpleSnow.vfx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/ArcticWeatherDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ArcticWeatherDemo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherDirector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherDirector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/GenerateEnum.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weather System/ArcticWeatherDirector.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@12.1.8/Runtime/Common/SerializedDictionary.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXBinderBase.cs" root0="SKIP_HIGHLIGHTING" />
@@ -82,6 +82,7 @@
       <workItem from="1670415196118" duration="2651000" />
       <workItem from="1671228170335" duration="2341000" />
       <workItem from="1671659001011" duration="4330000" />
+      <workItem from="1671706912223" duration="4957000" />
     </task>
     <servers />
   </component>

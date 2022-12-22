@@ -1162,6 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5726beb57b43664ea6632f19240ef1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DesiredArcticWeatherState: Clear
   ArcticWeatherStates:
   - Name: Clear
     Intensity: 0
@@ -1171,6 +1172,12 @@ MonoBehaviour:
     Intensity: 0.7
   - Name: Heavy
     Intensity: 1
+  _target:
+    Name: Clear
+    Intensity: 0
+  _previous:
+    Name: Clear
+    Intensity: 0
 --- !u!1 &1956279269
 GameObject:
   m_ObjectHideFlags: 0
