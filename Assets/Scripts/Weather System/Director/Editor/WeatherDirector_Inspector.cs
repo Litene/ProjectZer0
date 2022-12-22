@@ -1,12 +1,12 @@
-using NUnit.Framework.Constraints;
 using UnityEditor;
 using UnityEngine;
+using WeatherSystem.Director;
 
-namespace WeatherSystem.Editor
-{
+namespace WeatherSystem.Editor {
     [CustomEditor(typeof(WeatherDirector))]
     public class WeatherDirector_Inspector : UnityEditor.Editor {
         private WeatherDirector _weatherDirector;
+        private WeatherState _lastDesiredWeatherState;
         
         public override void OnInspectorGUI() {
             DrawDefaultInspector();
@@ -20,8 +20,6 @@ namespace WeatherSystem.Editor
             EditorGUILayout.HelpBox("Nearest Weather State: " + _weatherDirector.GetNearestWeatherState().Name, MessageType.Info);
         }
 
-        private WeatherState _lastDesiredWeatherState;
-        
         private bool HasDesiredWeatherStateChanged() {
             var desiredWeatherState = _weatherDirector.GetDesiredWeatherState;
             var hasDesiredWeatherStateChanged = (desiredWeatherState != _lastDesiredWeatherState);
