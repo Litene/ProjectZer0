@@ -5,7 +5,7 @@ using Utilities;
 namespace WeatherSystem
 {
     [ExecuteAlways]
-    public class ArcticWeatherController : MonoBehaviour {
+    public class WeatherController : MonoBehaviour {
         [SerializeProperty("Intensity")]
         public float _intensity;
         public float Intensity {

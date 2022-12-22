@@ -482,7 +482,7 @@ VisualEffect:
       - m_Value: 10
         m_Name: Size
         m_Overridden: 1
-      - m_Value: 0.5
+      - m_Value: 0.25
         m_Name: Ambient Wind Strength
         m_Overridden: 1
       - m_Value: 0.35
@@ -519,7 +519,7 @@ VisualEffect:
       - m_Value: 128
         m_Name: Snow Fall Rate
         m_Overridden: 1
-      - m_Value: 32
+      - m_Value: 0
         m_Name: Snowfall Rate
         m_Overridden: 1
     m_Matrix4x4f:
@@ -1162,22 +1162,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5726beb57b43664ea6632f19240ef1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DesiredArcticWeatherState: Clear
-  ArcticWeatherStates:
+  DesiredWeatherState: Clear
+  WeatherStates:
   - Name: Clear
     Intensity: 0
   - Name: Light
-    Intensity: 0.3
+    Intensity: 0.33
   - Name: Moderate
-    Intensity: 0.7
+    Intensity: 0.67
   - Name: Heavy
     Intensity: 1
-  _target:
-    Name: Clear
-    Intensity: 0
-  _previous:
-    Name: Clear
-    Intensity: 0
 --- !u!1 &1956279269
 GameObject:
   m_ObjectHideFlags: 0
