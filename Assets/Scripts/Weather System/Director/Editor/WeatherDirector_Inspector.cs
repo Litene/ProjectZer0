@@ -16,8 +16,8 @@ namespace WeatherSystem.Editor {
         }
         
         private void DrawNearestWeatherStateInspector() {
-            if (_weatherDirector.GetNearestWeatherState() == null) { return; }
-            EditorGUILayout.HelpBox("Nearest Weather State: " + _weatherDirector.GetNearestWeatherState().Name, MessageType.Info);
+            if (_weatherDirector.GetCurrentWeatherState() == null) { return; }
+            EditorGUILayout.HelpBox("Current weather state: " + _weatherDirector.GetCurrentWeatherState().Name, MessageType.Info);
         }
 
         private bool HasDesiredWeatherStateChanged() {

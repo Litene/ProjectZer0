@@ -45,17 +45,17 @@ namespace WeatherSystem {
             _weatherController.Intensity += transitionDirection * transitionRate;
         }
         
-        public WeatherState GetNearestWeatherState() {
+        public WeatherState GetCurrentWeatherState() {
             var minDeltaIntensity = Mathf.Infinity;
-            WeatherState nearestWeatherState = null;
+            WeatherState currentWeatherState = null;
             foreach (var weatherState in WeatherStates) {
                 var absoluteDeltaIntensity = Mathf.Abs(weatherState.Intensity - _weatherController.Intensity);
                 if (absoluteDeltaIntensity < minDeltaIntensity) {
                     minDeltaIntensity = absoluteDeltaIntensity;
-                    nearestWeatherState = weatherState;
+                    currentWeatherState = weatherState;
                 }
             }
-            return nearestWeatherState;
+            return currentWeatherState;
         }
         
         public void ApplyWeatherStateImmediate(WeatherState value) {
