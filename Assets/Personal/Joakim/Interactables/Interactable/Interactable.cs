@@ -26,7 +26,7 @@ public class Interactable : MonoBehaviour, IInteractable {
         Ventilation,
         Window
     }
-    
+
     public InteractableType TypeOfInteractable;
     public KeyPressInteractions KeyPressInteractionType;
     
@@ -69,8 +69,17 @@ public class Interactable : MonoBehaviour, IInteractable {
                     break;
             }
         }
-    }
 
+        if (isPickup && itemPickup.isDisabled) {
+            this.gameObject.SetActive(false);
+        }
+
+        if (isPickup) {
+            itemPickup.itemPosition = transform.position;
+        }
+        
+    }
+    
     //open door/window/ventilationShaft Animation, currently placeholder
     IEnumerator OpenDoor() {
         GetComponent<MeshRenderer>().enabled = false;
