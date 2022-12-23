@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
-using Unity.VisualScripting;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
 
@@ -21,7 +18,10 @@ public class Inventory : Singleton<Inventory> {
     }
 
     public void UseItem(Item item) {
-
+        if (item.destroyOnUse) {
+            ItemsInInventory.Remove(item);
+            UpdateInventory();
+        }
     }
 
     public void SelectItem() {
@@ -31,7 +31,8 @@ public class Inventory : Singleton<Inventory> {
     public void UpdateInventory() {
         if (ItemsInInventory.Count > 0) {
             int index = 0;
-            foreach (var Item in ItemsInInventory) {
+            foreach (var Item in ItemsInInventory) { 
+                ItemSlots[index].GetComponent<Image>().color = Color.white;
               ItemSlots[index].GetComponent<Image>().overrideSprite = Item.itemSprite;
               index++;
             }

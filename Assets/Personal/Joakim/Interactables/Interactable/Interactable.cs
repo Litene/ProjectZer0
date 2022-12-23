@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -9,9 +8,10 @@ public class Interactable : MonoBehaviour, IInteractable {
     public string HintText;
     public KeyCode KeyPressHintText;
     public Item itemPickup;
+    public Item KeyItem;
     private TextMeshProUGUI _worldSpaceText;
     private GameObject _thisInteractableCanvas;
-    public bool isPickup, isKeyInteractable;
+    public bool isPickup, isKeyInteractable, isLocked;
     private GameObject PlayerRef;
     private GameObject temp;
 
@@ -59,13 +59,46 @@ public class Interactable : MonoBehaviour, IInteractable {
         if (isKeyInteractable && PlayerInRange() && UnityEngine.Input.GetKeyDown(KeyPressHintText)) {
             switch (KeyPressInteractionType) {
                 case KeyPressInteractions.Door:
-                    StartCoroutine(OpenDoor());
+                    if (isLocked && Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        StartCoroutine(OpenDoor());
+                        Inventory.Instance.UseItem(KeyItem);
+                    }
+                    if (isLocked && !Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        Debug.Log("key item for this door not present in inventory.");
+                        return;
+                    }
+
+                    if (!isLocked) {
+                        StartCoroutine(OpenDoor());
+                    }
                     break;
                 case KeyPressInteractions.Ventilation:
-                    StartCoroutine(OpenDoor());
+                    if (isLocked && Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        StartCoroutine(OpenDoor());
+                        Inventory.Instance.UseItem(KeyItem);
+                    }
+                    if (isLocked && !Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        Debug.Log("key item for this shaft not present in inventory.");
+                        return;
+                    }
+
+                    if (!isLocked) {
+                        StartCoroutine(OpenDoor());
+                    }
                     break;
                 case KeyPressInteractions.Window:
-                    StartCoroutine(OpenDoor());
+                    if (isLocked && Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        StartCoroutine(OpenDoor());
+                        Inventory.Instance.UseItem(KeyItem);
+                    }
+                    if (isLocked && !Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        Debug.Log("key item for this window not present in inventory.");
+                        return;
+                    }
+
+                    if (!isLocked) {
+                        StartCoroutine(OpenDoor());
+                    }
                     break;
             }
         }
@@ -95,7 +128,7 @@ public class Interactable : MonoBehaviour, IInteractable {
         return false;
     }
 
-    //tweens here are looping ! Ill find a better way eventually
+    //tweens here are looping ! Ill find a better way, soon
     public void LookAt() {
         Sequence showHintWorldCanvas = DOTween.Sequence();
         showHintWorldCanvas.Append(_thisInteractableCanvas.transform.DOScaleY(0.0002982685f, 0.2f)).OnComplete(() => { 
