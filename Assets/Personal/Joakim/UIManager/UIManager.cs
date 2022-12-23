@@ -5,6 +5,7 @@ public class UIManager : Singleton<UIManager> {
     private GameObject _uiManager;
     private GameObject _temporaryObject;
     public GameObject PickUpItemPanel;
+    public GameObject ItemInventoryPanel;
     public TextMeshProUGUI PickUpItemText;
     
     //temp raycast
@@ -19,8 +20,16 @@ public class UIManager : Singleton<UIManager> {
         };
     }
 
+    public void ShowItemInventory() {
+        ItemInventoryPanel.SetActive(true);
+    }
+
+    public void HideItemInventory() {
+        ItemInventoryPanel.SetActive(false);
+    }
+
     public void ShowPickUpInfo() {
-        PickUpItemText.text = "Press [E] To Pick Up " + itemName;
+        PickUpItemText.text = "Press [E] To Pick Up " + itemName; //proper keybound should be displayed
         PickUpItemPanel.SetActive(true);
     }
 
