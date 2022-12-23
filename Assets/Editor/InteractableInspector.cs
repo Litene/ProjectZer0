@@ -9,6 +9,8 @@ public class InteractableInspector : Editor {
         keyPressHint_property,
         itemPickup_property,
         textHint_property,
+        isLocked_property,
+        keyItem_property,
         typeOfKeyPressInteraction_property;
 
     private void OnEnable() {
@@ -17,6 +19,8 @@ public class InteractableInspector : Editor {
         textHint_property = serializedObject.FindProperty("HintText");
         keyPressHint_property = serializedObject.FindProperty("KeyPressHintText");
         itemPickup_property = serializedObject.FindProperty("itemPickup");
+        isLocked_property = serializedObject.FindProperty("isLocked");
+        keyItem_property = serializedObject.FindProperty("KeyItem");
     }
 
     public override void OnInspectorGUI() {
@@ -33,6 +37,10 @@ public class InteractableInspector : Editor {
             case Interactable.InteractableType.KeyPressHint:
                 EditorGUILayout.PropertyField(keyPressHint_property, new GUIContent("KeyPressHintText"));
                 EditorGUILayout.PropertyField(typeOfKeyPressInteraction_property);
+                EditorGUILayout.PropertyField(isLocked_property, new GUIContent("isLocked"));
+                if (isLocked_property.boolValue) {
+                    EditorGUILayout.PropertyField(keyItem_property, new GUIContent("KeyItem"));
+                }
                 break;
             case Interactable.InteractableType.PickUp:
                 EditorGUILayout.PropertyField(itemPickup_property, new GUIContent("itemPickup"));

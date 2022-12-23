@@ -41,7 +41,7 @@ public class UIManager : Singleton<UIManager> {
         //Start of cursed raycast. This shouldnt be in UI Manager, but while we dont have a proper controller it makes most sense to have it here.
         ray.origin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
         ray.direction = Camera.main.transform.forward;
-        if (Physics.Raycast(ray, out raycasthit, 100f)) {
+        if (Physics.Raycast(ray, out raycasthit, 10 )) {
             if (raycasthit.collider.tag == "Interactable") {
                 _temporaryObject = raycasthit.collider.gameObject;
                 raycasthit.collider.GetComponent<Interactable>().LookAt();
