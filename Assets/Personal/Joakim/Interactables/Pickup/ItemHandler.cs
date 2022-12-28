@@ -29,15 +29,15 @@ public class ItemHandler : MonoBehaviour{
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Pickup") && other.GetComponent<Interactable>().isPickup) {
-            var itemToAdd = other.GetComponent<Interactable>().itemPickup;
+        if (other.CompareTag("Pickup") && other.GetComponent<Interactable>().IsPickup) {
+            var itemToAdd = other.GetComponent<Interactable>().ItemPickup;
             ItemsInRange.Add(itemToAdd);
         }
     }
     
     private void OnTriggerExit(Collider other) {
-        if (other.CompareTag("Pickup") && other.GetComponent<Interactable>().isPickup) {
-            var itemToRemove = other.GetComponent<Interactable>().itemPickup;
+        if (other.CompareTag("Pickup") && other.GetComponent<Interactable>().IsPickup) {
+            var itemToRemove = other.GetComponent<Interactable>().ItemPickup;
             ItemsInRange.Remove(itemToRemove);
         }
     }
