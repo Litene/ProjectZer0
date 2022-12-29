@@ -4,11 +4,12 @@
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/Richard_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Richard/Richard_Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Additive.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Additive.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Additive.shadergraph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Additive.shadergraph.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/FX_WriteToRT.vfx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/FX_WriteToRT.vfx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/M_Snow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/M_Snow.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Snow.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Snow.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/T_RT_Snow.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/T_RT_Snow.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +90,7 @@
       <workItem from="1672238079551" duration="1191000" />
       <workItem from="1672313887895" duration="6271000" />
       <workItem from="1672324671724" duration="3113000" />
+      <workItem from="1672334058175" duration="1046000" />
     </task>
     <servers />
   </component>
