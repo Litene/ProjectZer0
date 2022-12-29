@@ -32,7 +32,7 @@ public class CumulativeTexture : MonoBehaviour {
 
     private void Update() {
         // Get render texture from render material
-        var renderTexture = RenderTexture.GetTemporary(Resolution.x, Resolution.y);
+        var renderTexture = RenderTexture.GetTemporary(Resolution.x, Resolution.y, 0, RenderTextureFormat.R8);
         Graphics.Blit(null, renderTexture, _material, 0);
         
         // Set the cumulative render texture to be the material's output
