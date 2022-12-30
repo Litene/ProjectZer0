@@ -1,35 +1,55 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIManager : Singleton<UIManager> {
-    private GameObject Canvas;
-    private GameObject _pickUpItemPanel;
-    private GameObject _itemInventoryPanel;
-    private TextMeshProUGUI _pickUpItemText;
+    private GameObject _uiManager;
+    private GameObject _temporaryObject;
+    public GameObject PickUpItemPanel;
+    public GameObject ItemInventoryPanel;
+    public TextMeshProUGUI PickUpItemText;
+    
+    //temp raycast
+    private Ray ray;
+    private RaycastHit raycasthit;
+
     public string itemName;
 
     private void Awake() {
-        Canvas = GameObject.Find("Canvas-UI-Overlay");
-        _pickUpItemPanel = Canvas.transform.Find("PickUpItemPanel").gameObject;
-        _itemInventoryPanel = Canvas.transform.Find("InventoryOverlay").gameObject;
-        _pickUpItemText = _pickUpItemPanel.transform.Find("PickUpText").GetComponent<TextMeshProUGUI>();
+        _uiManager ??= new GameObject {
+            name = "UI Manager"
+        };
     }
 
     public void ShowItemInventory() {
-        _itemInventoryPanel.SetActive(true);
+        ItemInventoryPanel.SetActive(true);
     }
 
     public void HideItemInventory() {
-        _itemInventoryPanel.SetActive(false);
+        ItemInventoryPanel.SetActive(false);
     }
 
     public void ShowPickUpInfo() {
-        _pickUpItemText.text = "Press [E] To Pick Up " + itemName; //proper keybound should be displayed
-        _pickUpItemPanel.SetActive(true);
+        PickUpItemText.text = "Press [E] To Pick Up " + itemName; //proper keybound should be displayed
+        PickUpItemPanel.SetActive(true);
     }
 
     public void HidePickUpInfo() {
-        _pickUpItemPanel.SetActive(false);
+        PickUpItemPanel.SetActive(false);
+    }
+    
+    private void Update() {
+        //Start of cursed raycast. This shouldnt be in UI Manager, but while we dont have a proper controller it makes most sense to have it here.
+        ray.origin = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+        ray.direction = Camera.main.transform.forward;
+        if (Physics.Raycast(ray, out raycasthit, 10 )) {
+            if (raycasthit.collider.tag == "Interactable") {
+                _temporaryObject = raycasthit.collider.gameObject;
+                raycasthit.collider.GetComponent<Interactable>().LookAt();
+            }
+            else if(_temporaryObject != null){
+                _temporaryObject.GetComponent<Interactable>().LookAway();
+            }
+        }
+        //end of cursed raycast
     }
 }

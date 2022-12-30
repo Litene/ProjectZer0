@@ -16,5 +16,4 @@ MonoBehaviour:
   itemDescription: This is a key or some shit
   itemSprite: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
   itemPosition: {x: 33.41, y: -0.19, z: -12.92}
-  destroyOnUse: 0
-  isDisabled: 0
+  isDisabled: 1

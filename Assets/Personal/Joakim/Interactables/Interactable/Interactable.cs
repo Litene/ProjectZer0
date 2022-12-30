@@ -2,38 +2,36 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
-using Sequence = DG.Tweening.Sequence;
 
 public class Interactable : MonoBehaviour, IInteractable {
-    public Item ItemPickup;
-    public bool IsPickup;
-    public bool IsLocked;
+    
     public string HintText;
     public KeyCode KeyPressHintText;
+    public Item itemPickup;
     public Item KeyItem;
     private TextMeshProUGUI _worldSpaceText;
     private GameObject _thisInteractableCanvas;
-    private GameObject _playerRef;
-    private GameObject _temp;
-    private GameObject _doorTriggerArea;
-    private bool _isDoor;
+    public bool isPickup, isKeyInteractable, isLocked;
+    private GameObject PlayerRef;
+    private GameObject temp;
 
     public enum InteractableType{
-        Door,
+        KeyPressHint,
+        HintTextOnly,
         PickUp
     }
 
-    public enum DoorType {
+    public enum KeyPressInteractions {
         Door,
         Ventilation,
         Window
     }
 
     public InteractableType TypeOfInteractable;
-    public DoorType _DoorType;
+    public KeyPressInteractions KeyPressInteractionType;
     
     private void Awake() {
-        _playerRef = GameObject.Find("Player");
+        PlayerRef = GameObject.Find("Player");
         Transform trans = transform;
         Transform canvasTrans = trans.Find("Canvas");
         if (canvasTrans != null) {
@@ -44,85 +42,75 @@ public class Interactable : MonoBehaviour, IInteractable {
     
     private void Start() {
         switch (TypeOfInteractable) {
-            case InteractableType.Door:
-                GenerateTriggerAreaForDoor();
+            case InteractableType.KeyPressHint:
                 _worldSpaceText.text = "[" + KeyPressHintText.ToString() + "]";
-                _isDoor = true;
+                isKeyInteractable = true;
+                break;
+            case InteractableType.HintTextOnly:
+                _worldSpaceText.text = HintText;
                 break;
             case InteractableType.PickUp:
-                IsPickup = true;
+                isPickup = true;
                 break;
-        }
-    }
-
-    public void TryToOpenDoor() {
-        switch (_DoorType) {
-                case DoorType.Door:
-                    if (IsLocked && Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
-                        StartCoroutine(OpenDoor());
-                        Inventory.Instance.UseItem(KeyItem);
-                    }
-                    if (IsLocked && !Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
-                        Debug.Log("key item for this door not present in inventory.");
-                        return;
-                    }
-
-                    if (!IsLocked) {
-                        StartCoroutine(OpenDoor());
-                    }
-                    break;
-                case DoorType.Ventilation:
-                    if (IsLocked && Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
-                        StartCoroutine(OpenDoor());
-                        Inventory.Instance.UseItem(KeyItem);
-                    }
-                    if (IsLocked && !Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
-                        Debug.Log("key item for this shaft not present in inventory.");
-                        return;
-                    }
-
-                    if (!IsLocked) {
-                        StartCoroutine(OpenDoor());
-                    }
-                    break;
-                case DoorType.Window:
-                    if (IsLocked && Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
-                        StartCoroutine(OpenDoor());
-                        Inventory.Instance.UseItem(KeyItem);
-                    }
-                    if (IsLocked && !Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
-                        Debug.Log("key item for this window not present in inventory.");
-                        return;
-                    }
-                    if (!IsLocked) {
-                        StartCoroutine(OpenDoor());
-                    }
-                    break;
         }
     }
 
     private void Update() {
-        if (IsPickup && ItemPickup.isDisabled) {
+        if (isKeyInteractable && PlayerInRange() && UnityEngine.Input.GetKeyDown(KeyPressHintText)) {
+            switch (KeyPressInteractionType) {
+                case KeyPressInteractions.Door:
+                    if (isLocked && Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        StartCoroutine(OpenDoor());
+                        Inventory.Instance.UseItem(KeyItem);
+                    }
+                    if (isLocked && !Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        Debug.Log("key item for this door not present in inventory.");
+                        return;
+                    }
+
+                    if (!isLocked) {
+                        StartCoroutine(OpenDoor());
+                    }
+                    break;
+                case KeyPressInteractions.Ventilation:
+                    if (isLocked && Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        StartCoroutine(OpenDoor());
+                        Inventory.Instance.UseItem(KeyItem);
+                    }
+                    if (isLocked && !Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        Debug.Log("key item for this shaft not present in inventory.");
+                        return;
+                    }
+
+                    if (!isLocked) {
+                        StartCoroutine(OpenDoor());
+                    }
+                    break;
+                case KeyPressInteractions.Window:
+                    if (isLocked && Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        StartCoroutine(OpenDoor());
+                        Inventory.Instance.UseItem(KeyItem);
+                    }
+                    if (isLocked && !Inventory.Instance.ItemsInInventory.Contains(KeyItem)) {
+                        Debug.Log("key item for this window not present in inventory.");
+                        return;
+                    }
+
+                    if (!isLocked) {
+                        StartCoroutine(OpenDoor());
+                    }
+                    break;
+            }
+        }
+
+        if (isPickup && itemPickup.isDisabled) {
             this.gameObject.SetActive(false);
         }
 
-        if (IsPickup) {
-            ItemPickup.itemPosition = transform.position;
+        if (isPickup) {
+            itemPickup.itemPosition = transform.position;
         }
         
-    }
-
-    void GenerateTriggerAreaForDoor() {
-        var triggerArea = new GameObject();
-        triggerArea.name = "TriggerArea";
-        triggerArea.transform.parent = this.transform;
-        triggerArea.transform.localScale = new Vector3(10f, 1f, 1f);
-        triggerArea.transform.rotation = transform.rotation;
-        triggerArea.transform.position = transform.position;
-        triggerArea.AddComponent<BoxCollider>();
-        triggerArea.GetComponent<BoxCollider>().isTrigger = true;
-        triggerArea.AddComponent<DoorTriggerBehavior>();
-        _doorTriggerArea = triggerArea;
     }
     
     //open door/window/ventilationShaft Animation, currently placeholder
@@ -135,7 +123,7 @@ public class Interactable : MonoBehaviour, IInteractable {
     }
 
     bool PlayerInRange() {
-        if (Vector3.Distance(_playerRef.transform.position, transform.position) < 2)
+        if (Vector3.Distance(PlayerRef.transform.position, transform.position) < 2)
             return true;
         return false;
     }
