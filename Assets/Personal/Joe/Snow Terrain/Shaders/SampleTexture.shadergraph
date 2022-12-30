@@ -40,7 +40,11 @@
             "m_Id": "038a84dd02694e318b07bdb50089dc51"
         }
     ],
-    "m_GroupDatas": [],
+    "m_GroupDatas": [
+        {
+            "m_Id": "7cc6c7b3d19e490daa65e7a4cf1916e1"
+        }
+    ],
     "m_StickyNoteDatas": [],
     "m_Edges": [
         {
@@ -133,10 +137,10 @@
     "m_Guid": {
         "m_GuidSerialized": "74159c90-302d-44a6-a8a5-461f77567848"
     },
-    "m_Name": "Texture2D",
+    "m_Name": "Texture",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Texture2D",
-    "m_DefaultReferenceName": "_Texture2D",
+    "m_RefNameGeneratedByDisplayName": "Texture",
+    "m_DefaultReferenceName": "_Texture",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -160,17 +164,17 @@
     "m_Type": "UnityEditor.ShaderGraph.SampleTexture2DNode",
     "m_ObjectId": "038a84dd02694e318b07bdb50089dc51",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "7cc6c7b3d19e490daa65e7a4cf1916e1"
     },
     "m_Name": "Sample Texture 2D",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -384.79998779296877,
-            "y": 233.59999084472657,
-            "width": 207.99996948242188,
-            "height": 432.0
+            "x": -389.0,
+            "y": 200.0,
+            "width": 208.0,
+            "height": 435.0
         }
     },
     "m_Slots": [
@@ -559,20 +563,31 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "7cc6c7b3d19e490daa65e7a4cf1916e1",
+    "m_Title": "Sample texture",
+    "m_Position": {
+        "x": 10.0,
+        "y": 10.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "89d340189f264ecd96a5f6627dde0143",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "7cc6c7b3d19e490daa65e7a4cf1916e1"
     },
     "m_Name": "Property",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -565.5999755859375,
-            "y": 253.60000610351563,
-            "width": 138.39999389648438,
-            "height": 33.600006103515628
+            "x": -560.0,
+            "y": 200.0,
+            "width": 124.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -819,7 +834,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "ebf96c824888434791f29e189a6da313",
     "m_Id": 0,
-    "m_DisplayName": "Texture2D",
+    "m_DisplayName": "Texture",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
