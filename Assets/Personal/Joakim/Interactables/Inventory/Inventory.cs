@@ -3,7 +3,6 @@ using UnityEngine;
 using Image = UnityEngine.UI.Image;
 
 public class Inventory : Singleton<Inventory> {
-    
     public List<Item> ItemsInInventory = new List<Item>();
     public List<GameObject> ItemSlots = new List<GameObject>();
 
