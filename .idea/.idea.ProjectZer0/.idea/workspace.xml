@@ -3,33 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/Richard_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Richard/Richard_Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/AccumulatedSnow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/AccumulatedSnow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/C_RT_Snow.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/C_RT_Snow.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/CumulativeRenderTexture.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/CumulativeRenderTexture.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/CumulativeTexture.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/CumulativeTexture.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/FX_WriteToRT.vfx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/FX_WriteToRT.vfx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Lighten.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Lighten.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Lighten.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Lighten.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/M_Snow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/M_Snow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Plane.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Plane.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Snow.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Snow.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/T_RT_Snow.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/T_RT_Snow.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Texture.shadergraph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Richard/SnowGround/Texture.shadergraph.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Gustav/SunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/SunController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +12,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/c1/95adac0c/RenderTexture.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/ExploreObjective.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/Objective.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/Quest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/QuestCreator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraPointer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXBinderBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXPropertyBinder.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -55,7 +35,6 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -104,16 +83,12 @@
       <workItem from="1670404861391" duration="3106000" />
       <workItem from="1670414722613" duration="380000" />
       <workItem from="1670415196118" duration="2651000" />
-      <workItem from="1672151567353" duration="4756000" />
-      <workItem from="1672165154680" duration="10686000" />
-      <workItem from="1672238079551" duration="1191000" />
-      <workItem from="1672313887895" duration="6271000" />
-      <workItem from="1672324671724" duration="3113000" />
-      <workItem from="1672334058175" duration="1047000" />
-      <workItem from="1672411793479" duration="4831000" />
-      <workItem from="1672423670542" duration="5000" />
-      <workItem from="1672424076928" duration="41000" />
-      <workItem from="1672424268622" duration="420000" />
+      <workItem from="1671192457445" duration="929000" />
+      <workItem from="1671284917069" duration="7168000" />
+      <workItem from="1671364348648" duration="25000" />
+      <workItem from="1671448151616" duration="16194000" />
+      <workItem from="1671546499881" duration="5461000" />
+      <workItem from="1671710837300" duration="2361000" />
     </task>
     <servers />
   </component>
