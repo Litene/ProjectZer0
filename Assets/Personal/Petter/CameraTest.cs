@@ -10,17 +10,21 @@ public class CameraTest : MonoBehaviour {
     private Camera _camera;
 
     public float focusSpeed = 1;
+    public float idlePitch = 10f;
+    public float defaultZoom = 5f;
 
     private Vector3 orbitForward;
     private Vector3 targetAngles;
     private Vector3 orbitOffset;
     private Vector3 panningOffset;
+    private Vector2 screenPanning;
 
     private float zoomLevel = 10;
     
     private void Awake()
     {
         _camera = GetComponent<Camera>();
+        zoomLevel = defaultZoom;
     }
 
     private float idleTimer = 0;
@@ -29,7 +33,8 @@ public class CameraTest : MonoBehaviour {
     {
         OrbitCamera();
         ComposeCamera();
-        
+
+        idleTimer = Mathf.Clamp01(idleTimer);
         transform.position = player.position + orbitOffset + panningOffset;
         transform.eulerAngles = targetAngles;
     }
@@ -40,8 +45,7 @@ public class CameraTest : MonoBehaviour {
 
         if (lookInput.sqrMagnitude != 0)
         {
-            if(lookInput.magnitude > .25f)
-            idleTimer = 0;
+            idleTimer -= Time.deltaTime * .25f;
             
             targetAngles.x += -lookInput.y * Time.deltaTime * 15f;
             targetAngles.y += lookInput.x * Time.deltaTime * 15f;
@@ -53,11 +57,12 @@ public class CameraTest : MonoBehaviour {
                 targetAngles.y -= 360f;
             else if (targetAngles.y < 0f)
                 targetAngles.y += 360f;
-
-            zoomLevel = Mathf.MoveTowards(zoomLevel, 10, Time.deltaTime*10f);
+            
+            if(idleTimer < .25f)
+                zoomLevel = Mathf.MoveTowards(zoomLevel, defaultZoom, Time.deltaTime*10f);
         }
-
-        idleTimer += Time.deltaTime;
+        else
+            idleTimer += Time.deltaTime;
 
         Vector3 lookDirection = Quaternion.Euler(targetAngles)*Vector3.forward;
 
@@ -67,15 +72,20 @@ public class CameraTest : MonoBehaviour {
 
     void ComposeCamera()
     {
+        Matrix4x4 screenMatrix = _camera.projectionMatrix*_camera.worldToCameraMatrix;
+
+        Vector3 focusTarget;
+        
         if (idleTimer < .5f)
         {
-            panningOffset = Vector3.MoveTowards(panningOffset, Vector3.zero, Time.deltaTime * focusSpeed * 1.25f);
+            focusTarget = (new Vector3(0, 1 / 6f));
+            screenPanning = Vector2.MoveTowards(screenPanning, focusTarget, Time.deltaTime * focusSpeed*1.25f);
+
+            panningOffset = screenMatrix.inverse.MultiplyVector(screenPanning)*zoomLevel;
             return;
         }
         
-        targetAngles.x = Mathf.MoveTowardsAngle(targetAngles.x, 0, Time.deltaTime*15f);
-        
-        Matrix4x4 screenMatrix = _camera.projectionMatrix*_camera.worldToCameraMatrix;
+        targetAngles.x = Mathf.MoveTowardsAngle(targetAngles.x, _camera.fieldOfView*1/6f, Time.deltaTime*15f);
 
         Vector3 targetCamPos = screenMatrix.MultiplyPoint(target.position);
         Vector3 playerCamPos = screenMatrix.MultiplyPoint(player.position);
@@ -90,12 +100,11 @@ public class CameraTest : MonoBehaviour {
 
         zoomLevel += zoomDir * Time.deltaTime;
 
-        Vector3 focusTarget = (new Vector3(2 / 6f*panSide, 2 / 6f));
-        focusTarget.z = 0;
+        focusTarget = (new Vector3(2 / 6f*panSide, 2 / 6f, 0));
 
-        focusTarget = screenMatrix.inverse.MultiplyVector(focusTarget)*zoomLevel;
+        screenPanning = Vector2.MoveTowards(screenPanning, focusTarget, Time.deltaTime * focusSpeed);
 
-        panningOffset = Vector3.MoveTowards(panningOffset, focusTarget,Time.deltaTime * focusSpeed);
+        panningOffset = screenMatrix.inverse.MultiplyVector(screenPanning)*zoomLevel;
     }
 
     private void OnDrawGizmos()
