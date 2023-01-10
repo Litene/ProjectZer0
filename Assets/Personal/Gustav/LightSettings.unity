@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 894.3169, g: 724.8125, b: 806.1963, a: 1}
+  m_IndirectSpecularColor: {r: 890.834, g: 716.31836, b: 788.35547, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -188,8 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f504fa4c6faa4c4d9f6e37ad92c9388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickUpItemPanel: {fileID: 360906256}
-  PickUpItemText: {fileID: 1541867673}
   itemName: 
 --- !u!114 &71342697
 MonoBehaviour:
@@ -1981,7 +1979,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 72df1713414f15b448a873152ce603c4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.225924
+      value: -4.56
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 72df1713414f15b448a873152ce603c4,
         type: 3}
