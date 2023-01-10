@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Gustav/SunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/SunController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Calle/Scripts/T3rdLookTarget.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Calle/Scripts/T3rdLookTarget.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Calle/Scripts/TBasicCharController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Calle/Scripts/TBasicCharController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Calle/Scripts/TNew3rdCam.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Calle/Scripts/TNew3rdCam.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,12 +19,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/ExploreObjective.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/Objective.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/Quest.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Personal/Gustav/QuestCreator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraPointer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Calle/RandomEvents/Scripts/EventObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Calle/RandomEvents/Scripts/FloatEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Calle/RandomEvents/Scripts/RandomEventTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXBinderBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXPropertyBinder.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -89,6 +93,7 @@
       <workItem from="1671448151616" duration="16194000" />
       <workItem from="1671546499881" duration="5461000" />
       <workItem from="1671710837300" duration="2361000" />
+      <workItem from="1673355975288" duration="7326000" />
     </task>
     <servers />
   </component>
