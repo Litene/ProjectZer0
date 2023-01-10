@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class ParticleEffectPool : MonoBehaviour, IObjectPool<ParticleEffect> {
+public class ParticleEffectPool : MonoBehaviour, IObjectPool<ParticleEffect> { 
     private IObjectPool<ParticleEffect> _pool;
     private ParticleEffect _shaderParticleEffects;
     
@@ -12,7 +12,8 @@ public class ParticleEffectPool : MonoBehaviour, IObjectPool<ParticleEffect> {
     public int CountInactive => _pool.CountInactive;
     public void Init(ParticleEffect shaderParticleEffects) {
         _shaderParticleEffects = shaderParticleEffects;
-        _pool = new ObjectPool<ParticleEffect>(CreatePooledEffect, OnPoolGet, OnPoolRelease, OnPoolDestroy);
+        // ToDo: expose default and maxsize for in the particle effects class inspector and feed here.
+        _pool = new ObjectPool<ParticleEffect>(CreatePooledEffect, OnPoolGet, OnPoolRelease, OnPoolDestroy); 
     }
     private ParticleEffect CreatePooledEffect() {
         var effect = Instantiate(_shaderParticleEffects, Vector3.zero, Quaternion.identity);

@@ -9,7 +9,7 @@ public class UIManager : Singleton<UIManager> {
     private TextMeshProUGUI _pickUpItemText;
     public string itemName;
 
-    private void Awake() {
+    private void Awake() { // null reference causes issues
         Canvas = GameObject.Find("Canvas-UI-Overlay");
         _pickUpItemPanel = Canvas.transform.Find("PickUpItemPanel").gameObject;
         _itemInventoryPanel = Canvas.transform.Find("InventoryOverlay").gameObject;

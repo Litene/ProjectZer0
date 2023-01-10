@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class CameraPointer : MonoBehaviour {
+// Depricated..
+public class CameraPointer : MonoBehaviour { 
 
     [SerializeField] private List<PointOfInterest> _pointOfInterests = new List<PointOfInterest>();
-    public Player player;
+    public Player player; // Naming convetion
     private void OnTriggerEnter(Collider other) {
         if (_pointOfInterests.Count == 0) return;
         

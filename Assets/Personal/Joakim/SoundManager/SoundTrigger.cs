@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundTrigger : MonoBehaviour {
+[RequireComponent(typeof(Collider))]public class SoundTrigger : MonoBehaviour { // todo, fix private stuff. and naming. 
     
     
-    public enum soundType {
+    public enum soundType { // todo: add transform selection for moving things etc.
         localSound,
         worldSound,
         music
@@ -15,7 +15,6 @@ public class SoundTrigger : MonoBehaviour {
     public soundType SoundType;
     [Space]
     [Header("Type in audio name WITHOUT extension. (like .mp3)")]
-    [Header("Case sensitive.")]
     [Space(25)]
     public string audioName;
     [Space]
@@ -28,13 +27,13 @@ public class SoundTrigger : MonoBehaviour {
         if (other.CompareTag("Player")) {
             switch (SoundType) {
                 case soundType.localSound:
-                    SoundManager.Instance.PlaySound(audioName);
+                    SoundManager.Instance.PlaySound(audioName.ToUpper());
                     break;
                 case soundType.worldSound:
-                    SoundManager.Instance.PlaySound(audioName, audioPosition);
+                    SoundManager.Instance.PlaySound(audioName.ToUpper(), audioPosition);
                     break;
                 case soundType.music:
-                    SoundManager.Instance.PlayMusic(audioName);
+                    SoundManager.Instance.PlayMusic(audioName.ToUpper());
                     break;
             }
         }

@@ -32,7 +32,6 @@ public class Player : Singleton<Player> {
                 _renderedPoints.Add(point);
             }
             else if (_renderedPoints.Contains(point) && !point.Renderer.isVisible) {
-                Debug.Log("yo");
                 _renderedPoints.Remove(point);
             }
         }
