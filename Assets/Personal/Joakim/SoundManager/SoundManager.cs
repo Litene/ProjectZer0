@@ -9,7 +9,8 @@ using UnityEngine;
 using UnityEngine.Pool;
 
 public class SoundManager : Singleton<SoundManager> {
-    public AudioSource audioSource;
+    public AudioSource sfxSource;
+    public AudioSource musicSource;
     public List<AudioClip> sfxClips = new List<AudioClip>();
     public List<AudioClip> musicClips = new List<AudioClip>();
     public List<string> soundKeys = new List<string>();
@@ -96,7 +97,7 @@ public class SoundManager : Singleton<SoundManager> {
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
-    IEnumerator SpawnSoundObj(string fileName, Vector3 pos, float clipLength) {
+    public IEnumerator SpawnSoundObj(string fileName, Vector3 pos, float clipLength) {
          GameObject soundObj = _pool.Get();
          soundObj.name = "SoundAtPos";
          soundObj.transform.SetParent(_soundPool.transform);
@@ -112,15 +113,14 @@ public class SoundManager : Singleton<SoundManager> {
          Debug.Log("SoundManager: Played sound: '<color=green>"+fileName+"</color>' at <color=yellow>"+pos+"</color>");
          yield return new WaitForSeconds(clipLength);
         _pool.Release(soundObj);
-
-     }
+    }
 
      /// <summary>
     /// Plays sound <para>fileName</para>, exclude file extension.
     /// </summary>
     /// <param name="fileName"></param>
     public void PlaySound(string fileName) {
-         audioSource.PlayOneShot(_keyToAudio[fileName]);
+         sfxSource.PlayOneShot(_keyToAudio[fileName]);
     }
     
     /// <summary>
@@ -144,9 +144,13 @@ public class SoundManager : Singleton<SoundManager> {
         lAudioSource.PlayOneShot(_keyToAudio[fileName]);
     }
 
-    private void Update() {
-        if (UnityEngine.Input.GetKeyDown(KeyCode.T)) {
-            PlaySound("Sound1", new Vector3(4, 4, 4));
-        }
+    /// <summary>
+    /// Plays music <para>fileName</para>
+    /// </summary>
+    /// <param name="fileName"></param>
+    public void PlayMusic(string fileName) {
+        AudioClip ac = _keyToAudio[fileName];
+        musicSource.clip = ac;
+        musicSource.Play();
     }
 }
