@@ -16,7 +16,8 @@ public class ParticleEffect : MonoBehaviour {
 
     public void Init(IObjectPool<ParticleEffect> objectPool) {
         _pool = objectPool;
-        if (TryGetComponent(out ParticleSystem particleSystem)) {
+        // todo: rename particlesystem because it hides unity built in variables
+        if (TryGetComponent(out ParticleSystem particleSystem)) { 
             _particleSystem = particleSystem;
             var main = _particleSystem.main;
             main.stopAction = ParticleSystemStopAction.Callback;
@@ -32,7 +33,7 @@ public class ParticleEffect : MonoBehaviour {
     
     public void SetTransform(Vector3 position, Quaternion rotation) => transform.SetPositionAndRotation(position, rotation);
     public void PlayDelay(float delay) => Invoke(nameof(Play), delay);
-    private void Play() {
+    private void Play() { // Todo: Null check for _particleSystem and _VisualEffect
         switch (_type) {
             case ParticleSystemType.ParticleSystem: _particleSystem.Play(); break;
             case ParticleSystemType.VisualEffectsGraph: _visualEffect.Play(); break;

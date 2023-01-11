@@ -2,9 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Gustav/SunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/SunController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Gustav/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/SoundManager/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/SoundManager/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/SoundManager/SoundTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/SoundManager/SoundTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/UIManager/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/UIManager/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraPointer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraPointer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/PlayerCameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/PlayerCameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Effects/ParticleEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Effects/ParticleEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Effects/ParticleEffectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Effects/ParticleEffectPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/ParticleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/ParticleManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/SaveUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/SaveUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SunController/SunController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SunController/SunController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SunController/SunSetting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SunController/SunSetting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utilities/SerializeProperty.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utilities/SerializeProperty.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Vane/Editor/VaneEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Vane/Editor/VaneEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Controllers/Custom Controllers/FogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weather System/Controllers/Custom Controllers/FogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Controllers/Custom Controllers/SnowController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weather System/Controllers/Custom Controllers/SnowController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Controllers/WeatherController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weather System/Controllers/WeatherController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weather System/Director/WeatherDirector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weather System/Director/WeatherDirector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

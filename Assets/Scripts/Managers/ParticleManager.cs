@@ -17,7 +17,7 @@ public class ParticleManager : Singleton<ParticleManager> {
             var effect = _availableEffects[key];
 
             var newPool = new GameObject($"EffectPool: {key}").AddComponent<ParticleEffectPool>();
-            newPool.Init(effect);
+            newPool.Init(effect); // we could feed the max particles here. 
         
             _pooledEffects.Add(key, newPool);
         }

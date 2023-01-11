@@ -11,6 +11,8 @@ namespace WeatherSystem
         public float Intensity {
             get => _intensity;
             set {
+                if (value == _intensity) return;
+                
                 _intensity = Mathf.Clamp01(value);
                 OnIntensityChanged?.Invoke(_intensity);
             }

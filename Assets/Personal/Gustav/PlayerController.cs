@@ -14,7 +14,7 @@ public enum WalkModifier {
     Snow = 3,
     Indoor = 10
 }
-
+// scrapped
 public class PlayerController : MonoBehaviour {
     private Animator _animator;
     private Vector2 _moveVector;
@@ -39,17 +39,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
-
         _moveVector = CalculateMovement(InputManager.Instance.GetMoveInput());
 
-        if (UnityEngine.Input.GetKeyDown(KeyCode.LeftShift)) {
-            Debug.Log("Apa");
-            _currentWalkState = WalkState.Running;
-        }
-        else if (UnityEngine.Input.GetKeyUp(KeyCode.LeftShift)) {
-            Debug.Log("DApa");
-            _currentWalkState = WalkState.Walking;
-        }
+        if (UnityEngine.Input.GetKeyDown(KeyCode.LeftShift)) _currentWalkState = WalkState.Running;
+        else if (UnityEngine.Input.GetKeyUp(KeyCode.LeftShift)) _currentWalkState = WalkState.Walking;
 
         _animator.SetFloat(_xSpeedHash, _moveVector.x);
         _animator.SetFloat(_zSpeedHash, _moveVector.y);

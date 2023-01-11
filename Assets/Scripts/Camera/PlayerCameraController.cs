@@ -8,6 +8,7 @@ using UnityEngine;
 using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
 
+//depricated
 public class PlayerCameraController : MonoBehaviour {
     public Transform target;
     private Vector3 _focusPoint;
