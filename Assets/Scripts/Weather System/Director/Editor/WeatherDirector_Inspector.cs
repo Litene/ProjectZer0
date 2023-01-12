@@ -7,7 +7,7 @@ namespace WeatherSystem.Editor {
     public class WeatherDirector_Inspector : UnityEditor.Editor {
         private WeatherDirector _weatherDirector;
         private WeatherState _lastDesiredWeatherState;
-        
+
         public override void OnInspectorGUI() {
             DrawDefaultInspector();
             _weatherDirector = (WeatherDirector)target;
