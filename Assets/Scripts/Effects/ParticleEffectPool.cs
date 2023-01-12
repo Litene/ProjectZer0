@@ -12,8 +12,10 @@ public class ParticleEffectPool : MonoBehaviour, IObjectPool<ParticleEffect> {
     public int CountInactive => _pool.CountInactive;
     public void Init(ParticleEffect shaderParticleEffects) {
         _shaderParticleEffects = shaderParticleEffects;
-        // ToDo: expose default and maxsize for in the particle effects class inspector and feed here.
-        _pool = new ObjectPool<ParticleEffect>(CreatePooledEffect, OnPoolGet, OnPoolRelease, OnPoolDestroy); 
+        int defaultAmount = shaderParticleEffects.PreSpawnAmount != 0 ? shaderParticleEffects.PreSpawnAmount : 10;
+        int maxEffects = shaderParticleEffects.MaxEffects != 0 ? shaderParticleEffects.MaxEffects : 100;
+        _pool = new ObjectPool<ParticleEffect>(CreatePooledEffect, OnPoolGet, OnPoolRelease, OnPoolDestroy, 
+            true, defaultAmount, maxEffects); 
     }
     private ParticleEffect CreatePooledEffect() {
         var effect = Instantiate(_shaderParticleEffects, Vector3.zero, Quaternion.identity);
