@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using WeatherSystem.Director;
+using WeatherSystem.Controllers;
 
-namespace WeatherSystem {
+namespace WeatherSystem.Director {
     [ExecuteAlways, RequireComponent(typeof(WeatherController))]
     public class WeatherDirector : MonoBehaviour {
         [SerializeField] private WeatherState[] _weatherStates = Array.Empty<WeatherState>();

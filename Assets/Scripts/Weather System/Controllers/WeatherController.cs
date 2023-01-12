@@ -2,8 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Utilities;
 
-namespace WeatherSystem
-{
+namespace WeatherSystem.Controllers {
     [ExecuteAlways]
     public class WeatherController : MonoBehaviour {
         [SerializeProperty("Intensity")]
@@ -12,7 +11,6 @@ namespace WeatherSystem
             get => _intensity;
             set {
                 if (value == _intensity) return;
-                
                 _intensity = Mathf.Clamp01(value);
                 OnIntensityChanged?.Invoke(_intensity);
             }

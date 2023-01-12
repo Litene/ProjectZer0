@@ -2,8 +2,7 @@ using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.VFX.Utility;
 
-namespace WeatherSystem
-{
+namespace WeatherSystem.Controllers.CustomControllers {
     [ExecuteAlways, RequireComponent(typeof(VisualEffect))]
     public class SnowController : MonoBehaviour {
         private VisualEffect _snowVisualEffect;

@@ -1,8 +1,7 @@
 using UnityEditor;
 using UnityEngine;
-using WeatherSystem.Director;
 
-namespace WeatherSystem.Editor {
+namespace WeatherSystem.Director.Editor {
     [CustomEditor(typeof(WeatherDirector))]
     public class WeatherDirector_Inspector : UnityEditor.Editor {
         private WeatherDirector _weatherDirector;

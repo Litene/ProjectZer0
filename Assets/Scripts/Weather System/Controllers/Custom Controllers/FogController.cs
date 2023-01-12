@@ -2,9 +2,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 
-namespace WeatherSystem
-{
-    
+namespace WeatherSystem.Controllers.CustomControllers {
     [ExecuteAlways, RequireComponent(typeof(Volume))]
     public class FogController : MonoBehaviour {
         private Volume _fogVolume;
