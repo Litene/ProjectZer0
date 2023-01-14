@@ -482,7 +482,7 @@ VisualEffect:
       - m_Value: 10
         m_Name: Size
         m_Overridden: 1
-      - m_Value: 0.25
+      - m_Value: 0.27786884
         m_Name: Ambient Wind Strength
         m_Overridden: 1
       - m_Value: 0.35
@@ -519,7 +519,7 @@ VisualEffect:
       - m_Value: 128
         m_Name: Snow Fall Rate
         m_Overridden: 1
-      - m_Value: 0
+      - m_Value: 20
         m_Name: Snowfall Rate
         m_Overridden: 1
     m_Matrix4x4f:
@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2872fcf56b018444ab37eecf1b753968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intensity: 0
+  _intensity: 0.33333334
   OnIntensityChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1162,16 +1162,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5726beb57b43664ea6632f19240ef1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DesiredWeatherState: Clear
-  WeatherStates:
+  _weatherStates:
   - Name: Clear
     Intensity: 0
   - Name: Light
-    Intensity: 0.33
+    Intensity: 0.33333334
   - Name: Moderate
-    Intensity: 0.67
+    Intensity: 0.6666667
   - Name: Heavy
     Intensity: 1
+  DesiredWeatherState: Light
 --- !u!1 &1956279269
 GameObject:
   m_ObjectHideFlags: 0
