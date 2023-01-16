@@ -8,21 +8,23 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class SoundManager : Singleton<SoundManager> {
-    public AudioSource audioSource;
+public class SoundManager : Singleton<SoundManager> { // todo: rename public variables. later to be changed to private. 
+    public AudioSource sfxSource;
+    public AudioSource musicSource;
     public List<AudioClip> sfxClips = new List<AudioClip>();
     public List<AudioClip> musicClips = new List<AudioClip>();
     public List<string> soundKeys = new List<string>();
     public List<string> musicKeys = new List<string>();
     private readonly Dictionary<string, AudioClip> _keyToAudio = new Dictionary<string, AudioClip>();
-    private string _sfxFileDirectory;
+    private string _sfxFileDirectory; //todo: could probably be readonly
     private string _musicFileDirectory;
     private string[] _sfxFiles;
     private string[] _musicFiles;
     private GameObject _soundObject;
-    private GameObject _soundPool;
+    private GameObject _soundPool; // probably rename
     private ObjectPool<GameObject> _pool;
 
+    // todo: remove debug logs or disable.
     private void Awake() {
         if (_soundPool == null) {
             _soundPool = new GameObject {
@@ -30,7 +32,7 @@ public class SoundManager : Singleton<SoundManager> {
             };
         }
         
-        _pool = new ObjectPool<GameObject>(() => _soundObject = new GameObject(), soundObj => {
+        _pool = new ObjectPool<GameObject>(() => _soundObject = new GameObject(), soundObj => { //todo: can be changed to audiosource instead of gameobject.
             soundObj.SetActive(true);
         }, soundObj => { 
             soundObj.SetActive(false);
@@ -44,7 +46,7 @@ public class SoundManager : Singleton<SoundManager> {
         Debug.Log("SoundManager: <color=yellow>Current Dir for SFX: </color>" + _sfxFileDirectory +
                   "<color=yellow>, Current Dir for Music: </color>" + _musicFileDirectory);
 
-        if (Directory.Exists(Application.dataPath + "/Personal/Joakim/SFX")) {
+        if (Directory.Exists(_sfxFileDirectory)) {
             _sfxFiles = Directory.GetFiles(_sfxFileDirectory).Where(fileName => !fileName.EndsWith(".meta")).ToArray();
             Debug.Log("SoundManager: <color=green>SFX Directory Found!</color>");
         }
@@ -52,7 +54,7 @@ public class SoundManager : Singleton<SoundManager> {
             Debug.Log("SoundManager: <color=red>SFX Directory not Found!</color>");
         }
 
-        if (Directory.Exists(Application.dataPath + "/Personal/Joakim/Music")) {
+        if (Directory.Exists(_musicFileDirectory)) {
             _musicFiles = Directory.GetFiles(_musicFileDirectory).Where(fileName => !fileName.EndsWith(".meta")).ToArray();
             Debug.Log("SoundManager: <color=green>Music Directory Found!</color>");
         }
@@ -96,31 +98,25 @@ public class SoundManager : Singleton<SoundManager> {
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
-    IEnumerator SpawnSoundObj(string fileName, Vector3 pos, float clipLength) {
+    public IEnumerator SpawnSoundObj(string fileName, Vector3 pos, float clipLength) {
          GameObject soundObj = _pool.Get();
          soundObj.name = "SoundAtPos";
          soundObj.transform.SetParent(_soundPool.transform);
          soundObj.transform.position = pos;
-         if (soundObj.GetComponent<AudioSource>() == null) {
-             soundObj.AddComponent<AudioSource>();
-         }
-         else {
-             soundObj.GetComponent<AudioSource>();
-         }
-         var sAudioSource = soundObj.GetComponent<AudioSource>();
-         sAudioSource.PlayOneShot(_keyToAudio[fileName]);
+         if (!soundObj.TryGetComponent(out AudioSource source)) source = soundObj.AddComponent<AudioSource>();
+    
+         source.PlayOneShot(_keyToAudio[fileName.ToUpper()]);
          Debug.Log("SoundManager: Played sound: '<color=green>"+fileName+"</color>' at <color=yellow>"+pos+"</color>");
          yield return new WaitForSeconds(clipLength);
         _pool.Release(soundObj);
-
-     }
+    }
 
      /// <summary>
     /// Plays sound <para>fileName</para>, exclude file extension.
     /// </summary>
     /// <param name="fileName"></param>
     public void PlaySound(string fileName) {
-         audioSource.PlayOneShot(_keyToAudio[fileName]);
+         sfxSource.PlayOneShot(_keyToAudio[fileName.ToUpper()]);
     }
     
     /// <summary>
@@ -129,9 +125,9 @@ public class SoundManager : Singleton<SoundManager> {
     /// <param name="fileName"></param>
     /// <param name="pos"></param>
     public void PlaySound(string fileName, Vector3 pos) {
-        AudioClip ac = _keyToAudio[fileName];
+        AudioClip ac = _keyToAudio[fileName.ToUpper()];
         float clipLength = ac.length;
-        StartCoroutine(SpawnSoundObj(fileName, pos, clipLength));
+        StartCoroutine(SpawnSoundObj(fileName.ToUpper(), pos, clipLength));
     }
     
     /// <summary>
@@ -139,14 +135,18 @@ public class SoundManager : Singleton<SoundManager> {
     /// </summary>
     /// <param name="fileName"></param>
     /// <param name="localTransform"></param>
-    public void PlaySound(string fileName, Transform localTransform) {
+    public void PlaySound(string fileName, Transform localTransform) { // todo: if it already has a audiosource don't add a new one
         var lAudioSource = localTransform.AddComponent<AudioSource>();
-        lAudioSource.PlayOneShot(_keyToAudio[fileName]);
+        lAudioSource.PlayOneShot(_keyToAudio[fileName.ToUpper()]);
     }
 
-    private void Update() {
-        if (UnityEngine.Input.GetKeyDown(KeyCode.T)) {
-            PlaySound("Sound1", new Vector3(4, 4, 4));
-        }
+    /// <summary>
+    /// Plays music <para>fileName</para>
+    /// </summary>
+    /// <param name="fileName"></param>
+    public void PlayMusic(string fileName) {
+        AudioClip ac = _keyToAudio[fileName.ToUpper()];
+        musicSource.clip = ac;
+        musicSource.Play();
     }
 }

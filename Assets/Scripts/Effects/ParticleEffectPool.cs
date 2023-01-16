@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class ParticleEffectPool : MonoBehaviour, IObjectPool<ParticleEffect> {
+public class ParticleEffectPool : MonoBehaviour, IObjectPool<ParticleEffect> { 
     private IObjectPool<ParticleEffect> _pool;
     private ParticleEffect _shaderParticleEffects;
     
@@ -12,7 +12,10 @@ public class ParticleEffectPool : MonoBehaviour, IObjectPool<ParticleEffect> {
     public int CountInactive => _pool.CountInactive;
     public void Init(ParticleEffect shaderParticleEffects) {
         _shaderParticleEffects = shaderParticleEffects;
-        _pool = new ObjectPool<ParticleEffect>(CreatePooledEffect, OnPoolGet, OnPoolRelease, OnPoolDestroy);
+        int defaultAmount = shaderParticleEffects.PreSpawnAmount != 0 ? shaderParticleEffects.PreSpawnAmount : 10;
+        int maxEffects = shaderParticleEffects.MaxEffects != 0 ? shaderParticleEffects.MaxEffects : 100;
+        _pool = new ObjectPool<ParticleEffect>(CreatePooledEffect, OnPoolGet, OnPoolRelease, OnPoolDestroy, 
+            true, defaultAmount, maxEffects); 
     }
     private ParticleEffect CreatePooledEffect() {
         var effect = Instantiate(_shaderParticleEffects, Vector3.zero, Quaternion.identity);
