@@ -1,91 +1,101 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Input;
 using UnityEngine;
 
 public class CameraTest : MonoBehaviour {
+    private const float GridStep = 1/3f;
+    private const float maxPitch = 45f;
+    private readonly Vector2 defaultPan = new(0, GridStep/2f);
+    
     public Transform target;
     public Transform player;
 
     private Camera _camera;
+    private InputManager _inputManager;
 
     public float focusSpeed = 1;
-    public float idlePitch = 10f;
     public float defaultZoom = 5f;
 
-    private Vector3 orbitForward;
-    private Vector3 targetAngles;
-    private Vector3 orbitOffset;
-    private Vector3 panningOffset;
-    private Vector2 screenPanning;
-
-    private float zoomLevel = 10;
+    private float _zoomOffset;
+    private float _orbitDistance = 10;
     
-    private void Awake()
-    {
+    private Vector3 _targetAngles;
+    private Vector3 _orbitOffset;
+    private Vector3 _panningOffset;
+    private Vector2 _screenPanning;
+
+    public Vector3 CameraForward(bool includePitch = false) => includePitch
+        ? Quaternion.Euler(_targetAngles) * Vector3.forward
+        : Quaternion.AngleAxis(_targetAngles.y, Vector3.up) * Vector3.forward;
+    
+    public Quaternion CameraForwardRot(bool includePitch = false) => includePitch
+        ? Quaternion.Euler(_targetAngles)
+        : Quaternion.AngleAxis(_targetAngles.y, Vector3.up);
+    
+    private void Awake() {
         _camera = GetComponent<Camera>();
-        zoomLevel = defaultZoom;
+        _orbitDistance = defaultZoom;
+        _inputManager = InputManager.Instance;
     }
 
     private float idleTimer = 0;
 
-    private void Update()
-    {
+    private void Update() {
         OrbitCamera();
         ComposeCamera();
 
         idleTimer = Mathf.Clamp01(idleTimer);
-        transform.position = player.position + orbitOffset + panningOffset;
-        transform.eulerAngles = targetAngles;
+        transform.position = player.position + _orbitOffset + _panningOffset;
+        transform.eulerAngles = _targetAngles;
     }
 
-    void OrbitCamera()
-    {
-        Vector2 lookInput = InputManager.Instance.GetLookInput();
+    void OrbitCamera() {
+        Vector2 lookInput = _inputManager.GetLookInput();
+        _zoomOffset += _inputManager.GetCameraZoomInput() * Time.deltaTime;
 
         if (lookInput.sqrMagnitude != 0)
         {
             idleTimer -= Time.deltaTime * .25f;
             
-            targetAngles.x += -lookInput.y * Time.deltaTime * 15f;
-            targetAngles.y += lookInput.x * Time.deltaTime * 15f;
-            targetAngles.z = 0;
+            _targetAngles.x += -lookInput.y * Time.deltaTime * 15f;
+            _targetAngles.y += lookInput.x * Time.deltaTime * 15f;
+            _targetAngles.z = 0;
 
-            targetAngles.x = Mathf.Clamp(targetAngles.x, -45f, 45f);
+            _targetAngles.x = Mathf.Clamp(_targetAngles.x, -maxPitch, maxPitch);
 
-            if (targetAngles.y >= 360f)
-                targetAngles.y -= 360f;
-            else if (targetAngles.y < 0f)
-                targetAngles.y += 360f;
+            if (_targetAngles.y >= 360f)
+                _targetAngles.y -= 360f;
+            else if (_targetAngles.y < 0f)
+                _targetAngles.y += 360f;
             
-            if(idleTimer < .25f)
-                zoomLevel = Mathf.MoveTowards(zoomLevel, defaultZoom, Time.deltaTime*10f);
+            if(idleTimer < .4f)
+                _orbitDistance = Mathf.MoveTowards(_orbitDistance, defaultZoom, Time.deltaTime*10f);
         }
-        else
-            idleTimer += Time.deltaTime;
+        else 
+            idleTimer += idleTimer > .5f ? Time.deltaTime : Time.deltaTime*.5f;
+        
+        _zoomOffset += Mathf.Min(20f- _orbitDistance - _zoomOffset, 0);
+        _zoomOffset += Mathf.Max(2f - _orbitDistance - _zoomOffset, 0);
 
-        Vector3 lookDirection = Quaternion.Euler(targetAngles)*Vector3.forward;
+        _orbitDistance = Mathf.Clamp(_orbitDistance, 2f, 20f);
 
-        orbitForward = lookDirection;
-        orbitOffset = -lookDirection * zoomLevel;
+        Vector3 lookDirection = Quaternion.Euler(_targetAngles)*Vector3.forward;
+        
+        _orbitOffset = -lookDirection * (_orbitDistance+_zoomOffset);
     }
 
-    void ComposeCamera()
-    {
+    void ComposeCamera() {
         Matrix4x4 screenMatrix = _camera.projectionMatrix*_camera.worldToCameraMatrix;
 
-        Vector3 focusTarget;
-        
         if (idleTimer < .5f)
         {
-            focusTarget = (new Vector3(0, 1 / 6f));
-            screenPanning = Vector2.MoveTowards(screenPanning, focusTarget, Time.deltaTime * focusSpeed*1.25f);
+            _screenPanning = Vector2.MoveTowards(_screenPanning, defaultPan, Time.deltaTime * focusSpeed*1.25f);
 
-            panningOffset = screenMatrix.inverse.MultiplyVector(screenPanning)*zoomLevel;
+            _panningOffset = screenMatrix.inverse.MultiplyVector(_screenPanning)*_orbitDistance;
             return;
         }
-        
-        targetAngles.x = Mathf.MoveTowardsAngle(targetAngles.x, _camera.fieldOfView*1/6f, Time.deltaTime*15f);
+
+        _targetAngles.x = Mathf.MoveTowardsAngle(_targetAngles.x, _camera.fieldOfView*defaultPan.y, Time.deltaTime*15f);
 
         Vector3 targetCamPos = screenMatrix.MultiplyPoint(target.position);
         Vector3 playerCamPos = screenMatrix.MultiplyPoint(player.position);
@@ -94,29 +104,40 @@ public class CameraTest : MonoBehaviour {
 
         float panSide = playerToTargetPos.x < 0 ? -1 : 1;
 
-        float zoomDir = (Mathf.Abs(playerToTargetPos.x)-2/3f)*.5f+(Mathf.Abs(playerToTargetPos.y)-2/3f)*.5f;
+        float zoomDir = Mathf.Abs(playerToTargetPos.x)*.5f-GridStep+Mathf.Abs(playerToTargetPos.y)*.5f-GridStep;
 
         zoomDir = Mathf.Clamp(zoomDir, -.2f, .2f);
 
-        zoomLevel += zoomDir * Time.deltaTime;
+        _orbitDistance += zoomDir * Time.deltaTime*10f;
 
-        focusTarget = (new Vector3(2 / 6f*panSide, 2 / 6f, 0));
+        Vector3 focusTarget = new Vector3(GridStep*panSide, GridStep);
 
-        screenPanning = Vector2.MoveTowards(screenPanning, focusTarget, Time.deltaTime * focusSpeed);
+        float distanceVelocity = Mathf.Pow(Vector2.Distance(_screenPanning, focusTarget)+.1f, 2);
 
-        panningOffset = screenMatrix.inverse.MultiplyVector(screenPanning)*zoomLevel;
+        _screenPanning = Vector2.MoveTowards(_screenPanning, focusTarget, Time.deltaTime * focusSpeed*distanceVelocity);
+
+        _panningOffset = screenMatrix.inverse.MultiplyVector(_screenPanning)*(_orbitDistance+_zoomOffset);
     }
 
-    private void OnDrawGizmos()
-    {
+    private void OnDrawGizmos() {
         if(_camera == null)
             return;
         
         Matrix4x4 screenMatrix = (_camera.projectionMatrix*_camera.worldToCameraMatrix).inverse;
+
+        Vector3 upLeft = screenMatrix.MultiplyPoint(new Vector3(-1, GridStep));
+        Vector3 upRight = screenMatrix.MultiplyPoint(new Vector3(1, GridStep));
+        Vector3 downLeft = screenMatrix.MultiplyPoint(new Vector3(-1, -GridStep));
+        Vector3 downRight = screenMatrix.MultiplyPoint(new Vector3(1, -GridStep));
+
+        Vector3 leftUp = screenMatrix.MultiplyPoint(new Vector3(-GridStep, 1));
+        Vector3 leftDown = screenMatrix.MultiplyPoint(new Vector3(-GridStep, -1));
+        Vector3 rightUp = screenMatrix.MultiplyPoint(new Vector3(2 / 6f, 1));
+        Vector3 rightDown = screenMatrix.MultiplyPoint(new Vector3(2 / 6f, -1));
         
-        Gizmos.DrawLine(screenMatrix.MultiplyPoint(new Vector3(-1, 2/6f)), screenMatrix.MultiplyPoint(new Vector3(1, 2/6f)));
-        Gizmos.DrawLine(screenMatrix.MultiplyPoint(new Vector3(-1, -2/6f)), screenMatrix.MultiplyPoint(new Vector3(1, -2/6f)));
-        Gizmos.DrawLine(screenMatrix.MultiplyPoint(new Vector3(-2/6f, 1)), screenMatrix.MultiplyPoint(new Vector3(-2/6f, -1)));
-        Gizmos.DrawLine(screenMatrix.MultiplyPoint(new Vector3(2/6f, 1)), screenMatrix.MultiplyPoint(new Vector3(2/6f, -1)));
+        Gizmos.DrawLine(upLeft, upRight);
+        Gizmos.DrawLine(downLeft, downRight);
+        Gizmos.DrawLine(leftUp, leftDown);
+        Gizmos.DrawLine(rightUp, rightDown);
     }
 }
