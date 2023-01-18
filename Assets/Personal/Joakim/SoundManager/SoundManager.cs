@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Pool;
 
 public class SoundManager : Singleton<SoundManager> { // todo: rename public variables. later to be changed to private. 
@@ -23,6 +24,7 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
     private GameObject _soundObject;
     private GameObject _soundPool; // probably rename
     private ObjectPool<GameObject> _pool;
+    public AudioMixerGroup sfxGroup;
 
     // todo: remove debug logs or disable.
     private void Awake() {
@@ -104,7 +106,7 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
          soundObj.transform.SetParent(_soundPool.transform);
          soundObj.transform.position = pos;
          if (!soundObj.TryGetComponent(out AudioSource source)) source = soundObj.AddComponent<AudioSource>();
-    
+         source.outputAudioMixerGroup = sfxGroup;
          source.PlayOneShot(_keyToAudio[fileName.ToUpper()]);
          Debug.Log("SoundManager: Played sound: '<color=green>"+fileName+"</color>' at <color=yellow>"+pos+"</color>");
          yield return new WaitForSeconds(clipLength);
@@ -116,6 +118,7 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
     /// </summary>
     /// <param name="fileName"></param>
     public void PlaySound(string fileName) {
+         sfxSource.outputAudioMixerGroup = sfxGroup;
          sfxSource.PlayOneShot(_keyToAudio[fileName.ToUpper()]);
     }
     
@@ -137,6 +140,7 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
     /// <param name="localTransform"></param>
     public void PlaySound(string fileName, Transform localTransform) { // todo: if it already has a audiosource don't add a new one
         var lAudioSource = localTransform.AddComponent<AudioSource>();
+        lAudioSource.outputAudioMixerGroup = sfxGroup;
         lAudioSource.PlayOneShot(_keyToAudio[fileName.ToUpper()]);
     }
 
