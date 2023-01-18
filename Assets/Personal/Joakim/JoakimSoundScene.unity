@@ -1138,6 +1138,7 @@ GameObject:
   - component: {fileID: 559286839}
   - component: {fileID: 559286838}
   - component: {fileID: 559286837}
+  - component: {fileID: 559286843}
   m_Layer: 0
   m_Name: PickUp2
   m_TagString: Pickup
@@ -1171,11 +1172,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPickup: {fileID: 11400000, guid: c8f09aca058625f4590cc4990fde89aa, type: 2}
-  IsPickup: 0
   IsLocked: 0
   HintText: 
   KeyPressHintText: 102
   KeyItem: {fileID: 0}
+  _worldSpaceText: {fileID: 0}
+  _thisInteractableCanvas: {fileID: 0}
+  _playerRef: {fileID: 0}
+  _temp: {fileID: 0}
+  _doorTriggerArea: {fileID: 0}
+  _isDoor: 0
   TypeOfInteractable: 1
   _DoorType: 0
 --- !u!65 &559286839
@@ -1256,6 +1262,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559286843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559286836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aeef93aa88dff48933c6b6f2c5aec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemPickup: {fileID: 11400000, guid: c8f09aca058625f4590cc4990fde89aa, type: 2}
 --- !u!1 &723727423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,8 +1329,8 @@ GameObject:
   - component: {fileID: 739117233}
   - component: {fileID: 739117232}
   - component: {fileID: 739117231}
-  - component: {fileID: 739117230}
   - component: {fileID: 739117229}
+  - component: {fileID: 739117235}
   m_Layer: 0
   m_Name: PickUp3
   m_TagString: Pickup
@@ -1332,26 +1351,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.76
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &739117230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739117228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af7a445196017ab49a752079373a0cd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemPickup: {fileID: 11400000, guid: c038142cbf3bdea439fbd42a1e3a19c9, type: 2}
-  IsPickup: 0
-  IsLocked: 0
-  HintText: 
-  KeyPressHintText: 271
-  KeyItem: {fileID: 0}
-  TypeOfInteractable: 1
-  _DoorType: 0
 --- !u!65 &739117231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1430,6 +1429,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &739117235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739117228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aeef93aa88dff48933c6b6f2c5aec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemPickup: {fileID: 11400000, guid: c038142cbf3bdea439fbd42a1e3a19c9, type: 2}
 --- !u!1 &769462698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1659,27 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0.03
   m_ShadowAngle: 0
+--- !u!1 &805601171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3599097198496996610, guid: d46a2b3f100441241bb5215b31a57a39,
+    type: 3}
+  m_PrefabInstance: {fileID: 3599097198476527807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &805601177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805601171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caecefcca24a1174ba438a2da36b8c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsLocked: 1
+  KeyPressHintText: 287
+  KeyItem: {fileID: 11400000, guid: c8f09aca058625f4590cc4990fde89aa, type: 2}
 --- !u!1 &813421975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2599,15 +2632,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298896258}
-  m_LocalRotation: {x: -0, y: 0.5951665, z: -0, w: 0.80360246}
-  m_LocalPosition: {x: 18.414202, y: 0.6700001, z: -16.911978}
+  m_LocalRotation: {x: -0, y: 0.87817246, z: -0, w: 0.47834423}
+  m_LocalPosition: {x: 19.302553, y: 0.6700001, z: -16.901648}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 146692807}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 73.049, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 122.845, z: 0}
 --- !u!114 &1298896265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2620,7 +2653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a40fad71c55324b9385064bdf52d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemsInRange: []
+  PickUpsInRange: []
 --- !u!1 &1298941166
 GameObject:
   m_ObjectHideFlags: 0
@@ -4044,6 +4077,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2014986463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4414609508139674455, guid: 87cb60b122422574eba44b01564b1783,
+    type: 3}
+  m_PrefabInstance: {fileID: 4414609508830504805}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2014986464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014986463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aeef93aa88dff48933c6b6f2c5aec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemPickup: {fileID: 11400000, guid: 152602931b7e82f4481d01da01859ce3, type: 2}
 --- !u!1 &2027509533
 GameObject:
   m_ObjectHideFlags: 0
@@ -4254,7 +4306,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3599097198496996609, guid: d46a2b3f100441241bb5215b31a57a39, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d46a2b3f100441241bb5215b31a57a39, type: 3}
 --- !u!1001 &4414609508830504805
 PrefabInstance:
@@ -4344,7 +4397,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUp1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4414609508139674454, guid: 87cb60b122422574eba44b01564b1783, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 87cb60b122422574eba44b01564b1783, type: 3}
 --- !u!1001 &4879191691038681275
 PrefabInstance:

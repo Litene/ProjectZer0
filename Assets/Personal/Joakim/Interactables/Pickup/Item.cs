@@ -10,7 +10,6 @@ public class Item : ScriptableObject {
     public string itemName;
     public string itemDescription;
     public Sprite itemSprite;
-    public Vector3 itemPosition;
     public bool destroyOnUse = false;
     public bool isDisabled;
 }

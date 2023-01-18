@@ -1,3 +1,4 @@
+/*
 using UnityEditor;
 using UnityEngine;
 
@@ -25,12 +26,12 @@ public class InteractableInspector : Editor {
     public override void OnInspectorGUI() {
         serializedObject.Update();
         EditorGUILayout.PropertyField(state_property);
-        Interactable.InteractableType itemType = (Interactable.InteractableType)state_property.enumValueIndex;
+        InteractableType itemType = (InteractableType)state_property.enumValueIndex;
         Interactable.DoorType doorType =
             (Interactable.DoorType)doorType_property.enumValueIndex;
 
         switch (itemType) {
-            case Interactable.InteractableType.Door:
+            case InteractableType.Door:
                 EditorGUILayout.PropertyField(keyPressHint_property, new GUIContent("KeyPressHintText"));
                 EditorGUILayout.PropertyField(doorType_property);
                 EditorGUILayout.PropertyField(isLocked_property, new GUIContent("IsLocked"));
@@ -38,7 +39,7 @@ public class InteractableInspector : Editor {
                     EditorGUILayout.PropertyField(keyItem_property, new GUIContent("KeyItem"));
                 }
                 break;
-            case Interactable.InteractableType.PickUp:
+            case InteractableType.PickUp:
                 EditorGUILayout.PropertyField(itemPickup_property, new GUIContent("ItemPickup"));
                 break;
         }
@@ -46,3 +47,4 @@ public class InteractableInspector : Editor {
         serializedObject.ApplyModifiedProperties();
     }
 }
+*/
