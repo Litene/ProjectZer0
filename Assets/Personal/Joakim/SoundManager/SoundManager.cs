@@ -28,6 +28,8 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
 
     // todo: remove debug logs or disable.
     private void Awake() {
+        musicSource = this.transform.Find("MusicSource").gameObject.GetComponent<AudioSource>();
+        sfxSource = this.transform.Find("SFXSource").gameObject.GetComponent<AudioSource>();
         if (_soundPool == null) {
             _soundPool = new GameObject {
                 name = "SoundPool"
