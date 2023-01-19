@@ -12,13 +12,13 @@ namespace Oscillators
         private Vector3 _previousVelocity = Vector3.zero;
 
         [Tooltip("The local position about which oscillations are centered.")]
-        [SerializeField] private Vector3 _localEquilibriumPosition = Vector3.zero;
+        public Vector3 LocalEquilibriumPosition = Vector3.zero;
         [Tooltip("The axes over which the oscillator applies force. Within range [0, 1].")]
         public Vector3 ForceScale = Vector3.one;
         [Tooltip("The greater the stiffness constant, the lesser the amplitude of oscillations.")]
         [SerializeField] private float _stiffness = 100f;
         [Tooltip("The greater the damper constant, the faster that oscillations will dissapear.")]
-        [SerializeField] private float _damper = 2f;
+        [SerializeField] private float _damper = 10f;
         [Tooltip("The greater the mass, the lesser the amplitude of oscillations.")]
         [SerializeField] private float _mass = 1f;
 
@@ -38,7 +38,7 @@ namespace Oscillators
         /// <returns>Damped restorative force of the oscillator.</returns>
         private Vector3 CalculateRestoringForce()
         {
-            Vector3 displacement = transform.localPosition - _localEquilibriumPosition; // Displacement from the rest point. Displacement is the difference in position.
+            Vector3 displacement = transform.localPosition - LocalEquilibriumPosition; // Displacement from the rest point. Displacement is the difference in position.
             Vector3 deltaDisplacement = displacement - _previousDisplacement;
             _previousDisplacement = displacement;
             Vector3 velocity = deltaDisplacement / Time.fixedDeltaTime; // Kinematics. Velocity is the change-in-position over time.
@@ -98,7 +98,7 @@ namespace Oscillators
         private void OnDrawGizmos()
         {
             Vector3 bob = transform.localPosition;
-            Vector3 equilibrium = _localEquilibriumPosition;
+            Vector3 equilibrium = LocalEquilibriumPosition;
             if (transform.parent != null)
             {
                 bob += transform.parent.position;

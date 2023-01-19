@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using Input;
 using Interactable;
+using Oscillators;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Hold : MonoBehaviour
 {
     [SerializeField] private Camera _firstPersonCamera;
     [SerializeField] private float _reach;
-    [SerializeField] private Transform _holdPivot;
+    [SerializeField] private Transform _holdPivot; // TODO: _holdPivot should appear static w.r.t. the vertical camera rotation
 
     private bool _didHit;
     private RaycastHit _hit;
@@ -16,7 +18,7 @@ public class Hold : MonoBehaviour
     private Holdable _holding;
 
     // TODO: Raycast through crosshair to detect the first object in reach
-    private void Update()
+    private void FixedUpdate()
     {
         // TODO: Move raycast to it's own script
         _didHit = Physics.Raycast(_firstPersonCamera.transform.position, _firstPersonCamera.transform.TransformDirection(Vector3.forward), out _hit, _reach);
@@ -33,7 +35,8 @@ public class Hold : MonoBehaviour
         }
         else
         {
-            if (InputManager.Instance.GetButtonInput(ButtonMapping.Interact) != ButtonState.Hold) {Release(); return;}
+            //if (InputManager.Instance.GetButtonInput(ButtonMapping.Interact) != ButtonState.Hold) {Release(); return;}
+            _holding.GetComponent<Oscillator>().LocalEquilibriumPosition = _holdPivot.transform.position;
         }
     }
 
@@ -47,12 +50,13 @@ public class Hold : MonoBehaviour
         _holding = holdable;
         
         var holdingTransform = _holding.transform;
-        holdingTransform.SetParent(_holdPivot); // TODO: Check if a rigidbody exists as a parent of _holdPivot, display an error if so.
-        holdingTransform.localPosition = Vector3.zero;
+        //holdingTransform.SetParent(_holdPivot); // TODO: Check if a rigidbody exists as a parent of _holdPivot, display an error if so.
+        //holdingTransform.localPosition = Vector3.zero;
         _holding.GetComponent<Rigidbody>().useGravity = false;
-        // TODO: Add the oscillator component to _holding
-        // TODO: Add the rotational oscillator component to _holding
+        _holding.AddComponent<Oscillator>();
+        _holding.GetComponent<Oscillator>().LocalEquilibriumPosition = _holdPivot.transform.position;
 
+        // TODO: Add the rotational oscillator component to _holding
         // TODO: Set cursor to closed grab hand
     }
 
@@ -61,7 +65,8 @@ public class Hold : MonoBehaviour
         _holding.transform.SetParent(null);
         _holding.GetComponent<Rigidbody>().useGravity = true;
         _holding = null;
-        // TODO: Remove the oscillator component to _holding
+        // TODO: Remove the oscillator component from _holding
+        //Destroy(_holding.GetComponent<Oscillator>());
         // TODO: Remove the rotational oscillator component to _holding
         // TODO: See why the object loses momentum when released? Is there any momentum in the first place?
     }
