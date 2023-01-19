@@ -11,7 +11,8 @@ public class Hold : MonoBehaviour
     [SerializeField] private Camera _firstPersonCamera;
     [SerializeField] private float _reach;
     [SerializeField] private Transform _holdPivot; // TODO: _holdPivot should appear static w.r.t. the vertical camera rotation
-
+    [SerializeField] private Collider _collider;
+    
     private bool _didHit;
     private RaycastHit _hit;
     private Vector3 _velocity;
@@ -62,8 +63,8 @@ public class Hold : MonoBehaviour
         holdingTransform.SetParent(_holdPivot);
         _holding.GetComponent<Rigidbody>().useGravity = false;
         _holding.AddComponent<Oscillator>();
+        Physics.IgnoreCollision(_holding.GetComponent<Collider>(), _collider, true);
         
-        // TODO: Temporarily ignore collisions with held object
         // TODO: Add the rotational oscillator component to _holding
         // TODO: Set cursor to closed grab hand
     }
@@ -72,10 +73,10 @@ public class Hold : MonoBehaviour
     {
         _holding.transform.SetParent(null);
         var holdingRigidbody = _holding.GetComponent<Rigidbody>();
-        var oscillator = _holding.GetComponent<Oscillator>();
         holdingRigidbody.useGravity = true;
         holdingRigidbody.AddForce(VelocityToImpulse(_velocity), ForceMode.Impulse);
-        Destroy(oscillator);
+        Physics.IgnoreCollision(_holding.GetComponent<Collider>(), _collider, false);
+        Destroy(_holding.GetComponent<Oscillator>());
         
         // TODO: Remove the rotational oscillator component from _holding
         // TODO: Set cursor to default

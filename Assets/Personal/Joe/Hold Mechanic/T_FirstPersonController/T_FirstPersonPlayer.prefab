@@ -288,6 +288,7 @@ MonoBehaviour:
   _firstPersonCamera: {fileID: 961522769768594920}
   _reach: 1.5
   _holdPivot: {fileID: 4135913984999197933}
+  _collider: {fileID: 961522770023597643}
 --- !u!1 &5469121780390940513
 GameObject:
   m_ObjectHideFlags: 0
