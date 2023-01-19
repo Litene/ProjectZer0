@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/Holdable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/Holdable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/Options.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/PostProcessing.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic 1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic 1.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-    </list>
+    <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +85,7 @@
       <workItem from="1673529427516" duration="887000" />
       <workItem from="1674048178603" duration="4608000" />
       <workItem from="1674121185732" duration="7769000" />
-      <workItem from="1674139447388" duration="3025000" />
+      <workItem from="1674139447388" duration="3502000" />
     </task>
     <servers />
   </component>
