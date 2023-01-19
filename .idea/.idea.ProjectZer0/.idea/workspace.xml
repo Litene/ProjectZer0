@@ -6,6 +6,10 @@
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/Oscillator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/Oscillator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/MouseLook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/Player.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +94,9 @@
       <workItem from="1673529427516" duration="887000" />
       <workItem from="1674048178603" duration="4608000" />
       <workItem from="1674121185732" duration="7769000" />
-      <workItem from="1674139447388" duration="5194000" />
+      <workItem from="1674139447388" duration="5592000" />
+      <workItem from="1674149010497" duration="1061000" />
+      <workItem from="1674156295830" duration="6811000" />
     </task>
     <servers />
   </component>

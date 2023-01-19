@@ -35,8 +35,7 @@ public class Hold : MonoBehaviour
         }
         else
         {
-            //if (InputManager.Instance.GetButtonInput(ButtonMapping.Interact) != ButtonState.Hold) {Release(); return;}
-            _holding.GetComponent<Oscillator>().LocalEquilibriumPosition = _holdPivot.transform.position;
+            if (InputManager.Instance.GetButtonInput(ButtonMapping.Interact) != ButtonState.Hold) {Release(); return;}
         }
     }
 
@@ -50,24 +49,23 @@ public class Hold : MonoBehaviour
         _holding = holdable;
         
         var holdingTransform = _holding.transform;
-        //holdingTransform.SetParent(_holdPivot); // TODO: Check if a rigidbody exists as a parent of _holdPivot, display an error if so.
-        //holdingTransform.localPosition = Vector3.zero;
+        holdingTransform.SetParent(_holdPivot);
         _holding.GetComponent<Rigidbody>().useGravity = false;
         _holding.AddComponent<Oscillator>();
-        _holding.GetComponent<Oscillator>().LocalEquilibriumPosition = _holdPivot.transform.position;
-
+        
+        // TODO: Temporarily ignore collisions with held object
         // TODO: Add the rotational oscillator component to _holding
         // TODO: Set cursor to closed grab hand
     }
 
     private void Release()
     {
+        Destroy(_holding.GetComponent<Oscillator>());
         _holding.transform.SetParent(null);
         _holding.GetComponent<Rigidbody>().useGravity = true;
         _holding = null;
-        // TODO: Remove the oscillator component from _holding
-        //Destroy(_holding.GetComponent<Oscillator>());
-        // TODO: Remove the rotational oscillator component to _holding
+
         // TODO: See why the object loses momentum when released? Is there any momentum in the first place?
+        // TODO: Remove the rotational oscillator component to _holding
     }
 }

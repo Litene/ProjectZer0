@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 namespace Oscillators
 {
@@ -38,7 +39,15 @@ namespace Oscillators
         /// <returns>Damped restorative force of the oscillator.</returns>
         private Vector3 CalculateRestoringForce()
         {
-            Vector3 displacement = transform.localPosition - LocalEquilibriumPosition; // Displacement from the rest point. Displacement is the difference in position.
+            var parent = transform.parent;
+            var position = transform.localPosition;
+            var equilibrium = LocalEquilibriumPosition;
+            if (parent != null)
+            {
+                position = parent.TransformVector(transform.localPosition);
+                equilibrium = parent.TransformVector(LocalEquilibriumPosition);
+            }
+            Vector3 displacement = position - equilibrium; // Displacement from the rest point. Displacement is the difference in position.
             Vector3 deltaDisplacement = displacement - _previousDisplacement;
             _previousDisplacement = displacement;
             Vector3 velocity = deltaDisplacement / Time.fixedDeltaTime; // Kinematics. Velocity is the change-in-position over time.
@@ -68,7 +77,7 @@ namespace Oscillators
             Rigidbody rb = GetComponent<Rigidbody>();
             if (rb != null)
             {
-                rb.AddForce(Vector3.Scale(force, ForceScale)); 
+                rb.AddForce(Vector3.Scale(force, ForceScale));
             }
             else
             {
@@ -99,10 +108,13 @@ namespace Oscillators
         {
             Vector3 bob = transform.localPosition;
             Vector3 equilibrium = LocalEquilibriumPosition;
-            if (transform.parent != null)
+            var parent = transform.parent;
+            if (parent != null)
             {
+                bob = parent.TransformVector(bob);
+                equilibrium = parent.TransformVector(equilibrium);
                 bob += transform.parent.position;
-                equilibrium += transform.parent.position;
+                equilibrium += parent.position;
             }
 
             // Draw (wire) equilibrium position
