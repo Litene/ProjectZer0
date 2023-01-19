@@ -17,9 +17,9 @@ namespace Oscillators
         [Tooltip("The axes over which the oscillator applies force. Within range [0, 1].")]
         public Vector3 ForceScale = Vector3.one;
         [Tooltip("The greater the stiffness constant, the lesser the amplitude of oscillations.")]
-        [SerializeField] private float _stiffness = 100f;
+        [SerializeField] private float _stiffness = 10f;
         [Tooltip("The greater the damper constant, the faster that oscillations will dissapear.")]
-        [SerializeField] private float _damper = 10f;
+        [SerializeField] private float _damper = 1f;
         [Tooltip("The greater the mass, the lesser the amplitude of oscillations.")]
         [SerializeField] private float _mass = 1f;
 
@@ -44,8 +44,8 @@ namespace Oscillators
             var equilibrium = LocalEquilibriumPosition;
             if (parent != null)
             {
-                position = parent.TransformVector(transform.localPosition);
-                equilibrium = parent.TransformVector(LocalEquilibriumPosition);
+                position = parent.TransformVector(position);
+                equilibrium = parent.TransformVector(equilibrium);
             }
             Vector3 displacement = position - equilibrium; // Displacement from the rest point. Displacement is the difference in position.
             Vector3 deltaDisplacement = displacement - _previousDisplacement;

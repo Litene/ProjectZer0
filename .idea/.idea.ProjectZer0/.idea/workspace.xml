@@ -6,10 +6,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/Oscillator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/Oscillator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/MouseLook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/Player.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/dc/93192904/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/Door.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs" root0="FORCE_HIGHLIGHTING" />
@@ -96,7 +93,7 @@
       <workItem from="1674121185732" duration="7769000" />
       <workItem from="1674139447388" duration="5592000" />
       <workItem from="1674149010497" duration="1061000" />
-      <workItem from="1674156295830" duration="6811000" />
+      <workItem from="1674156295830" duration="8786000" />
     </task>
     <servers />
   </component>

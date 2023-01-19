@@ -14,10 +14,10 @@ public class Hold : MonoBehaviour
 
     private bool _didHit;
     private RaycastHit _hit;
-    
+    private Vector3 _velocity;
+    private Vector3 _previousPosition = Vector3.zero;
     private Holdable _holding;
-
-    // TODO: Raycast through crosshair to detect the first object in reach
+    
     private void FixedUpdate()
     {
         // TODO: Move raycast to it's own script
@@ -36,7 +36,17 @@ public class Hold : MonoBehaviour
         else
         {
             if (InputManager.Instance.GetButtonInput(ButtonMapping.Interact) != ButtonState.Hold) {Release(); return;}
+            _velocity = CalculateVelocity();
         }
+    }
+    
+    private Vector3 CalculateVelocity()
+    {
+        var position = _holding.transform.position;
+        Vector3 deltaPosition = position - _previousPosition;
+        _previousPosition = position;
+        Vector3 velocity = deltaPosition / Time.fixedDeltaTime; // Kinematics. Velocity is the change-in-position over time.
+        return velocity;
     }
 
     private void Hover()
@@ -60,12 +70,26 @@ public class Hold : MonoBehaviour
 
     private void Release()
     {
-        Destroy(_holding.GetComponent<Oscillator>());
         _holding.transform.SetParent(null);
-        _holding.GetComponent<Rigidbody>().useGravity = true;
+        var holdingRigidbody = _holding.GetComponent<Rigidbody>();
+        var oscillator = _holding.GetComponent<Oscillator>();
+        holdingRigidbody.useGravity = true;
+        holdingRigidbody.AddForce(VelocityToImpulse(_velocity), ForceMode.Impulse);
+        Destroy(oscillator);
+        
+        // TODO: Remove the rotational oscillator component from _holding
+        // TODO: Set cursor to default
+        
         _holding = null;
-
-        // TODO: See why the object loses momentum when released? Is there any momentum in the first place?
-        // TODO: Remove the rotational oscillator component to _holding
+    }
+    
+    private Vector3 VelocityToImpulse(Vector3 velocity)
+    {
+        var holdingRigidbody = _holding.GetComponent<Rigidbody>();
+        var initialMomentum = Vector3.zero;
+        var finalMomentum = holdingRigidbody.mass * velocity;
+        var deltaMomentum = finalMomentum - initialMomentum;
+        var impulse = deltaMomentum;
+        return impulse;
     }
 }
