@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.38354, g: 325.1084, b: 430.30957, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -762,11 +762,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: T_FirstPersonPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 4135913984999197933, guid: f9d7d1ff26b8fc745a343291fc894393,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9d7d1ff26b8fc745a343291fc894393, type: 3}
