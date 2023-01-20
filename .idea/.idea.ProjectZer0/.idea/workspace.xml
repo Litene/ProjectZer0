@@ -4,7 +4,8 @@
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/T_FirstPersonPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/T_FirstPersonPlayer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/Oscillator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/Oscillator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +17,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/Door.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/TorsionalOscillator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/GizmoUtilities.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXBinderBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXPropertyBinder.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -94,6 +97,7 @@
       <workItem from="1674149010497" duration="1061000" />
       <workItem from="1674156295830" duration="9469000" />
       <workItem from="1674209983478" duration="1570000" />
+      <workItem from="1674215736164" duration="1615000" />
     </task>
     <servers />
   </component>
