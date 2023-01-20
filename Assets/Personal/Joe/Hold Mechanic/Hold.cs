@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using Input;
 using Interactable;
 using Oscillators;
@@ -10,7 +8,7 @@ public class Hold : MonoBehaviour
 {
     [SerializeField] private Camera _firstPersonCamera;
     [SerializeField] private float _reach;
-    [SerializeField] private Transform _holdPivot; // TODO: _holdPivot should appear static w.r.t. the vertical camera rotation
+    [SerializeField] private Transform _holdPivot;
     [SerializeField] private Collider _collider;
     
     private bool _didHit;
