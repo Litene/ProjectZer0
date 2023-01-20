@@ -4,8 +4,7 @@
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold Mechanic.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/Oscillator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/Oscillator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/TorsionalOscillator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/TorsionalOscillator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +96,8 @@
       <workItem from="1674149010497" duration="1061000" />
       <workItem from="1674156295830" duration="9469000" />
       <workItem from="1674209983478" duration="1570000" />
-      <workItem from="1674215736164" duration="1615000" />
+      <workItem from="1674215736164" duration="2115000" />
+      <workItem from="1674223546849" duration="2600000" />
     </task>
     <servers />
   </component>

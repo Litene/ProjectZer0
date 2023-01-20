@@ -14,23 +14,22 @@ namespace Oscillators
     public class TorsionalOscillator : MonoBehaviour
     {
         [Tooltip("The local rotation about which oscillations are centered.")]
-        public Vector3 localEquilibriumRotation = Vector3.zero;
+        public Vector3 LocalEquilibriumRotation = Vector3.zero;
 
         [Tooltip("The axes over which the oscillator applies torque. Within range [0, 1].")]
-        public Vector3 torqueScale = Vector3.one;
+        public Vector3 TorqueScale = Vector3.one;
 
         [Tooltip("The greater the stiffness constant, the lesser the amplitude of oscillations.")]
-        public float stiffness = 100f;
+        public float Stiffness = 100f;
 
-        [Tooltip("The greater the damper constant, the faster that oscillations will dissapear.")] [SerializeField]
+        [Tooltip("The greater the damper constant, the faster that oscillations will disappear.")] [SerializeField]
         private float _damper = 5f;
 
         [Tooltip("The center about which rotations should occur.")] [SerializeField]
         private Vector3 _localPivotPosition = Vector3.zero;
 
         private Rigidbody _rb;
-
-        public float angularDisplacementMagnitude;
+        private float _angularDisplacementMagnitude;
         private Vector3 _rotAxis;
 
         /// <summary>
@@ -50,7 +49,7 @@ namespace Oscillators
         {
             Vector3 restoringTorque = CalculateRestoringTorque();
             ApplyTorque(restoringTorque);
-
+            
             _rb.centerOfMass = _localPivotPosition;
         }
 
@@ -61,10 +60,16 @@ namespace Oscillators
         /// <returns>Damped restorative torque of the oscillator.</returns>
         private Vector3 CalculateRestoringTorque()
         {
+            var parent = transform.parent;
+            var equilibriumRotation = Quaternion.Euler(LocalEquilibriumRotation);
+            if (parent != null)
+            {
+                equilibriumRotation = parent.rotation * equilibriumRotation ;
+            }
             Quaternion deltaRotation = 
-                MathsUtilities.ShortestRotation(transform.localRotation, Quaternion.Euler(localEquilibriumRotation));
-            deltaRotation.ToAngleAxis(out angularDisplacementMagnitude, out _rotAxis);
-            Vector3 angularDisplacement = angularDisplacementMagnitude * Mathf.Deg2Rad * _rotAxis.normalized;
+                MathsUtilities.ShortestRotation(transform.rotation, equilibriumRotation);
+            deltaRotation.ToAngleAxis(out _angularDisplacementMagnitude, out _rotAxis);
+            Vector3 angularDisplacement = _angularDisplacementMagnitude * Mathf.Deg2Rad * _rotAxis.normalized;
             Vector3 torque = AngularHookesLaw(angularDisplacement, _rb.angularVelocity);
             return (torque);
         }
@@ -78,7 +83,7 @@ namespace Oscillators
         private Vector3 AngularHookesLaw(Vector3 angularDisplacement, Vector3 angularVelocity)
         {
             Vector3 torque =
-                (stiffness * angularDisplacement) + (_damper * angularVelocity); // Damped angular Hooke's law
+                (Stiffness * angularDisplacement) + (_damper * angularVelocity); // Damped angular Hooke's law
             torque = -torque; // Take the negative of the torque, since the torque is restorative (attractive)
             return (torque);
         }
@@ -89,7 +94,7 @@ namespace Oscillators
         /// <param name="torque">The torque to be applied.</param>
         private void ApplyTorque(Vector3 torque)
         {
-            _rb.AddTorque(Vector3.Scale(torque, torqueScale));
+            _rb.AddTorque(Vector3.Scale(torque, TorqueScale));
         }
 
         /// <summary>
@@ -99,7 +104,7 @@ namespace Oscillators
         {
             Vector3 bob = transform.position;
             Vector3 axis = _rotAxis.normalized;
-            float angle = angularDisplacementMagnitude;
+            float angle = _angularDisplacementMagnitude;
 
             // Draw (wire) pivot position
             Gizmos.color = Color.white;
