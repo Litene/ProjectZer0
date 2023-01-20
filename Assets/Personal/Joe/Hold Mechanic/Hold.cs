@@ -57,13 +57,13 @@ public class Hold : MonoBehaviour
     {
         _holding = holdable;
         
+        Physics.IgnoreCollision(_holding.GetComponent<Collider>(), _collider, true);
         var holdingTransform = _holding.transform;
         holdingTransform.SetParent(_holdPivot);
         _holding.GetComponent<Rigidbody>().useGravity = false;
         _holding.AddComponent<Oscillator>();
-        Physics.IgnoreCollision(_holding.GetComponent<Collider>(), _collider, true);
+        _holding.AddComponent<TorsionalOscillator>();
         
-        // TODO: Add the rotational oscillator component to _holding
         // TODO: Set cursor to closed grab hand
     }
 
@@ -75,8 +75,9 @@ public class Hold : MonoBehaviour
         holdingRigidbody.AddForce(VelocityToImpulse(_velocity), ForceMode.Impulse);
         Physics.IgnoreCollision(_holding.GetComponent<Collider>(), _collider, false);
         Destroy(_holding.GetComponent<Oscillator>());
+        Destroy(_holding.GetComponent<TorsionalOscillator>());
         
-        // TODO: Remove the rotational oscillator component from _holding
+        // TODO: Conserve rotational velocity on release
         // TODO: Set cursor to default
         
         _holding = null;

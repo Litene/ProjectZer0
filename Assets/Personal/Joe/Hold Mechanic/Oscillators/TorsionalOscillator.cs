@@ -14,19 +14,15 @@ namespace Oscillators
     public class TorsionalOscillator : MonoBehaviour
     {
         [Tooltip("The local rotation about which oscillations are centered.")]
-        public Vector3 LocalEquilibriumRotation = Vector3.zero;
-
-        [Tooltip("The axes over which the oscillator applies torque. Within range [0, 1].")]
-        public Vector3 TorqueScale = Vector3.one;
-
-        [Tooltip("The greater the stiffness constant, the lesser the amplitude of oscillations.")]
-        public float Stiffness = 100f;
-
-        [Tooltip("The greater the damper constant, the faster that oscillations will disappear.")] [SerializeField]
-        private float _damper = 5f;
-
-        [Tooltip("The center about which rotations should occur.")] [SerializeField]
-        private Vector3 _localPivotPosition = Vector3.zero;
+        [SerializeField] private Vector3 _localEquilibriumRotation = Vector3.zero;
+        [Tooltip("The axes over which the oscillator applies torque. Within range [0, 1].")] 
+        [SerializeField] private Vector3 _torqueScale = Vector3.one;
+        [Tooltip("The greater the stiffness constant, the lesser the amplitude of oscillations.")] 
+        [SerializeField]private float _stiffness = 10f;
+        [Tooltip("The greater the damper constant, the faster that oscillations will disappear.")] 
+        [SerializeField] private float _damper = 1f;
+        [Tooltip("The center about which rotations should occur.")] 
+        [SerializeField] private Vector3 _localPivotPosition = Vector3.zero;
 
         private Rigidbody _rb;
         private float _angularDisplacementMagnitude;
@@ -61,7 +57,7 @@ namespace Oscillators
         private Vector3 CalculateRestoringTorque()
         {
             var parent = transform.parent;
-            var equilibriumRotation = Quaternion.Euler(LocalEquilibriumRotation);
+            var equilibriumRotation = Quaternion.Euler(_localEquilibriumRotation);
             if (parent != null)
             {
                 equilibriumRotation = parent.rotation * equilibriumRotation ;
@@ -83,7 +79,7 @@ namespace Oscillators
         private Vector3 AngularHookesLaw(Vector3 angularDisplacement, Vector3 angularVelocity)
         {
             Vector3 torque =
-                (Stiffness * angularDisplacement) + (_damper * angularVelocity); // Damped angular Hooke's law
+                (_stiffness * Mathf.Deg2Rad * angularDisplacement) + (_damper * Mathf.Deg2Rad * angularVelocity); // Damped angular Hooke's law
             torque = -torque; // Take the negative of the torque, since the torque is restorative (attractive)
             return (torque);
         }
@@ -94,7 +90,7 @@ namespace Oscillators
         /// <param name="torque">The torque to be applied.</param>
         private void ApplyTorque(Vector3 torque)
         {
-            _rb.AddTorque(Vector3.Scale(torque, TorqueScale));
+            _rb.AddTorque(Vector3.Scale(torque, _torqueScale));
         }
 
         /// <summary>
@@ -110,10 +106,10 @@ namespace Oscillators
             Gizmos.color = Color.white;
             Vector3 pivotPosition =
                 transform.TransformPoint(Vector3.Scale(_localPivotPosition, MathsUtilities.Invert(transform.localScale)));
-            Gizmos.DrawWireSphere(pivotPosition, 0.7f);
+            Gizmos.DrawWireSphere(pivotPosition, 0.3f);
             // Draw a cross at the pivot position;
-            Vector3 cross1 = new Vector3(1, 0, 1) * 0.7f;
-            Vector3 cross2 = new Vector3(1, 0, -1) * 0.7f;
+            Vector3 cross1 = new Vector3(1, 0, 1) * 0.3f;
+            Vector3 cross2 = new Vector3(1, 0, -1) * 0.3f;
             Gizmos.DrawLine(pivotPosition - cross1, pivotPosition + cross1);
             Gizmos.DrawLine(pivotPosition - cross2, pivotPosition + cross2);
 
@@ -129,11 +125,11 @@ namespace Oscillators
 
 
             // Draw (solid) bob position
-            Gizmos.DrawSphere(bob, 0.7f);
+            Gizmos.DrawSphere(bob, 0.3f);
 
             // Draw (wire) equilibrium position
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(equilibrium, 0.7f);
+            Gizmos.DrawWireSphere(equilibrium, 0.3f);
         }
     }
 }

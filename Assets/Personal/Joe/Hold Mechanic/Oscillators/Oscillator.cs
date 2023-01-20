@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Oscillators
@@ -8,19 +9,28 @@ namespace Oscillators
     [DisallowMultipleComponent]
     public class Oscillator : MonoBehaviour
     {
-        private Vector3 _previousDisplacement = Vector3.zero;
-        private Vector3 _previousVelocity = Vector3.zero;
-
         [Tooltip("The local position about which oscillations are centered.")]
-        public Vector3 LocalEquilibriumPosition = Vector3.zero;
+        [SerializeField] private Vector3 _localEquilibriumPosition = Vector3.zero;
         [Tooltip("The axes over which the oscillator applies force. Within range [0, 1].")]
-        public Vector3 ForceScale = Vector3.one;
+        [SerializeField] private Vector3 _forceScale = Vector3.one;
         [Tooltip("The greater the stiffness constant, the lesser the amplitude of oscillations.")]
         [SerializeField] private float _stiffness = 10f;
         [Tooltip("The greater the damper constant, the faster that oscillations will dissapear.")]
         [SerializeField] private float _damper = 1f;
         [Tooltip("The greater the mass, the lesser the amplitude of oscillations.")]
         [SerializeField] private float _mass = 1f;
+
+        private Rigidbody _rb;
+        private Vector3 _previousDisplacement = Vector3.zero;
+        private Vector3 _previousVelocity = Vector3.zero;
+
+        /// <summary>
+        /// Get the rigidbody component.
+        /// </summary>
+        private void Start()
+        {
+            _rb = GetComponent<Rigidbody>();
+        }
 
         /// <summary>
         /// Update the position of the oscillator, by calculating and applying the restorative force.
@@ -40,7 +50,7 @@ namespace Oscillators
         {
             var parent = transform.parent;
             var position = transform.localPosition;
-            var equilibrium = LocalEquilibriumPosition;
+            var equilibrium = _localEquilibriumPosition;
             if (parent != null)
             {
                 position = parent.TransformVector(position);
@@ -73,15 +83,14 @@ namespace Oscillators
         /// <param name="force">The force to be applied.</param>
         public void ApplyForce(Vector3 force)
         {
-            Rigidbody rb = GetComponent<Rigidbody>();
-            if (rb != null)
+            if (_rb != null)
             {
-                rb.AddForce(Vector3.Scale(force, ForceScale));
+                _rb.AddForce(Vector3.Scale(force, _forceScale));
             }
             else
             {
                 Vector3 displacement = CalculateDisplacementDueToForce(force);
-                transform.localPosition += Vector3.Scale(displacement, ForceScale);
+                transform.localPosition += Vector3.Scale(displacement, _forceScale);
             }
         }
 
@@ -106,7 +115,7 @@ namespace Oscillators
         private void OnDrawGizmos()
         {
             Vector3 bob = transform.localPosition;
-            Vector3 equilibrium = LocalEquilibriumPosition;
+            Vector3 equilibrium = _localEquilibriumPosition;
             var parent = transform.parent;
             if (parent != null)
             {
