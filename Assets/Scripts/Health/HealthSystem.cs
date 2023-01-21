@@ -3,6 +3,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System.Threading;
 using System.Threading.Tasks;
+using Unity.Mathematics;
+using UnityEngine.Rendering;
 
 namespace Health {
     public class HealthSystem {
@@ -17,47 +19,68 @@ namespace Health {
             _health = 150;
             _coldMat = coldMat;
             _blackMat = blackMat;
+            _health = Mathf.Clamp(_health, 0f, 150f);
+            _coldHealth = Mathf.Clamp(_coldHealth, 0f, 22f);
         }
 
+        private float ClampHealth(float health) => Mathf.Clamp(health, 0, 150);
+        private float ClampColdHealth(float coldHealth) => Mathf.Clamp(coldHealth, 0, 22);
 
-        //22 is full health.
-        //0 health 0
-        //150 full health
-        //0 health is 0
-        public void TakeDamage(Damage dmg, IDamagable self) { // Invoke repeating, 
+
+        //todo: cold health regens lerp, blackout damage slerps, but lerps back. (probably)
+        
+        public void TakeDamage(Damage dmg, IDamagable self) {
+            if (self.Health._health == 0 || self.Health._coldHealth == 0) return;
             if (dmg.DmgType == DamageType.Cold) {
-                _coldHealth -= dmg.Value;
-                _coldMat.SetFloat("Sides", _coldHealth);
+                _coldHealth = ClampColdHealth(_coldHealth - dmg.GetDamage());
+                _coldMat.SetFloat("_Sides", _coldHealth);
             }
             else {
-                FadeBlack(_health, _health - dmg.Value);
-                _health -= dmg.Value;
+                FadeBlack(_health, ClampHealth(_health - dmg.GetDamage()));
+                _health = ClampHealth(_health - dmg.GetDamage());
             }
 
-            if (_health <= 0) {
-                _health = 0;
-                Blackout(self);
-            }
-            else if (_coldHealth <= 0) {
-                _coldHealth = 0;
-                Whiteout(self);
-            }
-
+            if (_health == 0)  Blackout(self);
+            else if (_coldHealth == 0) Whiteout(self);
         }
+
+        public void RegenHealth(IDamagable self, float value) {
+            self.Health._health = ClampHealth(value + self.Health._health);
+            _blackMat.SetFloat("_Sides", self.Health._health);
+        }
+
+        public float RegenCold(IDamagable self, float value) {
+            self.Health._coldHealth = ClampColdHealth(value + self.Health._coldHealth);
+            _coldMat.SetFloat("_Sides", self.Health._coldHealth);
+            return self.Health._coldHealth;
+        }
+
 
         private async void FadeBlack(float initial, float target) {
-            while (Mathf.Abs(_blackMat.GetFloat("Sides") - target) <= 0.2f) {
-                _blackMat.SetFloat("Sides", Mathf.Lerp(initial, target, Time.deltaTime * _smoothTime));
+            while (Mathf.Abs(_blackMat.GetFloat("_Sides") - target) <= 0.2f) {
+                _blackMat.SetFloat("_Sides", Mathf.Lerp(initial, target, Time.deltaTime * _smoothTime));
             }
-            _blackMat.SetFloat("Sides", target);
+
+            _blackMat.SetFloat("_Sides", target);
         }
 
-        private void Whiteout(IDamagable self) {
-            throw new System.NotImplementedException();
+        private async void Whiteout(IDamagable self) { // Async method probably
+            var whiteness = 0.9f;
+            while (_coldMat.GetFloat("_Whiteness") <= 2) {
+                _coldMat.SetFloat("_Whiteness", whiteness+=0.6f*Time.deltaTime);
+                await Task.Yield();
+            }
+            Die(self);
         }
 
-        private void Blackout(IDamagable self) {
-            throw new System.NotImplementedException();
+        private void Blackout(IDamagable self) { // Async method probably
+            // needs to call die
+        }
+        
+        private void Die(IDamagable self) {
+            //implement
+            // should call lots of stuff
+            SceneLoader.Instance.ColdDeathTransition(_coldMat);
         }
     }
 
@@ -66,14 +89,21 @@ namespace Health {
     }
 
     public interface IDamagable {
+        public float HealthRegen { get; set; }
+        public float ColdRegen { get; set; }
+        public float RegenHealthDelay { get; set; }
+        public float RegenColdDelay { get; set; }
         public HealthSystem Health { get; set; }
+        public Transform IDamagableTf { get; set; }
     }
 
-    [System.Serializable] public class Damage {
-        public int Value;
+    [System.Serializable]
+    public class Damage { 
+        [SerializeField] private float Value;
+        [SerializeField] private float DamagePerSecond;
         public DamageType DmgType;
-        public HealthLossType HealthLossType;
-        public float DamagePerSecond;
+        public HealthLossType HealthType;
+        public float GetDamage() => HealthType == HealthLossType.Instant ? Value : DamagePerSecond;
     }
 
     public enum DamageType {
