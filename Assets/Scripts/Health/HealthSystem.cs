@@ -60,7 +60,6 @@ namespace Health {
             while (Mathf.Abs(_blackMat.GetFloat("_Sides") - target) <= 0.2f) {
                 _blackMat.SetFloat("_Sides", Mathf.Lerp(initial, target, Time.deltaTime * _smoothTime));
             }
-
             _blackMat.SetFloat("_Sides", target);
         }
 
@@ -73,8 +72,14 @@ namespace Health {
             Die(self);
         }
 
-        private void Blackout(IDamagable self) { // Async method probably
-            // needs to call die
+        private async void Blackout(IDamagable self) { // Async method probably
+            var targetBlackness = 0;
+            while (_blackMat.GetFloat("_Sides") >= targetBlackness) {
+              // _blackMat.SetFloat("_Sides", 3f*Time.deltaTime);
+                Mathf.Lerp(_blackMat.GetFloat("_Sides"), targetBlackness, 3f * Time.deltaTime);
+                await Task.Yield();
+            }
+            Die(self);
         }
         
         private void Die(IDamagable self) {

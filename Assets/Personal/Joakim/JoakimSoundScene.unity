@@ -608,6 +608,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &135320085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4414609508139674455, guid: 87cb60b122422574eba44b01564b1783,
+    type: 3}
+  m_PrefabInstance: {fileID: 4414609508830504805}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &135320092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135320085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aeef93aa88dff48933c6b6f2c5aec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemPickup: {fileID: 11400000, guid: 152602931b7e82f4481d01da01859ce3, type: 2}
 --- !u!1 &146692804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2837,8 +2856,8 @@ GameObject:
   - component: {fileID: 559286841}
   - component: {fileID: 559286840}
   - component: {fileID: 559286839}
-  - component: {fileID: 559286838}
   - component: {fileID: 559286837}
+  - component: {fileID: 559286843}
   m_Layer: 0
   m_Name: PickUp2
   m_TagString: Pickup
@@ -2859,18 +2878,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.76
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &559286838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 559286836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af7a445196017ab49a752079373a0cd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &559286839
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2949,6 +2956,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559286843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559286836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aeef93aa88dff48933c6b6f2c5aec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemPickup: {fileID: 11400000, guid: c8f09aca058625f4590cc4990fde89aa, type: 2}
 --- !u!1 &591824071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3271,8 +3291,8 @@ GameObject:
   - component: {fileID: 739117233}
   - component: {fileID: 739117232}
   - component: {fileID: 739117231}
-  - component: {fileID: 739117230}
   - component: {fileID: 739117229}
+  - component: {fileID: 739117235}
   m_Layer: 0
   m_Name: PickUp3
   m_TagString: Pickup
@@ -3293,18 +3313,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.76
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &739117230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 739117228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af7a445196017ab49a752079373a0cd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &739117231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3383,6 +3391,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &739117235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739117228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6aeef93aa88dff48933c6b6f2c5aec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemPickup: {fileID: 11400000, guid: c038142cbf3bdea439fbd42a1e3a19c9, type: 2}
 --- !u!1 &739801908
 GameObject:
   m_ObjectHideFlags: 0
@@ -4275,6 +4296,7 @@ MonoBehaviour:
   - {fileID: 1192728436}
   - {fileID: 776411512}
   - {fileID: 883930998}
+  _inventoryData: {fileID: 0}
 --- !u!1 &847760189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5587,7 +5609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage:
     Value: 0
-    DamagePerSecond: 2
+    DamagePerSecond: 3
     DmgType: 0
     HealthType: 0
 --- !u!65 &1114230503
@@ -10287,7 +10309,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUp1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4414609508139674454, guid: 87cb60b122422574eba44b01564b1783, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 87cb60b122422574eba44b01564b1783, type: 3}
 --- !u!114 &4879191691038681281
 MonoBehaviour:

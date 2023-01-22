@@ -11,6 +11,7 @@ public class UIManager : Singleton<UIManager> {
 
     private void Awake() { // null reference causes issues
         Canvas = GameObject.Find("Canvas-UI-Overlay");
+        DontDestroyOnLoad(Canvas);
         _pickUpItemPanel = Canvas.transform.Find("PickUpItemPanel").gameObject;
         _itemInventoryPanel = Canvas.transform.Find("InventoryOverlay").gameObject;
         _pickUpItemText = _pickUpItemPanel.transform.Find("PickUpText").GetComponent<TextMeshProUGUI>();
