@@ -14,11 +14,13 @@ public class SceneLoader : Singleton<SceneLoader> {
 
     public void ReloadScene() {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        Inventory.Instance.LoadInventory();
         
     }
     
     public void LoadScene(string scene) {
         var asyncOperation = SceneManager.LoadSceneAsync(scene);
+        Inventory.Instance.LoadInventory();
     }
 
     public void ColdDeathTransition(Material _coldMat) {
