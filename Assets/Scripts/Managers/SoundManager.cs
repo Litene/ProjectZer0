@@ -10,26 +10,25 @@ using UnityEngine.Audio;
 using UnityEngine.Pool;
 
 public class SoundManager : Singleton<SoundManager> { // todo: rename public variables. later to be changed to private. 
-    public AudioSource sfxSource;
-    public AudioSource musicSource;
+    public AudioSource sfxSource, musicSource, ambienceSource;
     public List<AudioClip> sfxClips = new List<AudioClip>();
     public List<AudioClip> musicClips = new List<AudioClip>();
+    public List<AudioClip> ambienceClips = new List<AudioClip>();
     public List<string> soundKeys = new List<string>();
     public List<string> musicKeys = new List<string>();
+    public List<string> ambienceKeys = new List<string>();
     private readonly Dictionary<string, AudioClip> _keyToAudio = new Dictionary<string, AudioClip>();
-    private string _sfxFileDirectory; //todo: could probably be readonly
-    private string _musicFileDirectory;
-    private string[] _sfxFiles;
-    private string[] _musicFiles;
+    private string _sfxFileDirectory, _musicFileDirectory, _ambienceFileDirectory;
+    private string[] _sfxFiles, _musicFiles, _ambienceFiles;
     private GameObject _soundObject;
     private GameObject _soundPool; // probably rename
     private ObjectPool<GameObject> _pool;
     public AudioMixerGroup sfxGroup;
 
-    // todo: remove debug logs or disable.
     private void Awake() {
-        musicSource = this.transform.Find("MusicSource").gameObject.GetComponent<AudioSource>();
-        sfxSource = this.transform.Find("SFXSource").gameObject.GetComponent<AudioSource>();
+        musicSource = transform.Find("MusicSource").gameObject.GetComponent<AudioSource>();
+        sfxSource = transform.Find("SFXSource").gameObject.GetComponent<AudioSource>();
+        ambienceSource = transform.Find("AmbienceSource").gameObject.GetComponent<AudioSource>();
         if (_soundPool == null) {
             _soundPool = new GameObject {
                 name = "SoundPool"
@@ -44,26 +43,24 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
             Destroy(soundObj.gameObject);
         }, false, 10, 30);
         
-        _sfxFileDirectory = Application.dataPath + "/Personal/Joakim/SFX";
-        _musicFileDirectory = Application.dataPath + "/Personal/Joakim/Music";
+        _sfxFileDirectory = Application.dataPath + "/Sound/Sfx";
+        _musicFileDirectory = Application.dataPath + "/Sound/Music";
+        _ambienceFileDirectory = Application.dataPath + "/Sound/Ambience";
 
         Debug.Log("SoundManager: <color=yellow>Current Dir for SFX: </color>" + _sfxFileDirectory +
-                  "<color=yellow>, Current Dir for Music: </color>" + _musicFileDirectory);
+                  "<color=yellow>, Current Dir for Music: </color>" + _musicFileDirectory +
+                  "<color=yellow>, Current Dir for Ambience: </color>" + _ambienceFileDirectory);
 
         if (Directory.Exists(_sfxFileDirectory)) {
             _sfxFiles = Directory.GetFiles(_sfxFileDirectory).Where(fileName => !fileName.EndsWith(".meta")).ToArray();
-            Debug.Log("SoundManager: <color=green>SFX Directory Found!</color>");
-        }
-        else {
-            Debug.Log("SoundManager: <color=red>SFX Directory not Found!</color>");
         }
 
         if (Directory.Exists(_musicFileDirectory)) {
             _musicFiles = Directory.GetFiles(_musicFileDirectory).Where(fileName => !fileName.EndsWith(".meta")).ToArray();
-            Debug.Log("SoundManager: <color=green>Music Directory Found!</color>");
         }
-        else {
-            Debug.Log("SoundManager: <color=red>Music Directory not Found!</color>");
+        
+        if (Directory.Exists(_ambienceFileDirectory)) {
+            _musicFiles = Directory.GetFiles(_ambienceFileDirectory).Where(fileName => !fileName.EndsWith(".meta")).ToArray();
         }
 
         for (var i = 0; i < _sfxFiles.Length; i++) {
@@ -71,8 +68,6 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
             sfxClips.Add(new WWW(_sfxFiles[i]).GetAudioClip(false, true, AudioType.WAV));
             sfxClips[i].name = Path.GetFileName(_sfxFiles[i]);
             MakeKeyOutOf(i, "sfx");
-            Debug.Log("SoundManager: Successfully Loaded <color=green>" + i + "/" + (_sfxFiles.Length - 1) +
-                      "</color> SFX files");
         }
 
         for (var i = 0; i < _musicFiles.Length; i++) {
@@ -80,9 +75,15 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
             musicClips.Add(new WWW(_musicFiles[i]).GetAudioClip(false, true, AudioType.WAV));
             musicClips[i].name = Path.GetFileName(_musicFiles[i]);
             MakeKeyOutOf(i, "music");
-            Debug.Log("SoundManager: Successfully Loaded <color=green>" + i + "/" + (_musicFiles.Length - 1) +
-                      "</color> Music files");
         }
+
+        for (var i = 0; i < _ambienceFiles.Length; i++) {
+            if (!_ambienceFiles[i].EndsWith(".wav")) continue;
+            ambienceClips.Add(new WWW(_ambienceFiles[i]).GetAudioClip(false, true, AudioType.WAV));
+            ambienceClips[i].name = Path.GetFileName(_ambienceFiles[i]);
+            MakeKeyOutOf(i, "ambience");
+        }
+        
 
         void MakeKeyOutOf(int audioClipThatNeedsAKey, string soundType) {
             string key;
@@ -97,6 +98,11 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
                     musicKeys.Add(key);
                     _keyToAudio.Add(key, musicClips[audioClipThatNeedsAKey]);
                     break;
+                case "ambience":
+                    key = Path.GetFileNameWithoutExtension(_ambienceFiles[audioClipThatNeedsAKey]);
+                    ambienceKeys.Add(key);
+                    _keyToAudio.Add(key, ambienceClips[audioClipThatNeedsAKey]);
+                    break;
             }
         }
     }
@@ -110,7 +116,6 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
          if (!soundObj.TryGetComponent(out AudioSource source)) source = soundObj.AddComponent<AudioSource>();
          source.outputAudioMixerGroup = sfxGroup;
          source.PlayOneShot(_keyToAudio[fileName.ToUpper()]);
-         Debug.Log("SoundManager: Played sound: '<color=green>"+fileName+"</color>' at <color=yellow>"+pos+"</color>");
          yield return new WaitForSeconds(clipLength);
         _pool.Release(soundObj);
     }
@@ -154,5 +159,16 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
         AudioClip ac = _keyToAudio[fileName.ToUpper()];
         musicSource.clip = ac;
         musicSource.Play();
+    }
+    
+    
+    /// <summary>
+    /// Plays ambience <para>fileName</para>
+    /// </summary>
+    /// <param name="fileName"></param>
+    public void PlayAmbience(string fileName) {
+        AudioClip ac = _keyToAudio[fileName.ToUpper()];
+        ambienceSource.clip = ac;
+        ambienceSource.Play();
     }
 }

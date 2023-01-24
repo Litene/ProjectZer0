@@ -9,7 +9,7 @@ using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UI;
 
 public class MVPOptions : MonoBehaviour {
-    public Slider masterVolSlider, sfxVolSlider, musicVolSlider, gammaSlider;
+    public Slider masterVolSlider, sfxVolSlider, musicVolSlider, gammaSlider, ambienceSlider;
     
     public GameObject pauseMenu;
     public GameObject optionsMenu;
@@ -26,6 +26,7 @@ public class MVPOptions : MonoBehaviour {
     private float _masterVolume;
     private float _musicVolume;
     private float _sfxVolume;
+    private float _ambienceVolume;
 
 
 
@@ -60,6 +61,11 @@ public class MVPOptions : MonoBehaviour {
     public void AdjustSfxVol() {
         _sfxVolume = sfxVolSlider.value;
         audioMixer.SetFloat("SfxVolParam", _sfxVolume);
+    }
+
+    public void AdjustAmbienceVol() {
+        _ambienceVolume = sfxVolSlider.value;
+        audioMixer.SetFloat("AmbienceVolParam", _ambienceVolume);
     }
     
     public void AdjustGamma() {

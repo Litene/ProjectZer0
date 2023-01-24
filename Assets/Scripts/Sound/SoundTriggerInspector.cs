@@ -36,6 +36,9 @@ public class SoundTriggerInspector : Editor {
             case SoundTrigger.soundType.music:
                 EditorGUILayout.PropertyField(audioName_property, new GUIContent("audioName"));
                 break;
+            case SoundTrigger.soundType.ambience:
+                EditorGUILayout.PropertyField(audioName_property, new GUIContent("audioName"));
+                break;
         }
 
         serializedObject.ApplyModifiedProperties();
