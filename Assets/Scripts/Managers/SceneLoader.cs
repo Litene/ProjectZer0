@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : Singleton<SceneLoader> {
     private void Awake() {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        DontDestroyOnLoad(this);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
@@ -15,7 +15,6 @@ public class SceneLoader : Singleton<SceneLoader> {
     public void ReloadScene() {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
         Inventory.Instance.LoadInventory();
-        
     }
     
     public void LoadScene(string scene) {
@@ -26,17 +25,27 @@ public class SceneLoader : Singleton<SceneLoader> {
     public void ColdDeathTransition(Material _coldMat) {
         ReloadScene();
         StartCoroutine(RemoveWhiteness(_coldMat));
+        StartCoroutine(RemoveColdSides(_coldMat));
     }
 
-    private IEnumerator RemoveWhiteness(Material _coldMat) { // nu plinga klockan, sides måste lerpas med liksom
-        _coldMat.SetFloat("_Sides", 22);
-        float whiteness = 0.9f;
-        while (Mathf.Abs(whiteness - _coldMat.GetFloat("_Whiteness")) <= 0.2f) {
-            whiteness = _coldMat.GetFloat("_Whiteness");
-            _coldMat.SetFloat("_Whiteness", whiteness += 0.2f * Time.deltaTime);
+    private IEnumerator RemoveWhiteness(Material _coldMat) {
+        float targetWhiteness = 0.9f;
+        while (Mathf.Abs(targetWhiteness - _coldMat.GetFloat("_Whiteness")) >= 0.2f) {
+            var getWhiteness = _coldMat.GetFloat("_Whiteness");
+            _coldMat.SetFloat("_Whiteness", getWhiteness -= 0.2f * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
-        _coldMat.SetFloat("_Whiteness", whiteness);
+        _coldMat.SetFloat("_Whiteness", targetWhiteness);
+    }
+    
+    private IEnumerator RemoveColdSides(Material _coldMat) {
+        float targetSides = 22;
+        while (Mathf.Abs(targetSides- _coldMat.GetFloat("_Sides")) >= 0.2f) {
+            var getSides = _coldMat.GetFloat("_Sides");
+            _coldMat.SetFloat("_Sides", getSides += 4.4f * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+        _coldMat.SetFloat("_Sides", targetSides);
     }
     
     

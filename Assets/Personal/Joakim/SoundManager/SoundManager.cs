@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -46,24 +44,18 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
         
         _sfxFileDirectory = Application.dataPath + "/Personal/Joakim/SFX";
         _musicFileDirectory = Application.dataPath + "/Personal/Joakim/Music";
-
-        Debug.Log("SoundManager: <color=yellow>Current Dir for SFX: </color>" + _sfxFileDirectory +
-                  "<color=yellow>, Current Dir for Music: </color>" + _musicFileDirectory);
+        
 
         if (Directory.Exists(_sfxFileDirectory)) {
             _sfxFiles = Directory.GetFiles(_sfxFileDirectory).Where(fileName => !fileName.EndsWith(".meta")).ToArray();
-            Debug.Log("SoundManager: <color=green>SFX Directory Found!</color>");
         }
         else {
-            Debug.Log("SoundManager: <color=red>SFX Directory not Found!</color>");
         }
 
         if (Directory.Exists(_musicFileDirectory)) {
             _musicFiles = Directory.GetFiles(_musicFileDirectory).Where(fileName => !fileName.EndsWith(".meta")).ToArray();
-            Debug.Log("SoundManager: <color=green>Music Directory Found!</color>");
         }
         else {
-            Debug.Log("SoundManager: <color=red>Music Directory not Found!</color>");
         }
 
         for (var i = 0; i < _sfxFiles.Length; i++) {
@@ -71,8 +63,6 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
             sfxClips.Add(new WWW(_sfxFiles[i]).GetAudioClip(false, true, AudioType.WAV));
             sfxClips[i].name = Path.GetFileName(_sfxFiles[i]);
             MakeKeyOutOf(i, "sfx");
-            Debug.Log("SoundManager: Successfully Loaded <color=green>" + i + "/" + (_sfxFiles.Length - 1) +
-                      "</color> SFX files");
         }
 
         for (var i = 0; i < _musicFiles.Length; i++) {
@@ -80,8 +70,6 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
             musicClips.Add(new WWW(_musicFiles[i]).GetAudioClip(false, true, AudioType.WAV));
             musicClips[i].name = Path.GetFileName(_musicFiles[i]);
             MakeKeyOutOf(i, "music");
-            Debug.Log("SoundManager: Successfully Loaded <color=green>" + i + "/" + (_musicFiles.Length - 1) +
-                      "</color> Music files");
         }
 
         void MakeKeyOutOf(int audioClipThatNeedsAKey, string soundType) {
@@ -110,7 +98,6 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
          if (!soundObj.TryGetComponent(out AudioSource source)) source = soundObj.AddComponent<AudioSource>();
          source.outputAudioMixerGroup = sfxGroup;
          source.PlayOneShot(_keyToAudio[fileName.ToUpper()]);
-         Debug.Log("SoundManager: Played sound: '<color=green>"+fileName+"</color>' at <color=yellow>"+pos+"</color>");
          yield return new WaitForSeconds(clipLength);
         _pool.Release(soundObj);
     }

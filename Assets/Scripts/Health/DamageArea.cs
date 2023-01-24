@@ -7,7 +7,7 @@ using Health;
 [RequireComponent(typeof(Collider))]
 public class DamageArea : MonoBehaviour {
     public Damage damage;
-    public IDamagable IDamagable;
+    private IDamagable IDamagable;
     private Collider _collider;
 
     private void Awake() {
