@@ -9,7 +9,8 @@ using UnityEngine;
     public enum soundType { // todo: add transform selection for moving things etc.
         localSound,
         worldSound,
-        music
+        music,
+        ambience
     }
 
     public soundType SoundType;
@@ -34,6 +35,9 @@ using UnityEngine;
                     break;
                 case soundType.music:
                     SoundManager.Instance.PlayMusic(audioName.ToUpper());
+                    break;
+                case soundType.ambience:
+                    SoundManager.Instance.PlayAmbience(audioName.ToUpper());
                     break;
             }
         }
