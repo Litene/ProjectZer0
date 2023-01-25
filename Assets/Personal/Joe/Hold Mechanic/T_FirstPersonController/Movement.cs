@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour {
     [SerializeField] LayerMask groundMask;
     bool isGrounded;
 
-    private void Update ()
+    private void FixedUpdate ()
     {
         isGrounded = Physics.CheckSphere(transform.position, 0.1f, groundMask);
         if (isGrounded) {

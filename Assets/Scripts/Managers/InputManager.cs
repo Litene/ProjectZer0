@@ -10,6 +10,7 @@ namespace Input {
     public struct InputData {
         private Vector2 _moveInputVector;
         private Vector2 _lookInputVector;
+        private float _camZoomInput;
         private byte _interactInput;
         private byte _todo0Input;
         private byte _todo1Input;
@@ -19,6 +20,7 @@ namespace Input {
         public static bool usingMouse = false;
         public static float ControllerLookSensitivity = 1;
         public static float MouseLookSensitivity = 1;
+        public static float MouseZoomSensitivity = -.25f;
 
         public Vector2 MoveInput {
             get => _moveInputVector;
@@ -28,6 +30,9 @@ namespace Input {
         public Vector2 GetLookInput(bool rawValue = false) => rawValue
             ? _lookInputVector
             : _lookInputVector * (usingMouse ? MouseLookSensitivity : ControllerLookSensitivity);
+        public void SetCameraZoomInput(float value) => _camZoomInput = value; 
+        public float GetCameraZoomInput(bool rawValue = false) =>
+            rawValue ? _camZoomInput : _camZoomInput * MouseZoomSensitivity;
         
         public ButtonState GetButtonInput(ButtonMapping mapping) {
             switch (mapping) {
@@ -74,6 +79,9 @@ public class InputManager : Singleton<InputManager> {
         player.Interact.started += _ => _inputData.SetButtonInput(ButtonMapping.Interact, ButtonState.Pressed);
         player.Interact.performed += _ => _inputData.SetButtonInput(ButtonMapping.Interact, ButtonState.Hold);
         player.Interact.canceled += _ => _inputData.SetButtonInput(ButtonMapping.Interact, ButtonState.None);
+
+        player.CameraZoom.performed += ctx => _inputData.SetCameraZoomInput(ctx.ReadValue<float>());
+        player.CameraZoom.canceled += _ => _inputData.SetCameraZoomInput(0);
         
         player.KeyboardInput.started += _ => SetInputDevice(_mouse);
         player.ControllerInput.started += ctx => SetInputDevice(ctx.control.device);
@@ -83,7 +91,9 @@ public class InputManager : Singleton<InputManager> {
 
     public Vector2 GetMoveInput() => _inputData.MoveInput;
     public Vector2 GetLookInput(bool rawValue = false) => _inputData.GetLookInput(rawValue);
+    public float GetCameraZoomInput(bool rawValue = false) => _inputData.GetCameraZoomInput(rawValue);
     public ButtonState GetButtonInput(ButtonMapping mapping) => _inputData.GetButtonInput(mapping);
+    public bool GetButtonInput(ButtonMapping mapping, ButtonState state) => _inputData.GetButtonInput(mapping) == state;
     public InputData GetInputData() => _inputData;
     
     public static float MouseSensitivity => InputData.MouseLookSensitivity;
@@ -95,7 +105,6 @@ public class InputManager : Singleton<InputManager> {
         _lastDevice = device;
         InputData.usingMouse = device == _mouse;
     }
-    
     public void BeginRebind(ButtonMapping buttonMapping) {
         _rebindingOperation = _inputs.FindAction(buttonMapping.ToString()).PerformInteractiveRebinding()
             .WithControlsExcluding("<Mouse>/position")

@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d0a7aca4-a994-4f5d-9c03-cf364734518c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectZer0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/InteractableInspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/InteractableInspector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/DoorTriggerBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/DoorTriggerBehavior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/IInteractable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/IInteractable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/Interactable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/Interactable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Pickup/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Pickup/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Pickup/Item1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Pickup/Item1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Pickup/Item2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Pickup/Item2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Pickup/Item3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Pickup/Item3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Pickup/ItemHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Pickup/ItemHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joakim/JoakimSoundScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joakim/JoakimSoundScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/PlayerControls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/T_FirstPersonController/PlayerControls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,10 +11,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/0c/db3b5ff3/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/8b/462cce39/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bae255e3e08e46f7bc2fbd23dde96338158800/dc/93192904/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/Door.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Personal/Joakim/Interactables/Interactable/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Hold.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Personal/Joe/Hold Mechanic/Oscillators/TorsionalOscillator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utilities/GizmoUtilities.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXBinderBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@12.1.8/Runtime/Utilities/PropertyBinding/VFXPropertyBinder.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -100,6 +90,13 @@
       <workItem from="1671710837300" duration="2361000" />
       <workItem from="1673529427516" duration="887000" />
       <workItem from="1674048178603" duration="4608000" />
+      <workItem from="1674121185732" duration="7769000" />
+      <workItem from="1674139447388" duration="5592000" />
+      <workItem from="1674149010497" duration="1061000" />
+      <workItem from="1674156295830" duration="9469000" />
+      <workItem from="1674209983478" duration="1570000" />
+      <workItem from="1674215736164" duration="2115000" />
+      <workItem from="1674223546849" duration="4642000" />
     </task>
     <servers />
   </component>

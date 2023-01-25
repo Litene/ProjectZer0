@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     public Vector2 Velocity;
     private WalkState _currentWalkState = WalkState.Walking;
     private Transform _camTf;
+    private CameraTest _camTest;
 
     private float GetWalkSpeed => (int)_currentWalkState * 0.1f;
 
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour {
     private void Awake() {
         _camTf = Camera.main.transform;
         _animator = GetComponent<Animator>();
+        _camTest = FindObjectOfType<CameraTest>();
     }
 
     private void Update() {
@@ -63,9 +65,10 @@ public class PlayerController : MonoBehaviour {
 
     private void AlignWithCamera(Vector2 inputVector) { //todo: lerp this shit
         if (inputVector == Vector2.zero) return;
-        var rotationLR = _camTf.localEulerAngles;
-        transform.rotation = Quaternion.AngleAxis(rotationLR.y, Vector3.up);
+        //var rotationLR = _camTf.localEulerAngles;
+        //transform.rotation = Quaternion.AngleAxis(rotationLR.y, Vector3.up);
 
+        transform.rotation = _camTest.CameraForwardRot();
 
     }
 
