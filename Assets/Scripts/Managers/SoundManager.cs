@@ -25,6 +25,13 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
     private ObjectPool<GameObject> _pool;
     public AudioMixerGroup sfxGroup;
 
+
+    private void Update() {
+        if (UnityEngine.Input.GetKeyDown(KeyCode.A)) {
+            SaveManager.Instance.SaveGame();
+        }
+    }
+
     private void Awake() {
         musicSource = transform.Find("MusicSource").gameObject.GetComponent<AudioSource>();
         sfxSource = transform.Find("SFXSource").gameObject.GetComponent<AudioSource>();
@@ -77,12 +84,12 @@ public class SoundManager : Singleton<SoundManager> { // todo: rename public var
             MakeKeyOutOf(i, "music");
         }
 
-        for (var i = 0; i < _ambienceFiles.Length; i++) {
-            if (!_ambienceFiles[i].EndsWith(".wav")) continue;
-            ambienceClips.Add(new WWW(_ambienceFiles[i]).GetAudioClip(false, true, AudioType.WAV));
-            ambienceClips[i].name = Path.GetFileName(_ambienceFiles[i]);
-            MakeKeyOutOf(i, "ambience");
-        }
+        // for (var i = 0; i < _ambienceFiles.Length; i++) {
+        //     if (!_ambienceFiles[i].EndsWith(".wav")) continue;
+        //     ambienceClips.Add(new WWW(_ambienceFiles[i]).GetAudioClip(false, true, AudioType.WAV));
+        //     ambienceClips[i].name = Path.GetFileName(_ambienceFiles[i]);
+        //     MakeKeyOutOf(i, "ambience");
+        // }
         
 
         void MakeKeyOutOf(int audioClipThatNeedsAKey, string soundType) {
