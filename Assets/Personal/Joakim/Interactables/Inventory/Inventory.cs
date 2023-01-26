@@ -4,22 +4,23 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
-public class Inventory : Singleton<Inventory> {
-    public List<Item> ItemsInInventory = new List<Item>();
-    public List<GameObject> ItemSlots = new List<GameObject>();
+[System.Serializable]
+public class Inventory : ISaveable {
+    // public List<GameObject> ItemSlots;
     public InventorySO _inventoryData;
+    private const int INVENTORY_SIZE = 4;
 
-    private void Awake() {
+    public void Initialize() {
+        // if (ItemSlots == null) {
+        //     ItemSlots = Transform.FindObjectsOfType<GameObject>().ToList();
+        // }
         _inventoryData = Resources.Load<InventorySO>("Inventory/InventoryData");
-    }
-
-    private void Start() {
-        if (_inventoryData.Inventory.Count >= 0) {
-            foreach (Item item in _inventoryData.Inventory) {
-                AddItem(item);
-            }
-        }
+        SaveManager.Instance.AddListener(this);
+        LoadData();
+        LoadInventory();
     }
 
     public void LoadInventory() {
@@ -29,41 +30,63 @@ public class Inventory : Singleton<Inventory> {
     }
 
     public void AddItem(Item item) {
-        if (!ItemsInInventory.Contains(item)) {
-            ItemsInInventory.Add(item);
-            if (!_inventoryData.Inventory.Contains(item)) {
-                _inventoryData.Inventory.Add(item);
-            }
+        if (!_inventoryData.Inventory.Contains(item)) {
+            _inventoryData.Inventory.Add(item);
         }
+
         UpdateInventory();
     }
 
     public void RemoveItem(Item item) {
-        ItemsInInventory.Remove(item);
+        _inventoryData.Inventory.Remove(item);
         _inventoryData.Inventory.Remove(item);
         UpdateInventory();
     }
 
     public void UseItem(Item item) {
         if (item.destroyOnUse) {
-            ItemsInInventory.Remove(item);
+            _inventoryData.Inventory.Remove(item);
             _inventoryData.Inventory.Remove(item);
             UpdateInventory();
         }
     }
 
     public void UpdateInventory() {
-        if (ItemsInInventory.Count > 0) {
+        if (_inventoryData.Inventory.Count > 0) {
             int index = 0;
-            foreach (var Item in ItemsInInventory) {
-                ItemSlots[index].GetComponent<Image>().color = Color.white;
-              ItemSlots[index].GetComponent<Image>().overrideSprite = Item.itemSprite;
-              index++;
+            foreach (var Item in _inventoryData.Inventory) {
+                //   ItemSlots[index].GetComponent<Image>().color = Color.white;
+                // ItemSlots[index].GetComponent<Image>().overrideSprite = Item.itemSprite;
+                index++;
             }
+
             UIManager.Instance.ShowItemInventory();
         }
         else {
             UIManager.Instance.HideItemInventory();
         }
+
+        SaveData();
     }
+
+    public void LoadData() {
+        var iData = SaveManager.Instance.GetSave(UID) as InventoryData;
+        //if (iData != null) _inventoryData = iData.InventorySOData;
+    }
+
+    public void SaveData() {
+        SaveManager.Instance.AddSave(new InventoryData()
+            { InventoryNames = ToStringList(_inventoryData.Inventory), UID = this.UID });
+    }
+
+    List<string> ToStringList(List<Item> items) {
+        List<string> tempList = new List<string>();
+        foreach (var VARIABLE in items) {
+            tempList.Add(VARIABLE.itemName);
+        }
+
+        return tempList;
+    }
+
+    public string UID { get; set; } = "Inventory";
 }

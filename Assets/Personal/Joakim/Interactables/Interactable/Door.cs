@@ -33,13 +33,13 @@ namespace Interactable.Door
 
         public void TryToOpenDoor()
         {
-            if (IsLocked && Inventory.Instance.ItemsInInventory.Contains(KeyItem))
+            if (IsLocked && Player.Instance.PlayerInventory._inventoryData.Inventory.Contains(KeyItem))
             {
                 StartCoroutine(OpenDoor());
-                Inventory.Instance.UseItem(KeyItem);
+                Player.Instance.PlayerInventory.UseItem(KeyItem);
             }
 
-            if (IsLocked && !Inventory.Instance.ItemsInInventory.Contains(KeyItem))
+            if (IsLocked && !Player.Instance.PlayerInventory._inventoryData.Inventory.Contains(KeyItem))
             {
                 Debug.Log("key item for this window not present in inventory.");
                 return;

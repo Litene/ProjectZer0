@@ -25,7 +25,7 @@ public class ItemHandler : MonoBehaviour{
         }
 
         if (PickUpsInRange.Count > 0 && UnityEngine.Input.GetKeyDown(KeyCode.E)) {
-            Inventory.Instance.AddItem(PickUpsInRange[0].ItemPickup);
+            Player.Instance.PlayerInventory.AddItem(PickUpsInRange[0].ItemPickup);
             PickUpsInRange[0].ItemPickup.isDisabled = true;
             PickUpsInRange.RemoveAt(0);
         }

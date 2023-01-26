@@ -2,24 +2,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Health;
+using UnityEngine.SceneManagement;
 
 public class Player : Singleton<Player>, IDamagable {
-    [SerializeField] private Material _coldMat;
-    [SerializeField] private Material _blackMat;
+    [SerializeField] private Material _coldMat; // don't like this here
+    [SerializeField] private Material _blackMat; // don't like this here
 
     private void Awake() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         _coldMat = Resources.Load<Material>("ScreenFreezeMat");
         _blackMat = Resources.Load<Material>("ScreenBlackOut");
         Health = new HealthSystem(_coldMat, _blackMat);
         IDamagableTf = transform;
+        PlayerInventory = new Inventory();
+        PlayerInventory.Initialize();
     }
 
+    public Inventory PlayerInventory;
     [field: SerializeField] public float HealthRegen { get; set; }
     [field: SerializeField] public float ColdRegen { get; set; }
     [field: SerializeField] public float RegenHealthDelay { get; set; }
     [field: SerializeField] public float RegenColdDelay { get; set; }
     public HealthSystem Health { get; set; }
 
+    
+    public void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) { // player har sin loadar, 
+        PlayerInventory.Initialize();
+    }
     public void RegenHealth() {
         // throw new NotImplementedException();
     }

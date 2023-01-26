@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,12 +15,13 @@ public class SceneLoader : Singleton<SceneLoader> {
 
     public void ReloadScene() {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        Inventory.Instance.LoadInventory();
+        Player.Instance.PlayerInventory.Initialize();
+        
     }
     
     public void LoadScene(string scene) {
         var asyncOperation = SceneManager.LoadSceneAsync(scene);
-        Inventory.Instance.LoadInventory();
+        Player.Instance.PlayerInventory.Initialize();
     }
 
     public void ColdDeathTransition(Material _coldMat) {
@@ -53,4 +55,14 @@ public class SceneLoader : Singleton<SceneLoader> {
     public void DeathTransition() {
         
     }
+    
+    
+}
+
+public enum TransitionTag {
+ A,
+ B,
+ C,
+ D,
+ E
 }
